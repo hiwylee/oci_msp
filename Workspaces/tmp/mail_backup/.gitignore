@@ -1,0 +1,22 @@
+2025
+node_modules/
+venv/
+__pycache__/
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build outputs
+dist/
+build/
+*.pyc
+.venv
