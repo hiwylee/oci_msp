@@ -1,0 +1,181 @@
+Received: from DM4PR10MB6183.namprd10.prod.outlook.com (::1) by
+ PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Sat, 29 Nov 2025 05:47:41
+ +0000
+Received: from DS7PR10MB5344.namprd10.prod.outlook.com (2603:10b6:5:3ab::6) by
+ DM4PR10MB6183.namprd10.prod.outlook.com (2603:10b6:8:8b::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9366.12; Sat, 29 Nov 2025 05:47:38 +0000
+Received: from DS7PR10MB5344.namprd10.prod.outlook.com ([::1]) by
+ DS7PR10MB5344.namprd10.prod.outlook.com ([fe80::b527:ca1f:1129:a680%4]) with
+ Microsoft SMTP Server id 15.20.9366.012; Sat, 29 Nov 2025 05:47:38 +0000
+From: COUNTRYHR_KR <countryhr_kr@oracle.com>
+To: WonYong Lee <wonyong.lee@oracle.com>
+Subject:
+	=?ks_c_5601-1987?B?QXV0b21hdGljIHJlcGx5OiDF7cH3wNogw7zFqbiuvbrGri3AzL/4?=
+ =?ks_c_5601-1987?B?v+s=?=
+Thread-Topic: =?ks_c_5601-1987?B?xe3B98DaIMO8xam4rr26xq4twMy/+L/r?=
+Thread-Index: AQHcYPNoJeu6nbpKRkW5E3qziyQWM7UJJW+S
+Date: Sat, 29 Nov 2025 05:47:38 +0000
+Message-ID:
+	<c5542427e63b441db4429243d03d8334@DS7PR10MB5344.namprd10.prod.outlook.com>
+References:
+	<PH8PR10MB6358101B34FBD51B7BE072FA88DDA@PH8PR10MB6358.namprd10.prod.outlook.com>
+In-Reply-To:
+	<PH8PR10MB6358101B34FBD51B7BE072FA88DDA@PH8PR10MB6358.namprd10.prod.outlook.com>
+Content-Language: ko-KR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 03
+X-MS-Exchange-Organization-AuthSource: DS7PR10MB5344.namprd10.prod.outlook.com
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: All
+X-MS-Exchange-Organization-Network-Message-Id:
+	e533aef4-1842-4784-b51d-08de2f0acdad
+X-MS-Exchange-Organization-SCL: 1
+X-MS-Exchange-Inbox-Rules-Loop: countryhr_kr@oracle.com
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oracle.com;
+x-ms-office365-filtering-correlation-id: e533aef4-1842-4784-b51d-08de2f0acdad
+x-ms-traffictypediagnostic:
+	DS7PR10MB5344:EE_|DM4PR10MB6183:EE_|PH8PR10MB6358:EE_
+x-oracle-tenancy: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|8096899003|41050700001;
+x-forefront-antispam-report:
+	CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB5344.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(8096899003)(41050700001);DIR:INT;
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-authsource: DS7PR10MB5344.namprd10.prod.outlook.com
+x-ms-exchange-crosstenant-network-message-id:
+	e533aef4-1842-4784-b51d-08de2f0acdad
+x-ms-exchange-crosstenant-originalarrivaltime: 29 Nov 2025 05:47:37.9789 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+x-ms-exchange-transport-crosstenantheadersstamped: DM4PR10MB6183
+x-ms-exchange-transport-endtoendlatency: 00:00:03.7562636
+x-ms-exchange-processed-by-bccfoldering: 15.20.9366.012
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	D1utr+lgAN/YVm/4kUGJH1sdKHDNwlDJzQpcq/ktSpGIq5NY8gxdItms4KwiC+4ewsWrM0yglyD72seYCOFgCODg2FOAfCyVed149mcJtUjwZ1Rq+0ZFXXxr2wrs18y4TAzE5ANnFvcwcCOlzWDcu1ilvT4HYvVLMJVRWZUSkPjVvJ3c6WEJA7SZaxANw9LFX8LTi0G4BxrlxvRBGG6953AJicCxZ8Ttqehmc1fXHLyQbes5xMjcKlbz26BKDAnKWbdsl0afR+iIFl8c1dvtsAJfc1c+dUB28xIT53B8FzoDmTilD5hd7ptlznNLQER1ek1bh+NdM9yx9Z/6SHPQrN3uJtxshBuGFvapDK17cuq4louPczEw50dqgNGGAgAoxoQjrHWm4oFj9d51DKDKk/js0/jsPbt8OjvxNgAY5UUHh7w8jvNQHF+02k/6VCtAyD6jqlpsugJJiy4m1iv1/QcMYMNzSiQGkUlrCV0VmYbtYy9COQ5Kvk7Xr16h+PXGl1E6fMx+hs/lln04cc1gGOWe7nCAhxLY6zEyTCiEfAnsJCUKBgZ1aQllndQbTfAze1r7hG9sRDeWMOc093lgmedgASXflQ1hmSJzGV7WkIxvuk3t7pfvVfGe58yVHOcRrBmDrgzDk6Ppc/bP6+cDr3YjxZ0wOil7zuqWS0hOSzLgZ4kAJQXRfw6Q95xR25pOAqhEO0KO07dj+yY5AwST2aIdL87a0+oqS7faBzkBjKOGPOiBn6e25LsFSCyo2yOoK8d9twnQwSMu6naI1/Hb87pRpj2NyT8Kid4z6uIz99OxhjTNg3BgkcT8C8fkPG0rmj49yk970W/f+IM8OrO3oA==
+Content-Type: multipart/alternative;
+	boundary="_000_c5542427e63b441db4429243d03d8334DS7PR10MB5344namprd10pr_"
+MIME-Version: 1.0
+
+--_000_c5542427e63b441db4429243d03d8334DS7PR10MB5344namprd10pr_
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: base64
+
+RGVhciBTZW5kZXIsDQoNCkNvdW50cnkgSFIgS29yZWEgsOjBpL+hILmuwMfB1rzFvK0gsKi758fV
+tM+02S4NCrq4s7vB1r3FILjewM/AuiDBorz2x8+/qSCwy8XkIMjEIMi4vcW15biusNq9wLTPtNku
+DQq2x7TCILTjtOcgSFIgUGFydG5lciAoQVJJQSC788DHIEhSIFJlcCm/obDUIL+stvTB1r3HILz2
+IMDWvcC0z7TZLg0KDQqwqLvnx9W0z7TZLg0KSHVtYW4gUmVzb3VyY2VzDQoNCg0K
+
+--_000_c5542427e63b441db4429243d03d8334DS7PR10MB5344namprd10pr_
+Content-Type: text/html; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dks_c_5601=
+-1987">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"Oracle Sans";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+@font-face
+	{font-family:"\@=B8=BC=C0=BA =B0=ED=B5=F1";}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Oracle Sans",sans-serif;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";
+	mso-ligatures:none;}
+/* Page Definitions */
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"KO" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US" s=
+tyle=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">Dear Sender,<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US" s=
+tyle=3D"font-family:&quot;Oracle Sans&quot;,sans-serif"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US" s=
+tyle=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">Country HR Korea
+</span>=B0=E8=C1=A4=BF=A1<span style=3D"font-family:&quot;Oracle Sans&quot;=
+,sans-serif"> </span>=B9=AE=C0=C7=C1=D6=BC=C5=BC=AD<span style=3D"font-fami=
+ly:&quot;Oracle Sans&quot;,sans-serif">
+</span>=B0=A8=BB=E7=C7=D5=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Oracle Sans&quot;,sans-serif">. <o:p>
+</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all">=BA=B8=B3=BB=C1=D6=BD=
+=C5<span style=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">
+</span>=B8=DE=C0=CF=C0=BA<span style=3D"font-family:&quot;Oracle Sans&quot;=
+,sans-serif"> </span>=C1=A2=BC=F6=C7=CF=BF=A9<span style=3D"font-family:&qu=
+ot;Oracle Sans&quot;,sans-serif">
+</span>=B0=CB=C5=E4<span style=3D"font-family:&quot;Oracle Sans&quot;,sans-=
+serif"> </span>=C8=C4<span style=3D"font-family:&quot;Oracle Sans&quot;,san=
+s-serif">
+</span>=C8=B8=BD=C5=B5=E5=B8=AE=B0=DA=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US"=
+ style=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">. &nbsp;<o:p></o:=
+p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all">=B6=C7=B4=C2<span styl=
+e=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">
+</span>=B4=E3=B4=E7<span lang=3D"EN-US" style=3D"font-family:&quot;Oracle S=
+ans&quot;,sans-serif"> HR Partner (ARIA
+</span>=BB=F3=C0=C7<span lang=3D"EN-US" style=3D"font-family:&quot;Oracle S=
+ans&quot;,sans-serif"> HR Rep)</span>=BF=A1=B0=D4<span style=3D"font-family=
+:&quot;Oracle Sans&quot;,sans-serif">
+</span>=BF=AC=B6=F4=C1=D6=BD=C7<span style=3D"font-family:&quot;Oracle Sans=
+&quot;,sans-serif"> </span>=BC=F6<span style=3D"font-family:&quot;Oracle Sa=
+ns&quot;,sans-serif">
+</span>=C0=D6=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Oracle Sans&quot;,sans-serif">. &nbsp;<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US" s=
+tyle=3D"font-family:&quot;Oracle Sans&quot;,sans-serif"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all">=B0=A8=BB=E7=C7=D5=B4=
+=CF=B4=D9<span lang=3D"EN-US" style=3D"font-family:&quot;Oracle Sans&quot;,=
+sans-serif">.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US" s=
+tyle=3D"font-family:&quot;Oracle Sans&quot;,sans-serif">Human Resources
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"word-break:keep-all"><span lang=3D"EN-US"><=
+o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left;word-break:k=
+eep-all"><span lang=3D"EN-US" style=3D"font-size:9.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+</div>
+</body>
+</html>
+
+--_000_c5542427e63b441db4429243d03d8334DS7PR10MB5344namprd10pr_--

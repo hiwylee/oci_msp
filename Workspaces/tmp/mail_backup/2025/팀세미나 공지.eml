@@ -1,0 +1,298 @@
+Received: from LV3PR10MB7937.namprd10.prod.outlook.com (2603:10b6:408:21c::17)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Wed, 8 Jan 2025
+ 01:56:20 +0000
+Received: from CY8PR10MB6705.namprd10.prod.outlook.com (2603:10b6:930:91::20)
+ by LV3PR10MB7937.namprd10.prod.outlook.com (2603:10b6:408:21c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.17; Wed, 8 Jan
+ 2025 01:56:19 +0000
+Received: from CY8PR10MB6705.namprd10.prod.outlook.com
+ ([fe80::5a80:9e48:1e9f:7c63]) by CY8PR10MB6705.namprd10.prod.outlook.com
+ ([fe80::5a80:9e48:1e9f:7c63%4]) with mapi id 15.20.8335.010; Wed, 8 Jan 2025
+ 01:56:18 +0000
+From: Junchol Park <junchol.park@oracle.com>
+To: hjjang_org_ww <hjjang_org_ww@oracle.com>
+Subject: =?ks_c_5601-1987?B?xsC8vLnMs6ogsPjB9g==?=
+Thread-Topic: =?ks_c_5601-1987?B?xsC8vLnMs6ogsPjB9g==?=
+Thread-Index: AQHbYXBe39AZpVT0okaH0ufIEWP1Tg==
+Date: Wed, 8 Jan 2025 01:56:06 +0000
+Message-ID:
+	<CY8PR10MB670588A2FB61FC0F611595F7FC122@CY8PR10MB6705.namprd10.prod.outlook.com>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: CY8PR10MB6705.namprd10.prod.outlook.com
+X-MS-Has-Attach: yes
+X-Auto-Response-Suppress: DR, RN, NRN, OOF, AutoReply
+X-MS-Exchange-Organization-Network-Message-Id:
+	c055dde4-d952-4af2-136b-08dd2f87a4cc
+X-MS-Exchange-Organization-SCL: 1
+X-Message-Flag: =?ks_c_5601-1987?B?w9+woSDA2773?=
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oracle.com;
+x-ms-office365-filtering-correlation-id: c055dde4-d952-4af2-136b-08dd2f87a4cc
+x-ms-traffictypediagnostic:
+	CY8PR10MB6705:EE_|LV3PR10MB7937:EE_|PH8PR10MB6358:EE_
+x-oracle-tenancy: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|8096899003|41050700001;
+x-forefront-antispam-report:
+	CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR10MB6705.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(8096899003)(41050700001);DIR:INT;
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-authsource: CY8PR10MB6705.namprd10.prod.outlook.com
+x-ms-exchange-crosstenant-network-message-id:
+	c055dde4-d952-4af2-136b-08dd2f87a4cc
+x-ms-exchange-crosstenant-originalarrivaltime: 08 Jan 2025 01:56:18.7919 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+x-ms-exchange-crosstenant-mailboxtype: HOSTED
+x-ms-exchange-crosstenant-userprincipalname:
+	G3iakTNVjJ8bwkbyYid3QNKLN9TtQBhCO1JMQSGlbYxoiaPgSL1p8+FAxKnT5ipnx8os2eHnZFKYSwaErbkYPQ==
+x-ms-exchange-transport-crosstenantheadersstamped: LV3PR10MB7937
+x-ms-exchange-transport-endtoendlatency: 00:00:01.8193152
+x-ms-exchange-processed-by-bccfoldering: 15.20.8314.018
+x-ms-reactions: allow
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	imyuToyaTYUfjIum9lCDSFKpwMfUH2mTANDVNyWSYZjb9+LHoHq0TtPZgsYkSLnIjnbArOpqmFw2spT+9bAO0ZKOBosVbZ48qgKPgW7kh7eetELvIIMM3Mj7+5kpP6BCRRcbrK/F4NdObU+8XCZ6CScUOlFOUy24QPnc+den2k3+LSuezxt5viUKkAJylmuDl47KLefdrv5hGA6Uj+GksbGr7/eRvbPwRbXlXU/N0ZKBkB0crxB5Pi/dnDxEI7do6j6KlIK/BtHGnBuvwq9K7SGDmmnkgOt26HYO1xw18sSmEhzq1zmiNwd8iYnfKedsvcMtJbHAM5I4Wtx2pf67cIEqNjqlAAW2maSV+PFxm5bUV05N42jhiAbNINvncR+L8GiJeOhtBkqEjMC2FlV0wnkLmBhBJz3zRxl1ZmeVq2gKvQPpDFJOKZICqt0wgvTcUCS4Sx371uXjmvl4ky7JnuwOwH9nlsryplrlWuCOAf0c3BgQ0Odp45xbzbSm+P7XTbrWoqJfKs1UTTC0ASUWCs51nhYddYyglqU9W5MNcziiWs+lyeWuErxQo6DDWAfyAlQEEPsccNhvDF7O5Q2ApboVlp/EjMU7V2tpXF4rQHhJmpp3pkwJ9/Tv08kNxQxmUl2FCUf5EXbA7ruTCMG4fEdF+mcEwivfUmon5ZDHoXgSrLfEzKBUVyzFPRvjgGnpLIvL02y8tTFgQjbBDkSbmuVplW0A23QhS/IHASfRdXzGnm3ullyOdocYyMt0pc8uhCRqXgVeGHcOyouXoFlTiGOiekf/OkUd6iFjgnkC7lgk6sI/aOG8N5h+fyW54YBC
+Content-Type: multipart/related;
+	boundary="_004_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+
+--_004_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_
+Content-Type: multipart/alternative;
+	boundary="_000_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_"
+
+--_000_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: base64
+
+vsiz58fPvLy/5C4gxsC8vLnMs6ogvsizu8DUtM+02S4NCg0KLSDAz73DIDogMS85KLjxKSA5OjAw
+DQotIFpvb20gOiBodHRwczovL29yYWNsZS56b29tLnVzL2ovOTkzNTE1ODY0Nj9wd2Q9U1hSTlky
+VlFiM2RQWkRSSVlWcEZWVzFtWm5aWVp6MDkNCi0gwdbBpiA6IFplcm8gVHJ1c3QgUGFja2V0IFJv
+dXRpbmcgLyDA/Mf2wdgNCioqILCzurAgwM/BpCDIrsDOx8+9w7DtLCC538elx8+9xyBUb3BpYyC1
+7rfPILrOxbm15biztM+02S4NCmh0dHBzOi8vYXBleC5vcmFjbGUuY29tL3Bscy9hcGV4L3d5X2Fw
+ZXgvci/GwLy8ucyzqi8NCm9kcCAvIERoZWx2bDEyMyMjIyi/wLXwx8cxMjMjIyMpDQoNCltVcVBJ
+RlUyT1FCN2hnWXkweXR5M1dhZUJPU0JuSFNTSkNUUUhaR0o2bTNXejVvQ2NkWkFrSnRBY2tJbnBi
+ZGJObWdOeTFrR1NtRUJ6UUNhbXQxazNhdzdJV1FkSllnTE5BWm1ZM21iZHJEa2daeDBraVFuMGYy
+VGJrZkJ3blZIdEFBQUFBRWxGVGtTdVFtQ0NdPGh0dHBzOi8vd3d3Lm9yYWNsZS5jb20vaW5kZXgu
+aHRtbD4NCkp1bmNob2wgUGFyaywgTWFzdGVyIFByaW5jaXBhbCBTb2x1dGlvbiBBcmNoaXRlY3QN
+Ck9yYWNsZSBEaWdpdGFsIFByaW1lIFRlY2gNCkVtYWlsIDoganVuY2hvbC5wYXJrQG9yYWNsZS5j
+b208bWFpbHRvOmp1bmNob2wucGFya0BvcmFjbGUuY29tPg0KTW9iaWxlOiArODIuMTAuNDE1MC44
+NjYyPHRlbDorODIxMDQxNTA4NjYyPg0KNTE3LCBZZW9uZ2RvbmctZGFlcm8sIEdhbmduYW0tZ3Us
+IFNlb3VsLCBLb3JlYQ0KDQo=
+
+--_000_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_
+Content-Type: text/html; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dks_c_5601=
+-1987">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Gulim;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"\@=B8=BC=C0=BA =B0=ED=B5=F1";}
+@font-face
+	{font-family:"\@Gulim";
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Oracle Sans";
+	panose-1:2 11 5 3 2 2 4 2 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1",sans-serif;
+	mso-ligatures:standardcontextual;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#467886;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"KO" link=3D"#467886" vlink=3D"#96607D" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">=BE=C8=B3=E7=C7=CF=BC=BC=BF=E4<span lang=3D"EN-US">.=
+ </span>=C6=C0=BC=BC=B9=CC=B3=AA =BE=C8=B3=BB=C0=D4=B4=CF=B4=D9<span lang=
+=3D"EN-US">.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">- </span>=C0=CF=BD=C3<span lang=
+=3D"EN-US"> : 1/9(</span>=B8=F1<span lang=3D"EN-US">) 9:00<o:p></o:p></span=
+></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">- Zoom : <a href=3D"https://ora=
+cle.zoom.us/j/9935158646?pwd=3DSXRNY2VQb3dPZDRIYVpFVW1mZnZYZz09">
+https://oracle.zoom.us/j/9935158646?pwd=3DSXRNY2VQb3dPZDRIYVpFVW1mZnZYZz09<=
+/a><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">- </span>=C1=D6=C1=A6<span lang=
+=3D"EN-US"> : Zero Trust Packet Routing /
+</span>=C0=FC=C7=F6=C1=D8<span lang=3D"EN-US"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">** </span>=B0=B3=BA=B0 =C0=CF=
+=C1=A4 =C8=AE=C0=CE=C7=CF=BD=C3=B0=ED<span lang=3D"EN-US">,
+</span>=B9=DF=C7=A5=C7=CF=BD=C7<span lang=3D"EN-US"> Topic </span>=B5=EE=B7=
+=CF =BA=CE=C5=B9=B5=E5=B8=B3=B4=CF=B4=D9<span lang=3D"EN-US">.<o:p></o:p></=
+span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><a href=3D"https://apex.oracle.=
+com/pls/apex/wy_apex/r/=C6=C0=BC=BC=B9=CC=B3=AA/">https://apex.oracle.com/p=
+ls/apex/wy_apex/r/<span lang=3D"EN-US"><span lang=3D"EN-US">=C6=C0=BC=BC=B9=
+=CC=B3=AA/</span></span></a><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US">odp / Dhelvl123###(</span>=BF=
+=C0=B5=F0=C7=C7<span lang=3D"EN-US">123###)<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+<div>
+<p class=3D"MsoNormal" style=3D"background:white;text-autospace:ideograph-n=
+umeric ideograph-other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"color:black"><a href=3D"https://www.oracle.co=
+m/index.html" title=3D"https://www.oracle.com/index.html"><span style=3D"fo=
+nt-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black;text-=
+decoration:none"><img border=3D"0" width=3D"76" height=3D"17" style=3D"widt=
+h:.7916in;height:.177in" id=3D"=B1=D7=B8=B2_x0020_1" src=3D"cid:image001.pn=
+g@01DB61BB.E0C7CA10" alt=3D"UqPIFU2OQB7hgYy0yty3WaeBOSBnHSSJCTQHZGJ6m3Wz5oC=
+cdZAkJtAckInpbdbNmgNy1kGSmEBzQCamt1k3aw7IWQdJYgLNAZmY3mbdrDkgZx0kiQn0f2Tbkf=
+BwnVHtAAAAAElFTkSuQmCC"></span></a></span><span lang=3D"EN-US" style=3D"fon=
+t-family:&quot;Calibri&quot;,sans-serif;color:#212121;mso-ligatures:none"><=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white;text-autospace:ideograph-n=
+umeric ideograph-other;word-break:keep-all">
+<b><span lang=3D"EN-US" style=3D"font-size:9.0pt;font-family:&quot;Oracle S=
+ans&quot;,sans-serif;color:#312D2A;border:none windowtext 1.0pt;padding:0cm=
+;mso-ligatures:none">Junchol Park</span></b><span lang=3D"EN-US" style=3D"f=
+ont-size:9.0pt;font-family:&quot;Oracle Sans&quot;,sans-serif;color:#312D2A=
+;border:none windowtext 1.0pt;padding:0cm;mso-ligatures:none">,
+ Master Principal Solution Architect</span><span lang=3D"EN-US" style=3D"fo=
+nt-family:&quot;Calibri&quot;,sans-serif;color:#212121;mso-ligatures:none">=
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white;text-autospace:ideograph-n=
+umeric ideograph-other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"font-size:9.0pt;font-family:&quot;Oracle Sans=
+&quot;,sans-serif;color:#312D2A;border:none windowtext 1.0pt;padding:0cm;ms=
+o-ligatures:none">Oracle Digital Prime Tech</span><span lang=3D"EN-US" styl=
+e=3D"font-family:&quot;Calibri&quot;,sans-serif;color:#212121;mso-ligatures=
+:none"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white;text-autospace:ideograph-n=
+umeric ideograph-other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"font-size:9.0pt;font-family:&quot;Oracle Sans=
+&quot;,sans-serif;color:#312D2A;border:none windowtext 1.0pt;padding:0cm;ms=
+o-ligatures:none">Email :&nbsp;<a href=3D"mailto:junchol.park@oracle.com"><=
+span style=3D"color:#0078D7">junchol.park@oracle.com</span></a></span><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Calibri&quot;,sans-serif;color:#=
+212121;mso-ligatures:none"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white;text-autospace:ideograph-n=
+umeric ideograph-other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"font-size:9.0pt;font-family:&quot;Oracle Sans=
+&quot;,sans-serif;color:#312D2A;border:none windowtext 1.0pt;padding:0cm;ms=
+o-ligatures:none">Mobile:&nbsp;<a href=3D"tel:+821041508662"><span style=3D=
+"color:#0078D7">+82.10.4150.8662</span></a><br>
+517, Yeongdong-daero, Gangnam-gu,&nbsp;</span><span lang=3D"EN-US" style=3D=
+"font-size:9.0pt;color:black;border:none windowtext 1.0pt;padding:0cm;mso-l=
+igatures:none">Seoul, Korea</span><span lang=3D"EN-US" style=3D"font-family=
+:&quot;Calibri&quot;,sans-serif;color:#212121;mso-ligatures:none"><o:p></o:=
+p></span></p>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_--
+
+--_004_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_
+Content-Type: image/png; name="image001[65].png"
+Content-Description: image001[65].png
+Content-Disposition: inline; filename="image001[65].png"; size=2788;
+	creation-date="Wed, 08 Jan 2025 01:55:50 GMT";
+	modification-date="Wed, 08 Jan 2025 01:56:20 GMT"
+Content-ID: <image001.png@01DB61BB.E0C7CA10>
+Content-Transfer-Encoding: base64
+
+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
+AAAAAElFTkSuQmCCAAAA
+
+--_004_CY8PR10MB670588A2FB61FC0F611595F7FC122CY8PR10MB6705namp_--

@@ -1,0 +1,193 @@
+Received: from DM3PR10MB7926.namprd10.prod.outlook.com (2603:10b6:0:3d::15) by
+ PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Wed, 20 Aug 2025 05:00:31
+ +0000
+Received: from PH8PR10MB6358.namprd10.prod.outlook.com (2603:10b6:510:1bd::9)
+ by DM3PR10MB7926.namprd10.prod.outlook.com (2603:10b6:0:3d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Wed, 20 Aug
+ 2025 05:00:29 +0000
+Received: from PH8PR10MB6358.namprd10.prod.outlook.com
+ ([fe80::5cca:51e2:1e55:7f79]) by PH8PR10MB6358.namprd10.prod.outlook.com
+ ([fe80::5cca:51e2:1e55:7f79%5]) with mapi id 15.20.9052.013; Wed, 20 Aug 2025
+ 05:00:29 +0000
+From: WonYong Lee <wonyong.lee@oracle.com>
+To: hjjang_directs_ww <hjjang_directs_ww@oracle.com>
+CC: Taebum Kim <taebum.kim@oracle.com>
+Subject:
+	=?ks_c_5601-1987?B?W091dCBPZiBPZmZpZV0gIMb3vbrE2kRYIC0gQUkgYWdlbnQgZm9y?=
+ =?ks_c_5601-1987?B?IEVSUCC5zMbDICg4LzIxKQ==?=
+Thread-Topic:
+	=?ks_c_5601-1987?B?W091dCBPZiBPZmZpZV0gIMb3vbrE2kRYIC0gQUkgYWdlbnQgZm9y?=
+ =?ks_c_5601-1987?B?IEVSUCC5zMbDICg4LzIxKQ==?=
+Thread-Index: AQHcEY789F1A0J/fX0uJynh/p/xDEA==
+Date: Wed, 20 Aug 2025 05:00:29 +0000
+Message-ID:
+	<PH8PR10MB635886D559714A0ECD28ED668833A@PH8PR10MB6358.namprd10.prod.outlook.com>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: PH8PR10MB6358.namprd10.prod.outlook.com
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, RN, NRN, OOF, AutoReply
+X-MS-Exchange-Organization-Network-Message-Id:
+	b27c99f0-c992-44b6-3420-08dddfa67c13
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oracle.com;
+x-ms-office365-filtering-correlation-id: b27c99f0-c992-44b6-3420-08dddfa67c13
+x-ms-traffictypediagnostic:
+	PH8PR10MB6358:EE_|DM3PR10MB7926:EE_|PH8PR10MB6358:EE_
+x-oracle-tenancy: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|8096899003|41050700001;
+x-forefront-antispam-report:
+	CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR10MB6358.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(8096899003)(41050700001);DIR:INT;
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-authsource: PH8PR10MB6358.namprd10.prod.outlook.com
+x-ms-exchange-crosstenant-network-message-id:
+	b27c99f0-c992-44b6-3420-08dddfa67c13
+x-ms-exchange-crosstenant-originalarrivaltime: 20 Aug 2025 05:00:29.5570 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+x-ms-exchange-crosstenant-mailboxtype: HOSTED
+x-ms-exchange-crosstenant-userprincipalname:
+	1ZpiTVBe9bTSQ/ig2ycc1nKoEkO4JiFnYRrIWg7LHP/+4AVLmWCjd9AeH0nv6CgfHyZWkI6bd6GCl+QGlY7dzQ==
+x-ms-exchange-transport-crosstenantheadersstamped: DM3PR10MB7926
+x-ms-exchange-transport-endtoendlatency: 00:00:02.1476627
+x-ms-exchange-processed-by-bccfoldering: 15.20.9052.000
+x-ms-reactions: allow
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	+xaZDaQCxYedRrlQ95OPCJ4dbUFufDc0zp44SQFzXVt1NdeCcvYg8NwKo+xfA3lcs3XJAWNBcmdBRUHc8zcY4eA3Kia0KyPDDWPwWCaOtkKi8Q21sp/1aIaRLG4NJCP0v91DA/RevZq1zOeGKwwUCd/Zebz2XCq7EC9ikfCd5SvIyjfUiEYG9hqobRhc9Fo066n3jxkqafPru/jXmfvNR/0IhxxEUFz5IDP7O1oXCpFYKDtoJi8+7pKgcPaT0oTAMuD/jYk2lAMGRxHqFTb/LpwLSyf6aHHczx9YokAZI8MzZqsWF01Qes4WHrts6gasvYwKcUYQsYBuUW1SGjQNoTW2CuNzOEbolDNpCvLJnzDqg0YP0pk+Hl4X+KuXJZgbQ3X2dQRgCmiYkmPAqoSmP116eTDquiaJYPLwjhaQR/VP3UZumbexGXutRY/CJ8MACwLR23KSgwiRt61gC/t4uVz0nXbNxS0BXbmpavUASATHbXdsje3IAhrlvVKKxZFBRPjjbRE5MFV3DEFzYwwfihz0Nt0CDejJfknz1D28ZkUBeo+tmVIG0Mp3uQV+hxaWnuBhCXujwVNYIsnX5+9LldsfFoocj2UbiRBC33gROKSTydfG5lxmDTYR8U6ebfjzj97t19IAaUYXOJ66IHMuWc4vIRI59G2Y3Wek6y0o1D55dtaHnQD5XXOHi+VR3/YVwFJv7nXyJ6zS/HDUzIxIrXzNbqqVvV0ffM+dQGfNxMsAnlXVpIG+WRPdTQS3Gug6p+PIkHzQVCwamCTHDsV7PDSb69wPrXNGafTyAC4MzmM=
+Content-Type: multipart/alternative;
+	boundary="_000_PH8PR10MB635886D559714A0ECD28ED668833APH8PR10MB6358namp_"
+MIME-Version: 1.0
+
+--_000_PH8PR10MB635886D559714A0ECD28ED668833APH8PR10MB6358namp_
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: base64
+
+vsiz58fPvLy/5CDAzL/4v+vA1LTPtNkuDQoNCrO7v+sgOiDG9726xNpEWCAtIEFJIGFnZW50IGZv
+ciBFUlAguczGww0KDQq9w7CjOiAyMDI1s+IgOL/5IDIxwM8guPG/5MDPKL/AyMQgMTowML+hvK0g
+v8DIxCAzOjAwse7B9ikNCsL8vK4gOrHoxcK5/CwgwOXB2LnOIL/cIDS47Q0KDQqwqLvnx9W0z7TZ
+Lg0KwMy/+L/rILXluLIuDQoNCg==
+
+--_000_PH8PR10MB635886D559714A0ECD28ED668833APH8PR10MB6358namp_
+Content-Type: text/html; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dks_c_5601=
+-1987">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Gulim;
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"\@=B8=BC=C0=BA =B0=ED=B5=F1";}
+@font-face
+	{font-family:"\@=B1=BC=B8=B2";
+	panose-1:2 11 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Helvetica Neue";
+	panose-1:2 0 5 3 0 0 0 2 0 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:11.0pt;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1",sans-serif;
+	mso-ligatures:standardcontextual;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"=B8=BC=C0=BA =B0=ED=B5=F1",sans-serif;
+	color:windowtext;}
+p.p1, li.p1, div.p1
+	{mso-style-name:p1;
+	margin:0cm;
+	font-size:11.5pt;
+	font-family:"Helvetica Neue";
+	color:black;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"KO" link=3D"#467886" vlink=3D"#96607D" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<div>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span style=3D"font-size:10.0pt;mso-ligatures:none">=BE=C8=B3=E7=C7=CF=BC=
+=BC=BF=E4 =C0=CC=BF=F8=BF=EB=C0=D4=B4=CF=B4=D9<span lang=3D"EN-US">.<o:p></=
+o:p></span></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"font-size:10.0pt;mso-ligatures:none"><o:p>&nb=
+sp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span style=3D"font-size:10.0pt;mso-ligatures:none">=B3=BB=BF=EB<span lang=
+=3D"EN-US"> : </span>
+=C6=F7=BD=BA=C4=DA<span lang=3D"EN-US">DX - AI agent for ERP </span>=B9=CC=
+=C6=C3<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"p1"><span style=3D"font-family:&quot;Gulim&quot;,sans-serif">=
+=BD=C3=B0=A3</span><span lang=3D"EN-US">: 2025</span><span style=3D"font-fa=
+mily:&quot;Gulim&quot;,sans-serif">=B3=E2</span><span lang=3D"EN-US"> 8</sp=
+an><span style=3D"font-family:&quot;Gulim&quot;,sans-serif">=BF=F9</span><s=
+pan lang=3D"EN-US"> 21</span><span style=3D"font-family:&quot;Gulim&quot;,s=
+ans-serif">=C0=CF</span>
+<span style=3D"font-family:&quot;Gulim&quot;,sans-serif">=B8=F1=BF=E4=C0=CF=
+</span><span lang=3D"EN-US">(</span><span style=3D"font-family:&quot;Gulim&=
+quot;,sans-serif">=BF=C0=C8=C4</span><span lang=3D"EN-US"> 1:00</span><span=
+ style=3D"font-family:&quot;Gulim&quot;,sans-serif">=BF=A1=BC=AD</span>
+<span style=3D"font-family:&quot;Gulim&quot;,sans-serif">=BF=C0=C8=C4</span=
+><span lang=3D"EN-US"> 3:00</span><span style=3D"font-family:&quot;Gulim&qu=
+ot;,sans-serif">=B1=EE=C1=F6</span><span lang=3D"EN-US">)<o:p></o:p></span>=
+</p>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span style=3D"font-size:10.0pt;mso-ligatures:none">=C2=FC=BC=AE<span lang=
+=3D"EN-US"> :</span>=B1=E8=C5=C2=B9=FC<span lang=3D"EN-US">,
+</span>=C0=E5=C1=D8=B9=CE =BF=DC<span lang=3D"EN-US"> 4</span>=B8=ED<span l=
+ang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span lang=3D"EN-US" style=3D"font-size:10.0pt;mso-ligatures:none"><o:p>&nb=
+sp;</o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:ideograph-numeric ideograph-=
+other;word-break:keep-all">
+<span style=3D"font-size:10.0pt;mso-ligatures:none">=B0=A8=BB=E7=C7=D5=B4=
+=CF=B4=D9<span lang=3D"EN-US">.<o:p></o:p></span></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;mso-ligatures:none">=
+=C0=CC=BF=F8=BF=EB =B5=E5=B8=B2<span lang=3D"EN-US">.</span></span><span la=
+ng=3D"EN-US" style=3D"font-size:10.0pt"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_PH8PR10MB635886D559714A0ECD28ED668833APH8PR10MB6358namp_--

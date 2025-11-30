@@ -1,0 +1,489 @@
+Received: from CH4PR10MB8004.namprd10.prod.outlook.com (2603:10b6:610:242::5)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Wed, 8 Jan 2025
+ 08:06:32 +0000
+Received: from BLAPR03CA0090.namprd03.prod.outlook.com (2603:10b6:208:329::35)
+ by CH4PR10MB8004.namprd10.prod.outlook.com (2603:10b6:610:242::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.11; Wed, 8 Jan
+ 2025 08:02:46 +0000
+Received: from BN3PEPF0000B374.namprd21.prod.outlook.com
+ (2603:10b6:208:329:cafe::25) by BLAPR03CA0090.outlook.office365.com
+ (2603:10b6:208:329::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.11 via Frontend Transport; Wed,
+ 8 Jan 2025 08:02:46 +0000
+Authentication-Results: spf=fail (sender IP is 138.1.37.129)
+ smtp.mailfrom=ses.rememberapp.co.kr; dkim=fail (signature did not verify)
+ header.d=rememberapp.co.kr;dmarc=fail action=none
+ header.from=rememberapp.co.kr;
+Received-SPF: Fail (protection.outlook.com: domain of ses.rememberapp.co.kr
+ does not designate 138.1.37.129 as permitted sender)
+ receiver=protection.outlook.com; client-ip=138.1.37.129;
+ helo=phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com;
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com
+ (138.1.37.129) by BN3PEPF0000B374.mail.protection.outlook.com
+ (10.167.243.171) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.0 via Frontend
+ Transport; Wed, 8 Jan 2025 08:02:45 +0000
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 50867AtY021231
+	for <wonyong.lee@oracle.com>; Wed, 8 Jan 2025 08:02:44 GMT
+Authentication-Results-Original: Oracle OCI internal-mail-router;	spf=fail
+ smtp.mailfrom=010c019444efce6b-603c0fb5-5db0-4837-93d2-bad8a0cda051-000000@ses.rememberapp.co.kr;
+	dkim=fail header.s=ehuy6qrpnsgold7h3655esjolo55h4vb
+ header.d=rememberapp.co.kr;	dkim=fail
+ header.s=cwxpcqz2jsbnzswvvpljj7cdg74la37w header.d=amazonses.com;	dmarc=fail
+ header.from=rememberapp.co.kr
+Received: from mx0b-00069f01.pphosted.com (mx0b-00069f01.pphosted.com [205.220.177.26])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 43xue9f49w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK)
+	for <wonyong.lee@oracle.com>; Wed, 08 Jan 2025 08:02:39 +0000
+Received: from pps.filterd (m0246580.ppops.net [127.0.0.1])
+	by mx0b-00069f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5087SItk026807
+	for <wonyong.lee@oracle.com>; Wed, 8 Jan 2025 08:02:38 GMT
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=010c019444efce6b-603c0fb5-5db0-4837-93d2-bad8a0cda051-000000@ses.rememberapp.co.kr;
+	dkim=pass header.d=rememberapp.co.kr
+ header.s=ehuy6qrpnsgold7h3655esjolo55h4vb;	dkim=pass header.d=amazonses.com
+ header.s=cwxpcqz2jsbnzswvvpljj7cdg74la37w;	dmarc=pass
+ header.from=rememberapp.co.kr
+Received: from c177-53.smtp-out.ap-northeast-2.amazonses.com (c177-53.smtp-out.ap-northeast-2.amazonses.com [76.223.177.53])
+	by mx0b-00069f01.pphosted.com (PPS) with ESMTPS id 441n0f8ay9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=NO)
+	for <wonyong.lee@oracle.com>; Wed, 08 Jan 2025 08:02:37 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ehuy6qrpnsgold7h3655esjolo55h4vb; d=rememberapp.co.kr;
+	t=1736323354;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=yKR9hwUcbq7/4D+jx81TRajeqGEp9U5kihYkHaAfW90=;
+	b=LM9EEi9IDZcJ9V5lgYVrqtfoIic3lmm3Pp7d8TtJMZB9fNzO3KIs1W8VskD4YnoX
+	4vClw/e9Sc85CFtQIEf6503MC4utmxmWIDJAqCZVELNqo3bUPvc42Eow42llO6B+KCW
+	c9MobjYzOzw0Y/hh6PtFNok8zhXLkgyPYWOR/8vGiyzROTaXGKOYMSYRpaQUZZTfVQl
+	UHcbhYyXm6DG2Fh4Nex3InuBm0SLw3sl01WvBuy/eULdSpfHLqDGO0jLXNtx6njU124
+	VLPMkNekVSJ9NGBqjYjKTWBzESs7u7tPiyLnoYCnny4Yp4GG5kQhPD8rt3OoQ+yVozu
+	LktxtpaQCg==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=cwxpcqz2jsbnzswvvpljj7cdg74la37w; d=amazonses.com; t=1736323354;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=yKR9hwUcbq7/4D+jx81TRajeqGEp9U5kihYkHaAfW90=;
+	b=Vf7tNFY2RflRL30XNPJIT9AQyM7Fqs43Wm5GmjpikD3jxWqr4VeK5Ahf0fmJXYDC
+	n6C5U+QAFb+s0f5iU2HJl7JPlfC4pNHCVtY7oSeg1TgPJp/oT5Wn++f8/9xQ86nUM/u
+	O3zBcSjI1BVjnfpj3YF2cCLSex4UW2+f/UvBgckY=
+Date: Wed, 8 Jan 2025 08:02:34 +0000
+From: =?UTF-8?B?6rmA642V7ZiEIHZpYSBSZW1lbWJlcg==?= <no-reply@rememberapp.co.kr>
+Reply-To: dekay@sionic.ai
+To: wonyong.lee@oracle.com
+Message-ID: <010c019444efce6b-603c0fb5-5db0-4837-93d2-bad8a0cda051-000000@ap-northeast-2.amazonses.com>
+Email-Send-Log-ID: 65992249
+Email-Send-ENV: production
+Feedback-ID: ::1.ap-northeast-2.7J3o7Q/YY3p8vNLjMgTASqsk/ktrEi6jqC2auKIbx78=:AmazonSES
+X-SES-Outgoing: 2025.01.08-76.223.177.53
+X-Proofpoint-GUID: 4lrT25m7Gg9QK0iwPHrD_8o6rN8eE1wP
+X-CLX-Shades: MLX
+X-CLX-Response: 1TFkXGB0bEQpMehcaEQpZRBdteRtGG39LQ3BlHxEKWFgXYVhYbkYBRVpSSxM RCnhOF29AUkV4AWR5GRJ4EQp4SxdhWFhuRgFFWlJLExEKeUwXaVAdQxp7QBpBZl8RCkNIFwcZGB 8RCkNZFwcbGxgRCkNJFxoEGhoaEQpZTRdnZnIRCllJFx4ScRsQGncGGBoZcRsaHRAadwYYGgYaE
+ QpZXhdsbHkRCklGF0VYS0lGT3VDREhFX0ROdUJFWV5PThEKSUcXeE9NEQpDThceRlh+GB9HHW1N E3thGkNdemJYbnUSRRxYZBJPbxtdehEKWFwXHwQaBBkSHAUbGgQbGhoEGxkeBBkZEBseGh8aEQp eWRdPWRN9HxEKTVwXHhkfEQpMWhdpeG1dTU0RCkVZF2hraxEKTF8XegUFBQUFBQUFBR0RCkxGF2
+ 9ra2NraxEKQk8XYUsYc0UbRlllTWcRCkNaFx0cBBgYGQQbHR0EHxkRCkJeFxsRCkJcFxsRCl5OF xsRCkJLF2MfSFpceElEeWlLEQpCSRdjH0haXHhJRHlpSxEKQkUXaV5JHUcYSGhbYRkRCkJOF2Mf SFpceElEeWlLEQpCTBdoYmdjQk9Lcx5iHBEKQmwXZ3heHVxZf3h/Q2ARCkJAF2kSaEtAUnlNYUh
+ 5EQpCWBdkZm1DYExSGRNgQxEKWlgXGREKeUMXY0BHfUIcH0twZVkRCllLFx4aExoRClpLFxwaHB EKcGcXaEZjGmwYRx56f0wQGhEKcGgXaxhFfltSaF9OYhIQGhEKcGgXax5hbWxGcHl4c1AQHhIRC nBoF2UbEm5bHEFAAXxeEB4SEQpwaBdlHkZ9Wk1QUH4YWhAeEhEKcGgXemh8e1tdHEYSWG0QHhIR
+ CnBoF2h6RmF7R2hGX1gTEB4SEQpwaBdsHhpnb3pAGwF8ZxAeEhEKcGgXem0bZH0FYVxdQAUQHhI RCnB9F2sZeXpOZHNnZ2t+EB0aEQpwfRd6EwUYTn9IGHhvQBAeEhEKcH0XY0dYS35YZl5CQBwQGh EKcH0XZWt8W2ZSEmhAbHgQGhEKcH0XbWVfUkAYYRxnX2kQGhEKcH0XbBgceh1la0RHQ0cQGhEKc
+ H0XbkQbfmVOUx9nZ2gQHhIRCnBnF2h/HE1FXGYaY05FEB4SEQpwfRdpWGtjRWEaBVteGhAdGhEK cH8Xaxl5ek5kc2dna34QHRoRCnBfF2RheHNZZntDRxNrEB4SEQpwXxdrYElsTWQSSxJPExAeEhE KcH8XbUZbTF1kQWJjaEAQHhIRCnBfF2x8U3lyaF9+TEVGEBoRCnBfF2JhAX9eXUhYcB9pEB4SEQ
+ pwXxdhXVhnSENQQFJBYxAeEhEKcH8XZxp5cmtsfE4fBR8QBx8fEQpwXxdnRURZBV9+HnBCARAeH hEKcGwXemlsS0JSW2dgSWcQGhEKbX4XGhEKWE0XSxEg
+X-Proofpoint-ORIG-GUID: 4lrT25m7Gg9QK0iwPHrD_8o6rN8eE1wP
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Subject: =?UTF-8?Q?[External]_:_=EA=B9=80=EB=8D=95=ED=98=84(Sionic_AI)=EB=8B=98?=
+ =?UTF-8?Q?=EC=9D=B4_=EA=B7=80=ED=95=98=EC=97=90=EA=B2=8C_=EB=AA=85?=
+ =?UTF-8?Q?=ED=95=A8=EC=9D=84_=EB=B3=B4=EB=83=88=EC=8A=B5=EB=8B=88?=
+ =?UTF-8?Q?=EB=8B=A4.?=
+Thread-Topic: =?UTF-8?Q?[External]_:_=EA=B9=80=EB=8D=95=ED=98=84(Sionic_AI)=EB=8B=98?=
+ =?UTF-8?Q?=EC=9D=B4_=EA=B7=80=ED=95=98=EC=97=90=EA=B2=8C_=EB=AA=85?=
+ =?UTF-8?Q?=ED=95=A8=EC=9D=84_=EB=B3=B4=EB=83=88=EC=8A=B5=EB=8B=88?=
+ =?UTF-8?Q?=EB=8B=A4.?=
+X-Source-IP: 76.223.177.53
+X-ServerName: c177-53.smtp-out.ap-northeast-2.amazonses.com
+X-Proofpoint-SPF-Result: pass
+X-Proofpoint-SPF-Record: v=spf1 include:amazonses.com -all
+X-Proofpoint-Virus-Version: vendor=nai engine=6700 definitions=11308 signatures=596817
+X-Proofpoint-Spam-Details: rule=tap_notspam policy=tap score=0 priorityscore=0 bulkscore=0
+ malwarescore=0 spamscore=0 mlxscore=0 impostorscore=0 clxscore=271
+ suspectscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=999
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501080064 domainage_hfrom=4090
+ domainage_replyto=606
+X-Spam: Clean
+Return-Path: 010c019444efce6b-603c0fb5-5db0-4837-93d2-bad8a0cda051-000000@ses.rememberapp.co.kr
+X-MS-Exchange-Organization-ExpirationStartTime: 08 Jan 2025 08:02:45.5329
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: b77d1377-db29-4341-10eb-08dd2fbad5e3
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[76.223.177.53];domain=c177-53.smtp-out.ap-northeast-2.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B374:EE_|CH4PR10MB8004:EE_|PH8PR10MB6358:EE_
+X-MS-Exchange-Organization-AuthSource: BN3PEPF0000B374.namprd21.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: oracle.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: b77d1377-db29-4341-10eb-08dd2fbad5e3
+X-MS-Exchange-AtpMessageProperties: SL
+X-Oracle-Tenancy: 1
+X-MS-Exchange-Organization-SCL: -1
+X-Oracle-IMR: IMR Trust
+X-Microsoft-Antispam: BCL:0;ARA:13230040|69100299015|12012899012|32142699015|2092899012|3072899012|82310400026|1032899013|2066899003|8096899003;
+X-Forefront-Antispam-Report: CIP:138.1.37.129;CTRY:US;LANG:ko;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com;PTR:phxpaimrmta03.appoci.oracle.com;CAT:NONE;SFS:(13230040)(69100299015)(12012899012)(32142699015)(2092899012)(3072899012)(82310400026)(1032899013)(2066899003)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2025 08:02:45.2516
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b77d1377-db29-4341-10eb-08dd2fbad5e3
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=4e2c6054-71cb-48f1-bd6c-3a9705aca71b;Ip=[138.1.37.129];Helo=[phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B374.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8004
+X-MS-Exchange-Transport-EndToEndLatency: 00:03:47.2282573
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8314.018
+X-Message-Flag: =?utf-8?B?7LaU6rCAIOyekeyXhQ==?=
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OFQ0ZlIzVHVEeUxST0U0TnNwaHk1Z3lHRGlxN1hXaXNXRlRUaFArS2NCTTRR?=
+ =?utf-8?B?YzBOZVl3QXVVZlVkT3ZIQmRBdkN6cngrT01HNmg2NXhwRzNveWRjRXpWc1V0?=
+ =?utf-8?B?K25wbTY1ZnZVTEx3YnlhYUJJS294YjFuc1RYWEFxa2Zid1JkWlc3VWtiQlR3?=
+ =?utf-8?B?WTkrbWNzWGIyc0dVWmYrUnFQYm5pa3NIVFloVzJKU09CUm9mK01tSXhPRld4?=
+ =?utf-8?B?WDcrZ2FQYTdld1o0cXpIUUViWWY1R00rcnk0S1FuWmtURE1VK2xXczJ2VDBx?=
+ =?utf-8?B?NTF4WUZMMHlHSmh2cEJxK2ZiUjNEOHZwZ29mT0U1Sk05a2ZacW53WERxR0hs?=
+ =?utf-8?B?K0FGdU8wWWNvOXNXKzR1MkJSRXREdWJDMWVqZlNUVk1VbjMyVkp0NEdaZEw0?=
+ =?utf-8?B?SWZIbWNWNXQ0TS9rYVloVlFtVExUa3NZcHQ5dVUzTkk0T0QvOTNjY2d1WFJY?=
+ =?utf-8?B?NmdwUDFUZ3FpODBWd1pLOWU1UnNOZ1M2WjJ5MW1PSUhEOHpMK3NDcFpqbzdT?=
+ =?utf-8?B?VWdrTFdVM2U2eXZzdlYreTFNeWJ0SzV1T2xqcVFHdGtGVEJkd2FWK2w1NEll?=
+ =?utf-8?B?NVlCZkRWUnh5VXhDWEdRYjY2dFg4SDNGRnBFSVJVTHY0dWdCOGt1NWs4TytF?=
+ =?utf-8?B?d0w5cE9KbFdKRkpzQS80US9jODNUQ090ZkZicW5qY1lWVHBCTEFjUG9KUWtD?=
+ =?utf-8?B?U00xaDlMOXh1dnlhT2FGTStwcUFuWS9ZMGF3M2xpTVgwaXhhYTBMYVErRWpp?=
+ =?utf-8?B?T1RxMmxPYTB1SDNSTlZPUDd4QlBUUVp6WjNCUTg3dFZWeGpJbWxOZ01kZUJM?=
+ =?utf-8?B?L1JqK3l5b3k3SDhHSGpYMk1ZUzBwWHp6QXRkSlMzcThsMTcyVXExdEw1NjBG?=
+ =?utf-8?B?Zlo5Vk1SaDBSN1VaWVd0QmFCOTlYSFhLQVNVTlptQ0F6c1NnSEJUdUt0OWdi?=
+ =?utf-8?B?dE0wenhWWlJjM1ppZDFnckcrc1ZEVGlPSmJQOUhjZ2YwOTRrMitGc2hEKzdp?=
+ =?utf-8?B?Q2FlMWZJd0hSWEJ0ejBEdHlkazg1TVltK0RvVlM5QlNnUVJHTUdQRHorMjJn?=
+ =?utf-8?B?RlYxWFhKcU5rejVoOXpZTTJFeHJaSTZhL1A5b2M3R2thOW0yVUJsS2VNbVho?=
+ =?utf-8?B?NDJ0RHBMMkdZYmlpWVJWRUM5WlZrZ0liZGp6eHYrdG50SmF6QklCVWUwR3hE?=
+ =?utf-8?B?eHlsaXpaUldQNGNWQ3I1QXg1NUJLOW1OaEJlZHB1d05EVGhCZzhyOTUxYWZn?=
+ =?utf-8?B?TC9aNHlwZEE1ZFVwYlBuOU9VMFlablQ0MjIrVlhlb2hpWnBDRXRvNGt5QVBw?=
+ =?utf-8?B?aWN0OGVvSjh2WHNtMDlVeEE5RmxxekNLcWc1b0xzR1dSN1NzK285K3pYem5T?=
+ =?utf-8?B?dHNMUXVkaGhCZ1IrQm05ZlBnNXJEWllVSWVNdnVCejBsS3I1YmZiVjVhOFN5?=
+ =?utf-8?B?YVJiUXNncFZHQThOaW9ldWhQenBOd1V2eTNmbDFuZTJRUVdvSVliakRWdHlW?=
+ =?utf-8?B?dGFvL0lhNCtmMmFoaDdUZ3R4a2E0cHBEK0NIdnhpZWpFc1AySUlnM1VRZDc4?=
+ =?utf-8?B?S1l4UlNUaFRYY2pqOGQ5QUFMbEJlK1ZJZmEyK1A2dXk4UEhmRDBrSTFIY2V0?=
+ =?utf-8?B?TXRxZkR6Vml4OHQ2cW8zY3dnbllPTk1SQWtiRnFCMmN2dnlJM2NJUnNQU3Zo?=
+ =?utf-8?B?WGhxamJDU1ZGcytZNjNXY0hNMk05aWptUm1DOU9RU2Vydkh4bERadDJXYVRV?=
+ =?utf-8?B?UjliU2lSb01jdDhCWmxPSjlsZkEveGVYVGxFblFRNGFYSEQ0NkR2SHZmRVJ2?=
+ =?utf-8?B?RE9odXZrY0ZZb2Y1V1BwYjFxRUFxTWRTSElyTFVkVGZFT3ZSZUdVTzhuSnRM?=
+ =?utf-8?B?U0NGZ1pueVduZ25PbWgwVkZ4eTlwNi9OOUtaNmVKVytWNVBxWk9DWW53UUpR?=
+ =?utf-8?B?Q3lBV1Q4Tm9ZRXBIaTBHRDJXaVdiWnVWU2lwbnJ0U3FFcklXR0dGdWN2OFdJ?=
+ =?utf-8?B?by9pMmI5N05SM2NZV2xOU3pKcGNpbG10ZXJ5UmFlOW9nSitmejJKVi8rS0NL?=
+ =?utf-8?B?UzJVMVNlZGFMbGkwZitPTU5zakcrRG5ab25wNlhUbFZib1FBMjdFNHkxNnFS?=
+ =?utf-8?B?a1VReWYrNVdidCt1dlRiYmNIL0Rud01FdGlIT1Y3d1VMaWtORWlsZDI3ZEdo?=
+ =?utf-8?B?U1lqRXhUNEp0RGhxOUlSOXRaWGpNQ2RiNFhzTXVJYmd6S1g3cVMybW9MOEpB?=
+ =?utf-8?B?TEJTM0FPUFV6c0Z3b25RSmRLSUtQT01ydjNlNUYrUllaYW9ETENIZXNyTXd0?=
+ =?utf-8?B?QVpsY09xb2tXOUIwY0JGOWx2UEx6VU1Da29YRGo1Y1VFdmV3RmxSQm8wU0Nu?=
+ =?utf-8?B?aUVmK01aVW00Wm1oNitHaHpXS2hSR1lwSnhpTVNuNDlaN3hlY2JTc3JzMld6?=
+ =?utf-8?B?TWcwWkNwL2swekZXVDNYM2lMbmpFQVRLZjFiczV6TVFQeWpzOFNMWXpMOWpD?=
+ =?utf-8?B?RlQ5UWFKbTFnTFVRVEpnWnNDYmQvQXpsTzZvL3RGaTlheDJHcmtROGNERUQ5?=
+ =?utf-8?B?TFQwZTVBWTU1N015c0hjK25oT0VCTnAwUmxFTWpvRjNtZThyVUxHU1dJYTc3?=
+ =?utf-8?B?TU9XSlJDRWprWGozSFFBOGtHY25Kd3dtUW4veGxXNFl4R1NHN25NUnUyQ0pj?=
+ =?utf-8?B?cTJ5MmhMaWlwcSt3TWZrenlEdFhSY2xGeVQ0V0JoUU9lOU45UzhOZDNmQmhW?=
+ =?utf-8?B?SGs3dnN6Q3VrcXVnQUdXZFNCK21JamFONWMyRzVkZVVJSEJTclp5c1pLV3A5?=
+ =?utf-8?B?VjVUb0d5RDJlN3MxN0Z0dTJEQ1dORktJNHJSdUpSOGVKZGhEVmV4ZkhheHJ0?=
+ =?utf-8?B?Yms4a0ZheVlVUWN5OUw5MlREN1RZdVJKQXI5VEF0SFVxRlV1eEF6ZldKOU1z?=
+ =?utf-8?B?Y1FCYzBQNGwwcEJqMjh2TUVxVStVMTR4WnVqSWp4WEQ4cUQvYzBubTA5NGVP?=
+ =?utf-8?B?Nzg3Wlp6TmUzSkliVWMvV2dTSDYvdzcvWGdlaFI2UGxCTkY5SHJCUUVOWmhr?=
+ =?utf-8?B?ZUIyYmJ2TU5WUExuMFkxL2xRbWdGN2pwdnNYdThLbWg3N2swOTVkdThwMWpJ?=
+ =?utf-8?B?Ym45N056K3VPakc3aGQwY1lseWdPMWJWYmxVU0lhT0FBUUd2U1dYRlJCdmR6?=
+ =?utf-8?B?bmpFVEg5UXM1UkpkR2w1WTZhZFViZm5BMXM3NmNlY3BCQ2hZZGd4dktRK1Qz?=
+ =?utf-8?B?VnpLN0YzT3I2MDUxa0hGYUxHa1hTNDJvc1NOTXhmVjYxaWVZdExwdklEcU4r?=
+ =?utf-8?B?aFJzU2dDR01xVEFuakV4SHFxTTdXaU00bEswTHlMaDhIZDBDcGIzcXBvdjVT?=
+ =?utf-8?B?TWN1c3JsaTExVDQ2bHpJL05PZWZjOFQ0MHNYZ1R5QkRvNFpvUFZ2NzFBRHdE?=
+ =?utf-8?B?NGhMbGtQbVhLZStnT3FpZU9rdW9iS1dCRHZ4SnJEejRoV0JNaG5UYUhFdlFN?=
+ =?utf-8?B?ejA1ckZ1VnBzOFhoTjN4TU5NOC8vZUEzRnM0U0ZJRmdKYVRRM0V2ZC84c1J0?=
+ =?utf-8?B?N1JzNG0wcmZzc00wVndaYnQ0R3Brc2IwS295VjJhYXpHa0kxM3J2LzVLVFVK?=
+ =?utf-8?B?d3BRbHo4MTd0TEd3TXhzd2xZQUlQTlpFUTFLYWNZRTBvcXJjSEV3Y0FHamV0?=
+ =?utf-8?B?dU5hdnhvZGVzQ0pLZ2hvQlBSaDJ4d2N4Mmh3TUkyUDdBenZhMGFlajJoVjMw?=
+ =?utf-8?B?SjRocm9KQS9rQVpNUWp4V0IydlI5Tm9TRXZOZ0lUc2grTmZxTWIwWUhpT0Vs?=
+ =?utf-8?B?VmFKVHgzb3pRQU80TDAvWVpMcGxpY2RuVFJwQTl0MGt1Mm5HclRwVFpwRVJP?=
+ =?utf-8?B?RCt2ZDZzSm1rcW5qN1VzU3lXYTBRY1NjQ2M3VElDQnM2M2RCT0ZrclI4NTl2?=
+ =?utf-8?B?Q3dRRXBVNGwvNWc2RkFOWEhmQ1RjZkRSQUV2bnZwdmRSeS9GY1FxcHJTS1hl?=
+ =?utf-8?B?ZEdQbm5lL1U4MERPTmpFb01Qc2dBbVUyU1EvTHdsaEYrREJsS0ttUGhQelVM?=
+ =?utf-8?Q?fXF0ZEV5xQQo7P/mY=3D?=
+MIME-Version: 1.0
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><s=
+tyle>
+      .desktop-only {
+        display: none;
+      }
+
+      @media (min-width: 700px) {
+        .desktop-only {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <meta name=3D"format-detection" content=3D"date=3Dno">
+<meta name=3D"format-detection" content=3D"address=3Dno">
+<meta name=3D"format-detection" content=3D"email=3Dno">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"width: 100%; background-color: #efefef; padding: 24px 0px;">
+  <tbody>
+  <tr>
+    <td style=3D"text-align: center;">
+      <a href=3D"https://urldefense.com/v3/__https://rememberapp.co.kr__;!!=
+ACWV5N9M2RV99hQ!MzTJVqoivWNlnfJjgtfpfRTU9vpvPuFgkjqNcT9tYqi8Fvg4_guk7LBaMLX=
+NorFDw_EXRFBQfdHEcKOOtY8Aj2ig$" target=3D"_blank">
+        <img src=3D"https://cdn.rememberapp.co.kr/mail/images/header_logo.p=
+ng" style=3D"width: 144px; height: 24px;">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td height=3D"24"></td>
+  </tr>
+  <tr>
+    <td align=3D"center"><!-- =EC=95=84=EC=9B=83=EB=A3=A9=EC=9A=A9 max-widt=
+h =ED=95=B5 -->
+      <!--[if (gte mso 9)|(IE)]>
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+        <tr>
+          <td width=3D"652">
+      <![endif]-->
+
+      <div style=3D"margin:0 auto">
+        <table align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"max-width: 480px; font-family: -apple-system,=
+ BlinkMacSystemFont, Apple SD Gothic Neo, Nanum Barun Gothic, Roboto, Noto =
+Sans KR, Helvetica, sans-serif; -webkit-text-size-adjust: 100%;">
+          <tbody>
+          <tr>
+            <td>
+              <table align=3D"center" width=3D"100%" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"max-width: 700px;
+                       padding: 0 24px;
+                       font-family: '=EB=82=98=EB=88=94=EA=B3=A0=EB=94=95',=
+ 'NanumGothic', '=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95', 'Malgun Gothic', '=
+=EB=8F=8B=EC=9B=80', 'Dotum', 'Helvetica', 'Apple SD Gothic Neo', 'Sans-ser=
+if';
+                       background-color: #fff;
+                       font-size: 16px;">
+                <tbody>
+                <tr>
+                  <td height=3D"40"></td>
+                </tr>
+                <tr height=3D"64">
+                  <td style=3D"text-align: left;">
+                    <img src=3D"https://remember-cdn.rememberapp.co.kr/prod=
+uction/uploads/namecards/2023/10/31/00/14/539168229/avatars/e3e183a3112a6ee=
+bd23f0846baf59126/original.jpg?1698678866" style=3D"border-radius: 50%;
+                           display: inline-block;
+                           width: 64px;
+                           min-height: 64px;" width=3D"64" height=3D"64" al=
+t=3D"avatar">
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"12"></td>
+                </tr>
+                <tr style=3D"text-align: left; font-size: 20px; font-weight=
+: 600; color: #212322;">
+                  <td>
+                    =EA=B9=80=EB=8D=95=ED=98=84(Sionic AI)=EB=8B=98=EC=9D=
+=B4<br>=EA=B7=80=ED=95=98=EC=97=90=EA=B2=8C =EB=AA=85=ED=95=A8=EC=9D=84 =EB=
+=B3=B4=EB=83=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"12"></td>
+                </tr>
+                <tr style=3D"text-align: left; font-size: 14px; font-weight=
+: 400; color: #212322;">
+                  <td>
+                    =EA=B9=80=EB=8D=95=ED=98=84=EB=8B=98=EC=9D=B4 =EB=B3=B4=
+=EB=82=B8 =EB=AA=85=ED=95=A8=EC=9D=84 =EB=A6=AC=EB=A9=A4=EB=B2=84=EC=97=90 =
+=EC=A0=80=EC=9E=A5=ED=95=98=EB=A9=B4 =EC=9D=B4=EC=A7=81, =EC=8A=B9=EC=A7=84=
+ =EB=93=B1 =EC=86=8C=EC=8B=9D=EC=9D=84 =EC=A3=BC=EA=B3=A0 =EB=B0=9B=EC=9D=
+=84 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"32"></td>
+                </tr>
+                  <tr width=3D"100%">
+                    <td>
+                      <div style=3D"display:block; position:relative; borde=
+r: 1px solid #e0e0e0;">
+                        <img src=3D"https://remember-cdn.rememberapp.co.kr/=
+production/uploads/namecards/2023/08/11/12/36/539168229/namecard_fronts/a2e=
+b067b8e04a9d9ae643f49e78eab2d/original.jpg?1691725014" style=3D"display: bl=
+ock; width: 100%; height: auto;">
+                      </div>
+
+                    </td>
+                  </tr>
+                <tr>
+                  <td height=3D"32"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style=3D"text-align: center">
+                      <a href=3D"https://urldefense.com/v3/__https://app.rm=
+br.in/fM9dR0l8YPb__;!!ACWV5N9M2RV99hQ!MzTJVqoivWNlnfJjgtfpfRTU9vpvPuFgkjqNc=
+T9tYqi8Fvg4_guk7LBaMLXNorFDw_EXRFBQfdHEcKOOtYF87jCp$" style=3D"border: none=
+;
+                          background: #ff5414;
+                          color: #fff !important;
+                          font-size: 16px;
+                          line-height: 26px;
+                          padding: 13px;
+                          text-decoration: none;
+                          text-transform: uppercase;
+                          white-space: nowrap;
+                          display: block;
+                          border-radius: 4px;" rel=3D"noreferrer noopener" =
+target=3D"_blank">
+                        =EB=A6=AC=EB=A9=A4=EB=B2=84=EC=97=90 =EB=AA=85=ED=
+=95=A8 =EC=A0=80=EC=9E=A5=ED=95=98=EA=B8=B0
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"8"></td>
+                </tr>
+                <tr>
+                  <td style=3D"font-size: 14px; font-weight: 400; line-heig=
+ht: 24px; color: #8B8B87;">
+                    =EB=A6=AC=EB=A9=A4=EB=B2=84 =EA=B0=80=EC=9E=85 =ED=9A=
+=8C=EC=9B=90=EC=9D=B4 =EC=95=84=EB=8B=88=EB=9D=BC=EB=A9=B4, =ED=9A=8C=EC=9B=
+=90=EA=B0=80=EC=9E=85 =ED=9B=84 =EB=AA=85=ED=95=A8=EC=9D=84 =EC=A0=80=EC=9E=
+=A5=ED=95=A0 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=EB=8B=A4.
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"32"></td>
+                </tr>
+                <tr>
+                  <td style=3D"background: none; border-bottom: 1px #E0E0E0=
+ solid; height:0; line-height:0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height=3D"16"></td>
+                </tr>
+                <tr>
+                  <td height=3D"24" style=3D"font-size: 12px; line-height: =
+19px; color:#8B8B87;">
+                    <ul style=3D"margin: 0px; padding-left: 16px; padding-r=
+ight: 8px; align: center">
+                      <li>
+                        =EB=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=A6=AC=EB=
+=A9=A4=EB=B2=84=EB=A5=BC =ED=86=B5=ED=95=B4 =EA=B9=80=EB=8D=95=ED=98=84=EB=
+=8B=98=EA=BB=98=EC=84=9C =EA=B7=80=ED=95=98=EC=9D=98 =EB=AA=85=ED=95=A8 =EB=
+=98=90=EB=8A=94 =EC=97=B0=EB=9D=BD=EC=B2=98=EB=A5=BC =ED=86=B5=ED=95=B4 '=
+=EB=82=B4 =EB=AA=85=ED=95=A8 =EB=B3=B4=EB=82=B4=EA=B8=B0 =EC=84=9C=EB=B9=84=
+=EC=8A=A4'=EB=A5=BC =EC=9D=B4=EC=9A=A9=ED=95=B4 =EB=B0=9C=EC=86=A1=ED=95=9C=
+ =EB=A9=94=EC=9D=BC=EC=9E=85=EB=8B=88=EB=8B=A4.
+                      </li>
+                      <li>
+                        =EB=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EB=B0=9C=EC=
+=8B=A0 =EC=A0=84=EC=9A=A9=EC=9C=BC=EB=A1=9C, =EA=B9=80=EB=8D=95=ED=98=84=EB=
+=8B=98=EC=97=90=EA=B2=8C =ED=9A=8C=EC=8B=A0=ED=95=A0 =EC=88=98 =EC=97=86=EC=
+=8A=B5=EB=8B=88=EB=8B=A4.
+                      </li>
+                      <li>
+                        <b>=EB=A6=AC=EB=A9=A4=EB=B2=84=EB=A1=9C=EB=B6=80=ED=
+=84=B0 =EB=8B=A4=EB=A5=B8 =EC=82=AC=EB=9E=8C=EC=9D=B4 =EC=A0=84=EC=86=A1=ED=
+=95=98=EB=8A=94 =EB=AA=85=ED=95=A8=EC=9D=84 =EB=8D=94 =EC=9D=B4=EC=83=81 =
+=EB=B0=9B=EA=B3=A0 =EC=8B=B6=EC=A7=80 =EC=95=8A=EC=9C=BC=EC=8B=9C=EB=A9=B4,=
+ <a href=3D"https://urldefense.com/v3/__https://page.rememberapp.co.kr/unsu=
+bscribe_email?token=3D11258e718e239bae24d9c03dfb33702c&amp;locale=3Dkr__;!!=
+ACWV5N9M2RV99hQ!MzTJVqoivWNlnfJjgtfpfRTU9vpvPuFgkjqNcT9tYqi8Fvg4_guk7LBaMLX=
+NorFDw_EXRFBQfdHEcKOOtXK2J7W1$" style=3D"color:#AEAEAE;" target=3D"_blank">=
+[=EC=88=98=EC=8B=A0=EA=B1=B0=EB=B6=80]</a>=EB=A5=BC =ED=81=B4=EB=A6=AD=ED=
+=95=B4=EC=A3=BC=EC=84=B8=EC=9A=94.</b>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"24"></td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style=3D"width:100%;background-color:#efefef">
+              <table width=3D"100%" align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"padding: 0 40px; max-width:700px;text-a=
+lign: center;font-size:11px; color:#AEAEAE; line-height:16px">
+                <tr>
+                  <td height=3D"24"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href=3D"https://urldefense.com/v3/__https://remember=
+app.co.kr__;!!ACWV5N9M2RV99hQ!MzTJVqoivWNlnfJjgtfpfRTU9vpvPuFgkjqNcT9tYqi8F=
+vg4_guk7LBaMLXNorFDw_EXRFBQfdHEcKOOtY8Aj2ig$" target=3D"_blank">
+                      <img src=3D"https://cdn.rememberapp.co.kr/mail/images=
+/footer_logo_gray.png" style=3D"width: auto; height: 18px;">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"12"></td>
+                </tr>
+                <tr>
+                  <td>
+                    copyright =C2=A9 Remember &amp; Company All rights rese=
+rved.
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"24"></td>
+                </tr>
+                <tr>
+                  <td>
+                    (=EC=A3=BC)=EB=A6=AC=EB=A9=A4=EB=B2=84=EC=95=A4=EC=BB=
+=B4=ED=8D=BC=EB=8B=88 | 06235 =EC=84=9C=EC=9A=B8=ED=8A=B9=EB=B3=84=EC=8B=9C=
+ =EA=B0=95=EB=82=A8=EA=B5=AC =EC=97=AD=EC=82=BC=EB=8F=99 =ED=85=8C=ED=97=A4=
+=EB=9E=80=EB=A1=9C 134 5,6=EC=B8=B5 (=ED=8F=AC=EC=8A=A4=EC=BD=94=ED=83=80=
+=EC=9B=8C)Tel. 02-556-4202 | E-mail. help@rememberapp.co.kr
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"24"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--[if mso]>
+      </td>
+      </tr>
+      </table>
+      <![endif]-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+<img src=3D"https://www.google-analytics.com/collect?v=3D1 tid=3DUA-4532256=
+5-10&amp; t=3Devent&amp; ea=3Dopen&amp; ec=3Demail_live_invite&amp; cs=3Din=
+vite&amp; cm=3Demail&amp; cn=3Dlive_invite&amp; cid=3D8bdda28e023490ceea9c2=
+12ac9d1874b&amp; uid=3D8bdda28e023490ceea9c212ac9d1874b&amp; el=3D20250108"=
+>
+
+  </body>
+</html>

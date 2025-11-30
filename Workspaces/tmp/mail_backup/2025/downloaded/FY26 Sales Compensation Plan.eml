@@ -1,0 +1,284 @@
+Received: from SA2PR10MB4553.namprd10.prod.outlook.com (2603:10b6:806:11a::12)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Wed, 26 Nov 2025
+ 21:24:07 +0000
+Received: from SN6PR05CA0013.namprd05.prod.outlook.com (2603:10b6:805:de::26)
+ by SA2PR10MB4553.namprd10.prod.outlook.com (2603:10b6:806:11a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
+ 2025 21:24:05 +0000
+Received: from SA2PEPF00003AE9.namprd02.prod.outlook.com
+ (2603:10b6:805:de:cafe::9b) by SN6PR05CA0013.outlook.office365.com
+ (2603:10b6:805:de::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.12 via Frontend Transport; Wed,
+ 26 Nov 2025 21:24:05 +0000
+Authentication-Results: spf=softfail (sender IP is 147.154.18.20)
+ smtp.mailfrom=iad.rp.oal.oracle.com; dkim=pass (signature was verified)
+ header.d=oracle.com;dkim=pass (signature was verified)
+ header.d=iad1.rp.oracleemaildelivery.com;dmarc=pass action=none
+ header.from=oracle.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ iad.rp.oal.oracle.com discourages use of 147.154.18.20 as permitted sender)
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com
+ (147.154.18.20) by SA2PEPF00003AE9.mail.protection.outlook.com (10.167.248.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.7 via Frontend
+ Transport; Wed, 26 Nov 2025 21:24:05 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5AQJ1Gfk022448
+	for <wonyong.lee@ORACLE.COM>; Wed, 26 Nov 2025 21:24:04 GMT
+Authentication-Results-Original: Oracle OCI internal-mail-router;	dkim=pass
+ header.s=oal-iad-20210719 header.d=oracle.com;	dkim=pass
+ header.s=prod-iad-20200707 header.d=iad1.rp.oracleemaildelivery.com;
+	spf=softfail
+ smtp.mailfrom=bounces+wonyong.lee=ORACLE.COM@iad.rp.oal.oracle.com;
+	dmarc=pass header.from=oracle.com
+Received: from mx0b-00069f01.pphosted.com (mx0b-00069f01.pphosted.com [205.220.177.26])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4ak3mnje52-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK)
+	for <wonyong.lee@ORACLE.COM>; Wed, 26 Nov 2025 21:24:04 +0000
+Received: from pps.filterd (m0246576.ppops.net [127.0.0.1])
+	by mx0b-00069f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AQLGiEg2629270
+	for <wonyong.lee@ORACLE.COM>; Wed, 26 Nov 2025 21:24:04 GMT
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=bounces+wonyong.lee=ORACLE.COM@iad.rp.oal.oracle.com;	dkim=pass
+ header.s=oal-iad-20210719 header.d=oracle.com;	dkim=pass
+ header.s=prod-iad-20200707 header.d=iad1.rp.oracleemaildelivery.com;
+	dmarc=pass header.from=oracle.com
+Received: from adg154cb32.iad1.oracleemaildelivery.com (adg154cb32.iad1.oracleemaildelivery.com [147.154.32.32])
+	by mx0b-00069f01.pphosted.com (PPS) with ESMTPS id 4ap9ax82q5-13
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO)
+	for <wonyong.lee@ORACLE.COM>; Wed, 26 Nov 2025 21:24:03 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=oal-iad-20210719;
+ d=oracle.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=irByDeF1hS9ISupHEFwo4xlf7McYVE/Nlc1r/JijxJc=;
+ b=LTFHjx0MOCTbc6pdShtN0vgYpaW/yj5pm/iZC7p2poG3Iy0mG0shysuR5fy9GN4NZTTG6yknePSx
+   5vKyS8o4DZiGxMQyOLzPaNTMEVFIEXlVNmHdkgeN6nZOTeVBN64EuAn8K0HiplUJ09mqxzjcPL2v
+   zMLY9azW3SwOBK1n0Wy+3dsyu28NryBLAMvN4k8Sn/22Lqakdlh9TiQrEnK8gB0UMU9Ydu2GVpXc
+   dIA29JMokzlxww1pI5s4wjmI79DlLvO6LLQ8QVk3/AcaQf5kdBDeNFuOxms+XCMGONCYR6TLfASu
+   gJRtRkf5Di41X5JmoMCA7A17rQdf6BAFY4jehA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-iad-20200707;
+ d=iad1.rp.oracleemaildelivery.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=irByDeF1hS9ISupHEFwo4xlf7McYVE/Nlc1r/JijxJc=;
+ b=j/BwFn4wAYYuoHW8wMbWvDeiBXEaLH/NiXl1onSwsbD0NptZ4Cz5hMsSzOInDPDUsxcJ49ysddVc
+   EVUTAwyykXABZnUJtqvoFE5k+h+iq1P+BsBOoxBz0WACBPvG6oPTxmpEwZ8yhFXu9J3OqJE+ul2v
+   ItGdv8Fen5KL3PBampvIyWiXX4twVKt6RnPItWUqtZO8Kni/yfqD/V/yB9Ui/iX3G38QXJlhdFqT
+   beUkyPhLrCK8ZsSDPLv6dIGgqOQfRRyZ/hCPAqmF194q/1yV8RJeou50ZMG9kynDr1jYQYcdjSH1
+   X2oE1fsPeY98v1vugvWcmfOdAoK8kbjEpyB1ug==
+Received: by omta-ad2-fd3-202-us-ashburn-1.omtaad2.vcndpiad.oraclevcn.com
+ (Oracle Communications Messaging Server 8.1.0.1.20251014 64bit (built Oct 14
+ 2025))
+ with ESMTPS id <0T6C00RR1RFYCTB0@omta-ad2-fd3-202-us-ashburn-1.omtaad2.vcndpiad.oraclevcn.com> for
+ wonyong.lee@ORACLE.COM; Wed, 26 Nov 2025 21:23:58 +0000 (GMT)
+List-Unsubscribe: <https://cell0.track.email.us-ashburn-1.oci.oraclecloud.com/20221014/track/unsubscribe?V=13&H=AAEoZnrTtZQYXlu6xY-b1osoXjBhts0LCHYqibLd9B6socDhczElLD68o3CJ3n0NtvbNHCBwexLdO-z0-2ZthWue4sFrPNoIjHEMWkbclUaJie_kMzDrt0f2ONf1q1w1ZFCCXH6TCWudg0F3CvgbH6CLf1D0LAmbL6nQnpzjruGo8y0tKjhZh4ytvF2ahhdMSxyXZt91q9KCWR8FnhjPu2Xvq-aWEkcWwp0YOgpQ5dydkh71VKhcz5x0fAgrp-0NDRkR-qvxrUm280ztblFQFtBO_HUmEcGakdylA8MhAXAehQE7-P8Xzp8bEgrWFNhRP-ZCnxSg3QaNN6IzBds4ADatDoT_gkkPeS2HjcNKSB_ICA4V135qr3SznjZ1ZvjSNR4FMiybtRMz9VCvHFtmouqS>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Date: Wed, 26 Nov 2025 21:23:58 +0000 (GMT)
+From: CPT Notification <no_reply@oracle.com>
+To: wonyong.lee@ORACLE.COM
+Message-id: <625255413.22906.1764192238516@erpwlsgxpap-wls-9.dpapp1.oal.oraclevcn.com>
+Subject: FY26 Sales Compensation Plan
+Content-Type: multipart/mixed;
+	boundary="----=_Part_22905_382845717.1764192238515"
+Reporting-Meta: AAFUEqBPwPplOcoaIkBMCNoZ+x5Hanzw2nIP/ex8cs0shZI+arSulcADpr/hXVfv
+ 0bve1/vMIEim2sJR/qaPlLYHJrSRFv7dO2NqXL8iH/qffY7myeB/bJSuDmWBYugn
+ rlxjoBSmmO9JEhqvLvhWH13c+MKGIwkt5CH6DQinBEmTFeDljSBV9G/dRxpUQLWn
+ LSFudh7GKQJpAaI86BRvmcIuG/g1kuCqMvimyaI0C8d7gnKjv0zn4B5O6TnCRmBD
+ dZXduPJmdeLkcIDOd2tcqLUnw6VOX6L2zpeziYNtxaLR0rdZ7HlXD3BuqorQl9NT
+ PBAJWC1obGtJxCWClbbpNz/cxF0370AUfDqTRd22Iqv6yOsBO08K3orCeltR2tIw
+ RUOId8fCzhTkhuSNzc2WDzAOW+Jw9QAriEMm9GXDcu+jJJBqj+1EWIU8f63W9keM
+ MFFBN6rqw5S4fAJxQvJVFWxKdlMrejLI20czK+4urPBTwyW6YQ4Kxgu6iMzofUp/
+ zttEduKJXCi5HcgWKIwbGQMyPFqvuaS2cRwcYp2jzo6iIX/dKH9qWwTFBCf+WdjE
+ NsyBgoZH3kMQ4Q==
+X-Authority-Analysis: v=2.4 cv=WcIBqkhX c=1 sm=1 tr=0 ts=69276ff3 b=1 cx=c_pps
+ a=uExae32tTBnUEL4qd0Mj4g==:117 a=uExae32tTBnUEL4qd0Mj4g==:17
+ a=RRWKuz47z/eHbRJRju2EVjcL/TA=:19 a=6UeiqGixMTsA:10 a=WbTitQVK7YcA:10
+ a=5_UT1-2TBkgA:10 a=g8TUdU_LZmEA:10 a=Kan8h273Bse8B8Jy5C1n:22
+ a=yPCof4ZbAAAA:8 a=7M2g_qKbAAAA:8 a=SSmOFEACAAAA:8 a=Juc7IyixBO9CpnMB1coA:9
+ a=Yd6gFZo7kDhhv4tx:21 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10 a=QEXdDO2ut3YA:10
+ cc=ntf
+X-CLX-Shades: MLX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI2MDE3MiBTYWx0ZWRfX8CoNiF7h1Bs9
+ uavkDr3w6vyQzL79laS3wt3GX1kg+2CD+y9ynvWG6Nuz4OZC61LM1wonTEA4vkWv3KNN48f/lm9
+ cHRifNSiZx+98hv+tx+AaZKNVRzXFImneEwmENQ6TF6qtetMN0pZb048Yc1rJEr3wcBFYaF84Nn
+ pbh8dKPIZR/BuQGDpDExm4prAq7VWjGTcMTFjbWj1vXV6ZyFRsF5dVJhd0nIjhN0oyWRG77+Coj
+ 6QuZgMWqSoslgTdk4sHBKe9D0KSBZP3RGG8ljwJ1r8YxxaQ/1agLXdEKm/7clfNY4ecq44YnbaE
+ yQwvy4sutxY6txFQZFMyazzW+f1ZYKxALcg90DvxtV7U+PsKEWYPqbD/gTD/hQG8GJTsHL/EyLG
+ rfZLJTqhrRFU63cOzfKD/zGu+qfKt0x1iWzNHsV04M/dgZ84FwpG0+BQp0gG8O8Gd3TXzPLi8AX
+ QOl4pVUAgw8IK1LukoY8sbjxtvCzhnEvRXv7rLP0=
+X-Proofpoint-GUID: vUzv_oXX1ZhxPjKj1YmesYnDcptj8w39
+X-Proofpoint-ORIG-GUID: vUzv_oXX1ZhxPjKj1YmesYnDcptj8w39
+X-CLX-Response: 1TFkXGRkfEQpMehcYEx0RCllEF2FNQB5TGHxlfWdLEQpYWBdub2NtXXtsGGl
+ jQhEKeE4XYHhEW0FZE29BHFIRCnlMF2EbeENrTkQdZlxaEQpDSBcHGBgfEQpDWRcHGBMYEQpDSR
+ caBBoaGhEKWU0XZ2ZyEQpZSRcacRoQGncGGRsfcRsZEx0QGncGGBoGGhEKWV4XbGx5EQpJRhdFW
+ EtJRk91Q0RIRV9ETnVCRVleT04RCklHF3hPTREKQ04XXH9QXHVFcnIbcEJSekBhQBtzR09Zc0Ru
+ SVpeQBJdGRMRClhcFx8EGgQeGxoFGxoEGxsaBBsZHgQZHhAbHhofGhEKXlkXTXJ4eWURCk1cFxw
+ SGxEKTFoXaWhtTU1dEQpMRhdva2tra2sRCkJPF2dsH3pHHW55UhNcEQpDWhcbHh0EGx8eBBkYBB
+ kYEQpCXhcbEQpCRhdiU35jcFlERxJ7HxEKQkcXaEZ9BUdSEkxbHmsRCkJcFxsRCl5OFxsRCkJLF
+ 2B4RFtBWRNvQRxSEQpCSRdgeERbQVkTb0EcUhEKQkUXbGNaSGJuaxp8Y0ARCkJOF2B4RFtBWRNv
+ QRxSEQpCTBdub2NtXXtsGGljQhEKQmwXbEtnUllhfGZgZRkRCkJAF2UcTBJSaEl+YnwSEQpCWBd
+ kZm1DYExSGRNgQxEKWlgXHxEKeUMXaxxiXXN4E2xCRVgRCllLFxsZHxoSEQpwaBdtE1xwE2hPSx
+ lJHxAaEQpwaBdsWWlyQxwaT29HGxAaEQpwaBdiRG1OXmhbG3x5WxAaEQpwaBdubXJdbnNlYEFfT
+ xAaEQpwaBdvHRlFBWZ4SUV4ehAaEQpwaBdlH1p6HE9CBUllYhAaEQpwaBdsbRJDX2VSYFBPZxAa
+ EQpwaBduY2R8RXpHfh99bxAaEQpwfRdka28fGkhMYVJNUhAaEQpwfRdgehxDWUd4RB98QhAaEQp
+ wfRdpSEsbGRNmYhgeZxAaEQpwfxdmaURNWn4SSFNnTBAbGRMRCnBfF2xSZUlMcGBEf1paEBoRCn
+ B/F2N+clkYb2t7TVx9EBsYGREKcF8XYl1HWER8UBhHYk8QBxkaEQpwXxdsUm1BaG0afmJ9UhAaE
+ QpwbBdicExhbF1BfHhwWBAaEQptfhcaEQpYTRdLESA=
+X-Proofpoint-SPF-Result: pass
+X-Proofpoint-SPF-Record: v=spf1 include:rp.oracleemaildelivery.com ~all
+X-Source-IP: 147.154.32.32
+X-ServerName: adg154cb32.iad1.oracleemaildelivery.com
+X-Proofpoint-Virus-Version: vendor=nai engine=6800 definitions=11625
+ signatures=596818
+X-Proofpoint-Spam-Details: rule=low_priority_poc_notspam
+ policy=low_priority_poc score=5 suspectscore=5 bulkscore=5 impostorscore=0
+ malwarescore=0 spamscore=0 phishscore=0 priorityscore=297 adultscore=0
+ lowpriorityscore=0 clxscore=335 classifier=typeunknown authscore=0 authtc=
+ authcc=notification route=inbound adjust=0 reason=forced scancount=1
+ engine=8.22.0-2510240001 definitions=main-2511260172 domainage_hfrom=13508
+X-Spam: Clean
+Return-Path: bounces+wonyong.lee=ORACLE.COM@iad.rp.oal.oracle.com
+X-MS-Exchange-Organization-ExpirationStartTime: 26 Nov 2025 21:24:05.6716
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: dd8cfa12-53f2-4da9-853a-08de2d3220e5
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[147.154.32.32];domain=adg154cb32.iad1.oracleemaildelivery.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE9:EE_|SA2PR10MB4553:EE_|PH8PR10MB6358:EE_
+X-MS-Exchange-Organization-AuthSource: SA2PEPF00003AE9.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: oracle.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: dd8cfa12-53f2-4da9-853a-08de2d3220e5
+X-Oracle-Tenancy: 1
+X-MS-Exchange-Organization-SCL: -1
+X-Oracle-IMR: IMR Trust
+X-Microsoft-Antispam: BCL:2;ARA:13230040|3092899012|12012899012|3072899012|2092899012|5062899012|4022899009|82310400026|8096899003|13003099007;
+X-Forefront-Antispam-Report: CIP:147.154.18.20;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:CAL;SFV:NSPM;H:iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com;PTR:iadpaimrmta02.appoci.oracle.com;CAT:NONE;SFS:(13230040)(3092899012)(12012899012)(3072899012)(2092899012)(5062899012)(4022899009)(82310400026)(8096899003)(13003099007);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 21:24:05.4924
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd8cfa12-53f2-4da9-853a-08de2d3220e5
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=4e2c6054-71cb-48f1-bd6c-3a9705aca71b;Ip=[147.154.18.20];Helo=[iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE9.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4553
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8953160
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9343.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?ck9vZEkzem9vZjl3SG84bmxlSm5teWpQVUpDOGxKd01aZHdJdlEvd3BhWUxj?=
+ =?utf-8?B?NyszTU1md2c5akRQRnJpZVJVNjVoYzJvdjByclU1MkdrYm03Ymt1aGtVV1FX?=
+ =?utf-8?B?eEtLYnlQUXhHbTJKRTdESGE5dHRHUDFVWWpZcGJCUXdQc1BOK3hEWWJrdzJV?=
+ =?utf-8?B?UmxmRTJ6aHFCZ1cwK3p4ZU9tMmdTOWs0bmhGamFZMklUaEJaMjZGRE9QcVBO?=
+ =?utf-8?B?ZXN5dnlkdXhpZVcwZGVTZHM3YUQ4c1NZVVNXQTBzSU1rSWw3S0Rtd2kwZWVz?=
+ =?utf-8?B?eE1SM2NOeXl0TytBOUw3emlZWnJHZ21KTitCTmFlVXZZVk1XeUdLZTNiU2Rj?=
+ =?utf-8?B?VDhTcFYrVy9RdnVFMjlwZ0hMWDRuT3dLM2N4bDVnMHpKT0l4K0dsbktNK2l5?=
+ =?utf-8?B?VmRqSjdDeTE5SXNuVG1VU1VKeUlxTHJTS2NLTmgzajJXU0FFamY3YXFzUGVF?=
+ =?utf-8?B?cDg4cm92aS9mSFBpYjVjVGU4SjExQ1QzWVh3T3RMc2paVURIeXNrRE5FelRU?=
+ =?utf-8?B?R3lPTVhBNjFaMFhMMzlVZnZ0RkxaVThXODIzMFZiY3N5bUlxR2l5VzlRRlE0?=
+ =?utf-8?B?djF3cVRCa053Y01JTHdTZVJRdi9Wbko3cHJlN1R4dlY2cjJvK1dTbFkyNXp5?=
+ =?utf-8?B?RjJIWnVtSUhuY3o2L2hRa3BpQlZ5b0lQSThXc2Fxa3E4UXI4T2ZZQmNjeFFh?=
+ =?utf-8?B?bTFJdkRLYzFMS2FPUmJtZ2EwN2szOE8yWlpYNzYyYjMyQ3o4RFlNaXlYTmc2?=
+ =?utf-8?B?ODRzMVdJVEowd1dYQnRidG1FRnUwUXBlaDgvTXpBd3J5elRGWEtOamVOTVBI?=
+ =?utf-8?B?S3pmbFAyc2g0MFd1K3VXVmdPZ1ZIY083bHA0aXdsdnZVSWVNOGx6dHhKWGgx?=
+ =?utf-8?B?R0pIT1phOUtRQ2FmUGpEcDF3ZDBzblQxOWEwL2xRbC9Oa3ltSXRXb25lQ0E5?=
+ =?utf-8?B?c3dvUU54RS9OZWtQZ3I1YUtRMEZtRDhSOG0zWFBVVWFGa3dhVkNwQzA5UFhx?=
+ =?utf-8?B?ZmtTeUZVQ3hwN3IvaU1saEtObW9randSeitUZmFITjVqNTRqeXI5OWx1bjhW?=
+ =?utf-8?B?dEIvYXB5NVRGRlRzUGhHTjVxYzVQMlhmUGljbFFtendPR3h1UGVaSVJmdkl1?=
+ =?utf-8?B?aU14RkF2cW9CZ3FlMUlBUjA3LzBEL24vcnZXWllnK2JpVjFXVnkwS0QrQ2hq?=
+ =?utf-8?B?a3BPc0ZYNDVsS0xrVDg2Sy93V0YyRWhtemJFWk1tZURxTDFWU25MNnhjRHV1?=
+ =?utf-8?B?S3FrOHNjeXEvZ2ZqWUtlK1ZhdXBLMHd3NVYrbmI4SE81Z1cva1NBQ1grd3ov?=
+ =?utf-8?B?a0FEUG1kVjVwYUEvWHhWckVjVHlhUkhlNDFJVGFIQkNEeWpuVlRRbjhXUmlK?=
+ =?utf-8?B?ME45cEUwQnlINnYvcFhoclBzK0tZQWdjWUFxMTBEY0dmdERaTSs3eHVzMS82?=
+ =?utf-8?B?UFZsY3NsN0xzdG02cGhSQzFTWGlSZmNKU2RXY0JFT05Ibmd6eVdPUWQxVFha?=
+ =?utf-8?B?aTVERjRqaG9YWkNMelpKajB4czBxdWRrZGZaTXduNnd3N0RRWGNnb2VqRHA2?=
+ =?utf-8?B?K1lkQVRSeWN3ZG1sVlo1M29OdlZZL2lhSlZTNlVMUUVxL0hSU2lCeDljcWtT?=
+ =?utf-8?B?WWd3K05EWGMxZ2lSbDZhcUVLRGRJb2R4VUhWOHgwUjJQcCthd3RzVTFmKzVi?=
+ =?utf-8?B?eHdwK1RSVzJnd2svUWRrRk50WnNobnlPTnNVL2EyTXVQSjZubzhZbGxNMWg4?=
+ =?utf-8?B?OEVuc3hvK29LSzd0ODJFN1U0MDQ4dzVMTVZscXVuenJTUXN1VHU3NXZweHBm?=
+ =?utf-8?B?My9XQlpKcXNndEsyZ1BMM0RiOXJnWjM5TlFNL3FTRWNNQmdYQjlOWm9RT0NY?=
+ =?utf-8?B?bS9WQ3dHWHF1RERmL0ZzWUNCVjNBVUgwUmlFZ1RidVQ0UndEVDlVQ1FHZWdW?=
+ =?utf-8?B?M2hMTHZHSFFOL0hCUEJyZUM5SnhHai9aS1JXRmV4NUNuYVFBV1laV3pjY3Ba?=
+ =?utf-8?B?VXc5RUg2eFpDUFphNXJCcFZMTjZRQTZLWWVXeEVVTmF2bzNZclpDRi9zWjB4?=
+ =?utf-8?B?U3ZRSEhHLytJemVYSzJtZ2xWME9BRFFEeXZaa1JjRTNFNmVsSVdySG5ON0w0?=
+ =?utf-8?B?dzQzRGxLdFdIWENGYk5jZ2QxZC9RRmNDeTFSSS9adjZsenYvYmc5SGRLaWsy?=
+ =?utf-8?B?TFh1UzMwWExFR05hN2pIc0YxWWJjb2NNeURrSXJ2UC9EOU5mSXVUY2FaWVN3?=
+ =?utf-8?B?WWkxT1pJTEdhY3Y1R3JVRTJ0NHovNjRsWFB5cUFGS0IrUWdMb0I3eUZSd1V0?=
+ =?utf-8?B?a3dTR2F3NjdBdEdjK3NDaFE1ZDJ4d3crOWE3Ym4wWnNGYVBndjNCdXUxa2tP?=
+ =?utf-8?B?dUlVOC9Qem43S3ZkUjNNMXpUbzZ0Y0lFUStxcVhBQXB3Z24waUtqM3dJeWxU?=
+ =?utf-8?B?U0czd0hnS2NGbWpETWxFYXA5K00rUEZKUzhoM3FsN1cwWkhzdXRjaUdpWHY2?=
+ =?utf-8?B?aFdKR051NFdjZVB6MEVkR1BqK0tVRGVBOXk1a2dURHNwbnMvMmlRQ0VRaXdn?=
+ =?utf-8?B?S0VncjBnY05qTlppYXpMZHFucUNZRXM5bzQ5TTlyZjQyOWZWTnFMS2hnSVI4?=
+ =?utf-8?B?TENyalNlUElJQ3czakJqb2p2TkRVQmU2cVR4R1ZNMzI1YURiQnIvTkEyZ2hI?=
+ =?utf-8?B?UnN5OFlzeENSQVVyMzlmMnZQODlkSFNnZWIwRkRpeWVzZWUzOXJBZSs0NkhT?=
+ =?utf-8?B?YzczQk1FT0JkOUR6VW1acjJIMzd2bGpaYXRJV2d3NzFZdEkrNmxLUTMrRWZV?=
+ =?utf-8?B?UGUzNlE0ek9nbnpFYWY4SDdyUWJxMldGV1NoaUdKMGVONTNwOUFtYkZ2VmU4?=
+ =?utf-8?B?Nkprck5GR3hKcjZlRnpJcGc3bUpScGhmOWNLQUxEaTBEVVNYOXE5dm41K0w5?=
+ =?utf-8?B?ZncrTkpLMXFwMHljT1EzNGlRU1MyUURscTFrRU50UUtvaGVKb1U3cE9ZaUNY?=
+ =?utf-8?B?dUVaU3VLQVdETUlweDhDMkdkR3p5U0kvVHpieFdWMnhhWE12czhMYlNjWlNk?=
+ =?utf-8?B?cVIxZGRxZ0pCN1N3PT0=?=
+MIME-Version: 1.0
+
+------=_Part_22905_382845717.1764192238515
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+<html><?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Generated by Oracle BI Publisher 12.2.1.0.0 -->
+<head>
+
+<title>RTF Template</title>
+<style type="text/css" id="internalStyle">
+.c0 {line-height: 10.404pt;margin-top: 0.0pt;margin-bottom: 0.0pt;margin-left: 6.0pt;margin-right: 6.0pt;}
+.c1 {font-family: 'Oracle Sans';font-size: 9.0pt;color: #000000;}
+.c2 {margin-top: 0.0pt;margin-bottom: 0.0pt;margin-left: 6.0pt;margin-right: 6.0pt;}
+.c3 {font-family: 'Oracle Sans';font-size: 9.0pt;color: #0000ff;text-decoration: underline;}
+.c4 {margin-top: 0.0pt;margin-bottom: 0.0pt;}
+.c5 {line-height: 10.404pt;margin-top: 0.0pt;margin-bottom: 0.0pt;}
+.c6 {margin-top: 0.0pt;margin-bottom: 0.0pt;margin-left: 78.0pt;margin-right: 6.0pt;}
+.c7 {line-height: 11.227pt;margin-top: 0.0pt;margin-bottom: 8.0pt;margin-left: 6.0pt;margin-right: 6.0pt;}
+</style>
+</head>
+<body>
+<p class="c0"><span class="c1"><b>Sales Rep Workflow Notifications - English Version for Plan Acceptance</b></span></p>
+<p class="c2"><br></p>
+<p class="c0"><span class="c1">Hi </span><span class="c1"><b>,</b></span></p>
+<p class="c2"><br></p>
+<p class="c0"><span class="c1">Your new Individual Compensation Agreement and accompanying Terms and Conditions are ready for your review and acceptance! If you have any questions, please visit the Sales Compensation Portal or reach out to your manager. And please, make sure to review and accept your Individual Compensation Agreement (ICA) within one week of receipt of this email to ensure you don't experience delays or nonpayment of commission or bonuses. </span></p>
+<p class="c2"><br></p>
+<p class="c0"><span class="c1">To begin, please log in to the </span><a href="https://salescomp.oracle.com/"><span class="c3">Sales Compensation Portal</span></a><span class="c1">, then take the following actions:</span></p>
+<p class="c2"><br></p>
+<ol class="c4">
+<li><p class="c5"><span class="c1">Click 'Review Plan' in the banner at the top of the homepage. </span></p>
+</li>
+<li><p class="c5"><span class="c1">Read and acknowledge the Terms and Conditions associated with your ICA by selecting the check box next to 'I have reviewed the Terms and Conditions'. Then click 'Continue' at the bottom of the document. </span></p>
+</li>
+<li><p class="c5"><span class="c1">Please review your ICA when it appears on your screen. Following review of your ICA, please take one of the below actions:</span></p>
+</li>
+<li><p class="c5"><span class="c1">To accept, select the check the boxes next to 'I have reviewed the Individualized Compensation Agreement' and 'I have reviewed and accept my Compensation Plan.' Then click 'Accept Plan &amp; Finish'</span></p>
+</li>
+<li><p class="c5"><span class="c1">If you believe there is an error, please contact your manager before progressing or clicking anything on this screen.</span></p>
+</li>
+</ol><p class="c6"><br></p>
+<p class="c0"><span class="c1">Note: The currency displayed is the currency in which you will be compensated. If you sell exclusively into a country other than where you reside, your compensation currency will be issued from the country you are selling into (not the country in which you reside).</span></p>
+<p class="c2"><br></p>
+<p class="c0"><span class="c1">Once you have accepted the Plan, you will see that its status will change to &quot;Accepted.&quot; This can be verified by clicking the &quot;My Comp Plan&quot; button on the homepage of the Sales Compensation Portal. </span></p>
+<p class="c2"><br></p>
+<p class="c0"><span class="c1">Training is available for this Plan acceptance process in </span><a href="https://eeho.fa.us2.oraclecloud.com/hcmUI/faces/FuseWelcome?_afrLoop=19280794777265993&amp;_afrWindowMode=0&amp;_afrWindowId=null&amp;_adf.ctrl-state=b7s6n9oym_1&amp;_afrFS=16&amp;_afrMT=screen&amp;_afrMFW=1440&amp;_afrMFH=757&amp;_afrMFDW=1440&amp;_afrMFDH=900&amp;_afrMFC=8&amp;_afrMFCI=0&amp;_afrMFM=0&amp;_afrMFR=96&amp;_afrMFG=0&amp;_afrMFS=0&amp;_afrMFO=0"><span class="c3">Oracle Learning</span></a><span class="c1"> by searching &quot;Sales Compensation&quot;.</span></p>
+<p class="c2"><br></p>
+<p class="c7"><span class="c1"><b>If you have a sales territory in FY26, it has been created and is awaiting your acknowledgement.&nbsp; Please navigate to </b></span><a href="https://fusioncrm.oracle.com/homePage"><span class="c3">https://fusioncrm.oracle.com/homePage</span></a><span class="c1"> </span><span class="c1"><b>and select FY26 Territory acknowledgement</b></span><span class="c1">.</span><a name="page-total-master0" id="page-total-master0"></a><a name="page-total" id="page-total"></a></p>
+</body>
+</html>
+<br><br></html>
+------=_Part_22905_382845717.1764192238515--

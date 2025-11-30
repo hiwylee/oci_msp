@@ -1,0 +1,684 @@
+Received: from SA3PR10MB7022.namprd10.prod.outlook.com (2603:10b6:806:317::21)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Thu, 21 Aug 2025
+ 07:19:13 +0000
+Received: from DM6PR13CA0022.namprd13.prod.outlook.com (2603:10b6:5:bc::35) by
+ SA3PR10MB7022.namprd10.prod.outlook.com (2603:10b6:806:317::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Thu, 21 Aug
+ 2025 07:19:12 +0000
+Received: from DS3PEPF0000C381.namprd04.prod.outlook.com
+ (2603:10b6:5:bc:cafe::8e) by DM6PR13CA0022.outlook.office365.com
+ (2603:10b6:5:bc::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9073.9 via Frontend Transport; Thu,
+ 21 Aug 2025 07:19:11 +0000
+Authentication-Results: spf=softfail (sender IP is 147.154.18.20)
+ smtp.mailfrom=poscodx.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=poscodx.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ poscodx.com discourages use of 147.154.18.20 as permitted sender)
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com
+ (147.154.18.20) by DS3PEPF0000C381.mail.protection.outlook.com (10.167.23.11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.8 via Frontend
+ Transport; Thu, 21 Aug 2025 07:19:11 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57L6Q1Tt030314;
+	Thu, 21 Aug 2025 07:19:10 GMT
+Authentication-Results-Original: Oracle OCI internal-mail-router;	spf=softfail
+ smtp.mailfrom=hyejin@poscodx.com;	dmarc=none
+Received: from mx0b-00069f01.pphosted.com (mx0b-00069f01.pphosted.com [205.220.177.26])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48my3v1a71-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 21 Aug 2025 07:19:10 +0000
+Received: from pps.filterd (m0246576.ppops.net [127.0.0.1])
+	by mx0b-00069f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57L738Cr006300;
+	Thu, 21 Aug 2025 07:19:09 GMT
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=hyejin@poscodx.com;	dmarc=none
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0b-00069f01.pphosted.com (PPS) with ESMTPS id 48nxqk85qg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 21 Aug 2025 07:19:09 +0000 (GMT)
+Received: from m0246576.ppops.net (m0246576.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 57L7CI5w000348;
+	Thu, 21 Aug 2025 07:19:08 GMT
+Received: from mail1.antispam.posco.net (mail1.antispam.posco.net [116.123.216.76])
+	by mx0b-00069f01.pphosted.com (PPS) with ESMTPS id 48nxqk85pc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 21 Aug 2025 07:19:07 +0000 (GMT)
+Received: from 10.132.70.62 ([10.132.70.62])
+          by antispam.posco.net with ESMTP id Mail-mel2m17n-default-132384;
+          Thu, 21 Aug 2025 16:18:59 +0900 (KST)
+X-CR-SMTP-Result: protocol=PLAIN;
+                  smtp.mailfrom=hyejin@poscodx.com
+Sensitivity:
+X-MIMETrack: =?UTF-8?B?TUlNRS1DRCBieSBodHRwIG9uIFBDRk1BNDEvcG9zY29uZXQoUmVsZWFzZQ==?=
+ =?UTF-8?B?IDkuMC4xTElOVVg2NEhGMSB8IEphbnVhcnkgMiwgMjAyNSkgYXQgMjAyNS0=?=
+ =?UTF-8?B?MDgtMjEg7Jik7ZuEIDA0OjE4OjI0?=,
+	=?UTF-8?B?TUlNRS1DRCBjb21wbGV0ZSBhdCAyMDI1LTA4LTIxIOyYpO2bhCAwNDoxODo=?=
+ =?UTF-8?B?MjQ=?=,
+	=?UTF-8?B?SXRlbWl6ZSBieSBodHRwIG9uIFBDRk1BNDEvcG9zY29uZXQoUmVsZWFzZQ==?=
+ =?UTF-8?B?IDkuMC4xTElOVVg2NEhGMSB8IEphbnVhcnkgMiwgMjAyNSkgYXQgMjAyNS0=?=
+ =?UTF-8?B?MDgtMjEg7Jik7ZuEIDA0OjE4OjI0?=,
+	=?UTF-8?B?SXRlbWl6ZSBieSBSb3V0ZXIgb24gUENGTUE0MS9wb3Njb25ldChSZWxlYXNl?=
+ =?UTF-8?B?IDkuMC4xTElOVVg2NEhGMSB8IEphbnVhcnkgMiwgMjAyNSkgYXQgMjAyNS0=?=
+ =?UTF-8?B?MDgtMjEg7Jik7ZuEIDA0OjE4OjU4?=,
+	=?UTF-8?B?U2VyaWFsaXplIGJ5IFJvdXRlciBvbiBQQ0ZNQTQxL3Bvc2NvbmV0KA==?=
+ =?UTF-8?B?UmVsZWFzZSA5LjAuMUxJTlVYNjRIRjEgfCBKYW51YXJ5IDIsIDIwMjUpIGF0?=
+ =?UTF-8?B?IDIwMjUtMDgtMjEg7Jik7ZuEIDA0OjE4OjU5?=
+Auto-Submitted: auto-generated
+Message-ID: <OFA3E9B949.3B6C6D25-ON49258CED.00282384-49258CED.00282386@posco.net>
+Date: Thu, 21 Aug 2025 16:18:59 +0900
+To: <taebum.kim@oracle.com>, <joonmin.chang@oracle.com>
+CC: =?UTF-8?B?67CV7Zi47JWI?= <hopark@poscodx.com>, <hyungjoo.lim@oracle.com>,
+	<wonyong.lee@oracle.com>, <jonghyeon.hong@oracle.com>,
+	<joohan.kim@oracle.com>, <kwangsik.jeong@oracle.com>,
+	=?UTF-8?B?7Ja07Jyg7ISg?= <yuson.ur@poscodx.com>, =?UTF-8?B?7KGw7J2A7IiZ?=
+	<choes@poscodx.com>, =?UTF-8?B?7Iah7JiB7Jqw?= <youngwoo.song@poscodx.com>,
+	=?UTF-8?B?7Iah7KeE7ISt?= <jinsubsong@poscodx.com>, =?UTF-8?B?7KeE67OR7KCV?=
+	<jbjin@poscodx.com>, =?UTF-8?B?7ZWc7IOB7KCV?= <sj.han@poscodx.com>
+From: "=?UTF-8?B?7KCE7Zic7KeE?=" <hyejin@poscodx.com>
+Content-Type: multipart/mixed;
+	boundary="=NextPart_572E5366545716C549258CED00283062="
+X-SB-ORIGIN-REMOTE-IP: 10.132.70.62
+X-SB-COUNTRYCODE: --
+X-SB-SMTP-ALLOWD: 1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIxMDA1MyBTYWx0ZWRfX3THeZrUsPzO6
+ f0/+HIQHAgf1maU3ULlSfOibtvHfFXSBC4gwbgHosMgFJS0Pd2t4LUAQ9ciMUCzYHlSkxgqkwur
+ cRbgIfSjxXBct9vN4x7CWKbB3qYJKbm3585ydWTTKGf/n8dw5fQQjnQZbzjmA1VBtSELebI8qMx
+ ycFBAhHiiPRQZnlq1VhzGrxGmwwEqV4zHP1PhaXpo21n4tZVl/GEDiPKd5aGGV9hpkT9DYvTknF
+ zcdRIf5H7QQfFacSZ4TnTFpA6c5KkwjibB+vJQhFQnOzkfq1/NDc17hnAB621rzvvythgbruz6B
+ G2hgiPiBy5HNszF6Y7W0AzDQa2P2Ls/x7VXCXMJ/T1wppIV5SmfiedoBKTnhZZtwHyIZ4exzx5T
+ KPzyzsahNRhWqzMaL32lp5ZYdm+YOiMAEyKjpSzXb3WQh3meIxcLKnEqeYQzsyh7QLQsEcx1
+X-Proofpoint-GUID: aOZI3WEPH1YbFGhGGI0PPz-PTaz18omH
+X-Authority-Analysis: v=2.4 cv=J+3zLAnS c=1 sm=1 tr=0 ts=68a6c86c cx=c_pps
+ a=IOUTth9lNH+nwY60mc/yhQ==:117 a=IOUTth9lNH+nwY60mc/yhQ==:17
+ a=2OwXVqhp2XgA:10 a=5KLPUuaC_9wA:10 a=M51BFTxLslgA:10 a=yPCof4ZbAAAA:8
+ a=FbXH1WpKAAAA:8 a=QOMDB9PIFDYIL12PUZ4A:9 a=FBr5bgpwS_fm0od0:21
+ a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10 a=lqcHg5cX4UMA:10 a=PRpDppDLrCsA:10
+ a=QEXdDO2ut3YA:10 a=bpEVODxzLKYInah0gF6w:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+ a=P8gMff4ppgpy92pg1mm4:22
+X-CLX-Response: 1TFkXGBkSEQpMehcaEQpZRBdsQR1weEUSYVBYRREKWFgXenNhRh5jWlluWH8
+ RCnhOF2gTfwFYT1JQTl9PEQp5TBdiaFhoQlhEUxJNYREKQ0gXGxsSEQpDWRcHHxoRCkNJFxoEGh
+ oaEQpZTRdnZnIRCl9ZFx0dGhEKX00Xbk9GQ1xPWBEKWUkXGBoacRIGHB53BhgaGgYaBhoGGxoaB
+ hgaGnEZGhoQGncGGgYaBh0aBhoGGgYacRoQGncGGhEKWV4XaGN5EQpJRhdFWEtJRk91Q0RIRV9E
+ TnVCRVleT04RCklHF3hPTREKQ04XS2VwYxl9b3piG3NIbG1CbW1jGnp6UAd6fktQGxJFR2IRClh
+ cFx8EGgQeGhMFGxoEGxsaBBsZHgQZHxAbHhofGhEKXlkXTBltGmIRCk1cFxkcHREKTFoXaGlNTU
+ IRCkxGF01ra2traxEKQk8XbHtjTk1eBRheZUwRCkNaFxsbHAQbGBkEGBscBB0cEQpCXhcbEQpEW
+ BcdEQpEXhcYEQpESRcbGBEKQkUXbUhMWl5wRB8SGUwRCkJOF2gTfwFYT1JQTl9PEQpCTBd6c2FG
+ HmNaWW5YfxEKQmwXYXNEZXxnewVpRR8RCkJAF2ZrTkF6Xkd9SF1tEQp5QxdgZlxBTUdeTEQcRBE
+ KWUsXExwdEQpwZxdibxttGntmHBtwHhAZGhEKcGgXaExnGk1eQ08BR2UQGRoRCnBoF2NcE2loWW
+ Z/YnIbEBkaEQpwaBd6axp+WF9zHk1kQBAZGhEKcGgXa3BaGWRHf25iQHAQGRoRCnBoF2tbSxNuH
+ h9iHRxpEBkaEQpwaBdleGRzQUgFeUBcARAZGhEKcGgXZAFwAVJac0FTekgQGRoRCnBoF28TGntp
+ RRhtGl1PEBkaEQpwbBdmGBIeG3tHE01BfhAZGhEKbX4XGhEKWE0XSxEg
+X-CLX-Shades: MLX
+X-Proofpoint-ORIG-GUID: aOZI3WEPH1YbFGhGGI0PPz-PTaz18omH
+Subject: =?UTF-8?Q?[External]_:_[=ED=9A=8C=EC=9D=98=EB=A1=9D]_EBS_=EB=8C=80?=
+ =?UTF-8?Q?=EC=83=81_AI_Agent_=EA=B2=80=EC=A6=9D=EC=9D=84_=EC=9C=84=ED=95=9C_?=
+ =?UTF-8?Q?Plan_=EA=B3=B5=EC=9C=A0?=
+Thread-Topic: =?UTF-8?Q?[External]_:_[=ED=9A=8C=EC=9D=98=EB=A1=9D]_EBS_?=
+ =?UTF-8?Q?=EB=8C=80=EC=83=81_AI_Agent_=EA=B2=80=EC=A6=9D=EC=9D=84_=EC=9C=84?=
+ =?UTF-8?Q?=ED=95=9C_Plan_=EA=B3=B5=EC=9C=A0?=
+X-Proofpoint-SPF-Result: pass
+X-Proofpoint-SPF-Record: v=spf1 ip4:116.123.216.76 ip4:116.123.216.87
+ ip4:116.123.216.103 ip4:116.123.216.104 ip4:203.241.0.125 ip4:203.241.0.126
+ include:spf.protection.outlook.com ~all
+X-Source-IP: 116.123.216.76
+X-ServerName: mail1.antispam.posco.net
+X-Proofpoint-Virus-Version: vendor=nai engine=6800 definitions=11528
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=low_priority_poc_notspam
+ policy=low_priority_poc score=0 spamscore=0 malwarescore=0 priorityscore=0
+ suspectscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0 impostorscore=0
+ phishscore=0 clxscore=238 classifier=typeunknown authscore=0 authtc= authcc=
+ route=inbound adjust=0 reason=mlx scancount=2 engine=8.19.0-2508110000
+ definitions=main-2508210053 domainage_hfrom=967
+X-Spam: Clean
+Return-Path: hyejin@poscodx.com
+X-MS-Exchange-Organization-ExpirationStartTime: 21 Aug 2025 07:19:11.4697
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 9fd91f5a-f00e-42b1-6eec-08dde08306ba
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[116.123.216.76];domain=mail1.antispam.posco.net
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C381:EE_|SA3PR10MB7022:EE_|PH8PR10MB6358:EE_
+X-MS-Exchange-Organization-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: oracle.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: 9fd91f5a-f00e-42b1-6eec-08dde08306ba
+X-Oracle-Tenancy: 1
+X-MS-Exchange-Organization-SCL: -1
+X-Oracle-IMR: IMR Trust
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|42112799006|8096899003|7053199007;
+X-Forefront-Antispam-Report: CIP:147.154.18.20;CTRY:US;LANG:ko;SCL:-1;SRV:;IPV:CAL;SFV:NSPM;H:iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com;PTR:iadpaimrmta02.appoci.oracle.com;CAT:NONE;SFS:(13230040)(82310400026)(42112799006)(8096899003)(7053199007);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 07:19:11.2558
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fd91f5a-f00e-42b1-6eec-08dde08306ba
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=4e2c6054-71cb-48f1-bd6c-3a9705aca71b;Ip=[147.154.18.20];Helo=[iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR10MB7022
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1067309
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9052.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(4710137)(4717077)(4999163)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?WjV4KzV6VEQ3UUdQYWhOeFBNS3Q1dnFmSVlLQXl2dkN3WCthd014WGEwOGhq?=
+ =?utf-8?B?SENNZ2dEdFo2U3ZUVlpKdUxpMHR2N2FxRVRndVdGbE5EQ29BaWlWeU5BTEN6?=
+ =?utf-8?B?ODZuVjZFaVZHUVh6M3h2SjVQaS8zOWEwYmdyaHJ2Z1RlSUZLejNVQTVlTVBr?=
+ =?utf-8?B?OTc2NndlVU5ETWtvbDIvNGhmRXcrY3pGVFBlMzFQQnNrS3ZCNnorNHZMSnlt?=
+ =?utf-8?B?WnltSVhDK21kdmZnS3RDYm1aZUQvOXF3S0FRd2pQR0d4QmZKOXVOd0lUejhO?=
+ =?utf-8?B?TjlRR3hqbHNpMU1jSkRhOWtEQ21aYTZjaWNOcUNHOXVlSEpvRi95VDBoY1Bu?=
+ =?utf-8?B?RHlETWFGMWFXMU9oc0dPTDcxSEtRT0dQZTh6M2lnbjk5bENxVEhEakpyVmNT?=
+ =?utf-8?B?TEUvL1BWMGhWbzFKZWlwU3djUDlkVVdueG4zejRxQWRJdkN5NitONXZvZnRX?=
+ =?utf-8?B?TU8vS2VVVVhIaWg2dEJkWHU3Z3dDSWVGbzdEZnBLaFRWUFAxb3h6WWV3QnRM?=
+ =?utf-8?B?OFJ3a3dWYUMrZTNqZmNtWGVjNURrZDE0M055UnV1SzJZQko5bHptMFhnMUh1?=
+ =?utf-8?B?cFEzUjVjakdvRWthUnpOMHBnQS9pMy9RZXNZSWJMZytNU2wwN1Y2aEs4cld1?=
+ =?utf-8?B?NG9VQkVCdk1CRDRUYWNXVGhZQWRXR1Y1bVFGTENtWi9GejErL0JzcDBkRGZY?=
+ =?utf-8?B?T1hERE54ZDY2cE5WNnQ5aTRmYTlibklDRnZlcWV6NTdORWsrS0doZ1p1V21R?=
+ =?utf-8?B?OTdjZnA0UnFGTUVnb1lRRDUyY01LTTk5WUdINmxmMTlXY2ZXNnhIcmh1N3NB?=
+ =?utf-8?B?L3lkWGJkWFI5ZVE2Qkw0NEt5dE5Yb1dwNHZENjNkd0tXWE83U3hHeWQ5bHd0?=
+ =?utf-8?B?a004YXVvd1J5aFUyb3puZlhIZWc2SHE2bmdqUHZyZFY2VEI3Zzh1ZWFzcG9l?=
+ =?utf-8?B?cC81UG1qb2p2ZmMySlgvWWJLa2JRUW9VdnhKeVd4SXlPa01FUGVUQXRsZzI1?=
+ =?utf-8?B?cjhoTEdneDJ1eVR3M285NDZlaGhMV2dJQjl1a1dkZHVsTXhvV1VRa1UwTEFL?=
+ =?utf-8?B?WnFidXllSzRZM1RBZ0hZQnpxTVFNQ2VEYzdYck9NTGJRWEZlSFM3NFRHZTVE?=
+ =?utf-8?B?eXNXS2gwU0ZpTUdOUWJXREcvcDdtMFl0VlQycUhzSGZJaFVqSlVIOTE2NDVp?=
+ =?utf-8?B?RmpsT2tvSUl3NWljRWVrZ0NpL3ZGcHhoU1Z3b05IK3M5WHJLcHZOelYyUDlY?=
+ =?utf-8?B?aUZvLzk0OFNJNTNrUlRkZFk5QVkzL0JhUzI4SlFsZVJRODl6bGtSUE9ZOWdW?=
+ =?utf-8?B?UitWc1BDdCt4Mk9mNmhCbEdDUDl1bjFEcGFGblJxQVI0ZFkyc0Y2eEY4Ukxz?=
+ =?utf-8?B?TGVZbFRCdE8yZnVFNnp4Yi9sRmdyZ252QnJKVVIxU2NwRVlvQnJRY2lJZEV2?=
+ =?utf-8?B?RlNmeExjRWJjYVEreG1QN2VBbFNpWDBJUkdWTWpQeGdHdHlTYllQNStIS2xB?=
+ =?utf-8?B?RENKaFJUZ1JWSWFaNmtGMlJMajBtd202eFgrNmVOdGloNzlXQ0VxVDR6RnZl?=
+ =?utf-8?B?dDE5T3ByZmo5ODFFWUxwOFpjWjdJMGhTNG5ldXdDdEZuQXYxNFU2S1JvU0p2?=
+ =?utf-8?B?YmFOSm9CZXczRTJvd29WdkFWR0JMQVZxRkRTNHlSVEE1RzI5Smw0L284SzM4?=
+ =?utf-8?B?RWtpMVJ2eEJBbXBKMHJ3Vi9sMnZsTEFaZHkwcURUZ0QrNVhuRDhJWDc4YU9v?=
+ =?utf-8?B?UzQwWUxNbVZPc3g1N1kveTlTblNDRldUd0JPMTR0ZkRkZ0g5TEJwTU4wME1q?=
+ =?utf-8?B?cENGQXZyUUtuQkl4bmtDWnBlS1VmVFVtVXJRZVFiam1vVjdYRnQ1bmZlTjBn?=
+ =?utf-8?B?NlhoQmpWQkRIcXBPOVg2UUNhWGNydjd6SHhtSmMzYndlWFlGTVlhT2I4c3Uy?=
+ =?utf-8?B?QnE3UzVra2lFZHJ2VmRCTUhRVGF0SjlyVFVVVzNrQkxDYXdGWUF6VlZoblBG?=
+ =?utf-8?B?KzREcnNqU1o1VEYyVWwzU3p2MkZDeTVFd3lqRFBwUVRjZUVqdG9CZzREOUNC?=
+ =?utf-8?B?Y1pTSUhFdXg1cllvOTVBMUNxM3V3NDF3UjI3QUhZQVBvcldaUHVMWUgwdHBi?=
+ =?utf-8?B?M2IyK3FjSkd4RW1yd1dremJsTWNnMmNxdzVnVW14KzlPbExFQlFINjhhaWht?=
+ =?utf-8?B?NnNkM0RnVHh2RjBVbUFuMmdRQnRHVm9IWHFVbDRubG1VVS8yd1ZJT2FxSFFE?=
+ =?utf-8?B?RTh4cmV2WUxQU3RnbSt6cmR2VVhxRHJPVllWZG9qWmtYYVByY1hjVlFkM1Jw?=
+ =?utf-8?B?aXlzcGFLb1pxRXo4cmhTVkFGWDN5TFBjYnRWaDFNcnZneFlMeWpad2VXK2FT?=
+ =?utf-8?B?ckloSWorci9xeU5QUmZiOWRxb1lxc2VCUFRTenVSVDdySG9xQXBMNG5scUto?=
+ =?utf-8?B?WGtFaDlWWkFGOSs1RG03MUNicmJ6cS85aEpGakR5SjlocGE5MDByRWNXbFRi?=
+ =?utf-8?B?d28vMlVLVnNNUWg3cjFhZmo0Z1pnM3h1MXBKSkpnUmovSGUxVC9JQ0dhSC91?=
+ =?utf-8?B?aHpTb2R0dmx2Q2dRVzQwOEZrSmlqa1FLdWc5blRhalZrUkVmYlBaWE94RHQ2?=
+ =?utf-8?B?SGVOdjlTRDdJK200VjRRdENpUG5xYlZtT014VSt3SVdRMjRmMTh0V25CNklU?=
+ =?utf-8?B?OWpQU3E0UFV4ZlJhNy9ZQkU3N0dPbHZPWDlwNWZ6MXpoY3Z5S2hUOU1tTlF5?=
+ =?utf-8?B?dFFIeDVUNE0yMjcrSmNmR2xIRWRLYWxncTNrdXRFS1VvRUxnZXhIOFhIK3J3?=
+ =?utf-8?B?SGZqcWpsY1dJVnlkRW9yYmx0VkpPRWlvUG1PR0lLRzhWNGpNSy9KcmV3YVpu?=
+ =?utf-8?B?ek1sWi9MYmVxLzg1RmtUM0RtWGc4TzVJYTUyUEk1Mm5XRHVrSGhpSXBFYWRy?=
+ =?utf-8?B?ZlI3TGdleVN2R05ORm1ISVF6T0pEQXlpaGlZL3lJTFA5cERjNHRCMkFHMHJ1?=
+ =?utf-8?B?SjNEZWpWWTQvZFlKb0Uyc1RtQS9CNEJsZ05sTUt0SlAxUjVYNHdMT2JtOE5z?=
+ =?utf-8?B?bFlOZVdBcGttSHRnPT0=?=
+MIME-Version: 1.0
+
+--=NextPart_572E5366545716C549258CED00283062=
+Content-Type: multipart/related;
+	boundary="=NextPart_related_572E5366545716C549258CED00283062="
+
+--=NextPart_related_572E5366545716C549258CED00283062=
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></=
+head>
+<body><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" style=3D"display:;"><tr height=3D"2"><td></td></tr></table><table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"display=
+:;"><tr height=3D"5"><td></td></tr></table><html lang=3D"ko" xml:lang=3D"ko=
+"><head><title>=EC=A0=9C=EB=AA=A9 =EC=97=86=EC=9D=8C</title><style type=3D"=
+text/css" data-destyle=3D"deDefaultStyle">#dext_body { cursor:text; margin:=
+10px 10px 10px 10px; font-family:'=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95'; f=
+ont-size:11pt;-ms-image-mode: active; ime-mode: active; word-break:normal; =
+word-wrap:normal; }#dext_body p { line-height:1.5; margin-top:0px; margin-b=
+ottom:0px; }#dext_body li { line-height:1.5; margin-top:0px; margin-bottom:=
+0px; }#dext_body .raon_placeholder { display: inline-block; }#dext_body .ra=
+on_placeholder:empty:before { content: attr(placeholder); color: #EE0000; }=
+#dext_body .raon_placeholder:focus:before { content: none; }</style>
+</head><body id=3D"dext_body" spellcheck=3D"false"><p style=3D"font-family:=
+ &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-h=
+eight: 1.5; margin-top: 0px; margin-bottom: 0px;"><span style=3D"font-size:=
+ 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;">=EC=
+=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=9A=94.&nbsp;</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"font-size: 14.6667px; font-family: &quot;=EB=A7=91=EC=9D=80=
+ =EA=B3=A0=EB=94=95&quot;;">=EC=9E=AC=EB=AC=B4=EA=B5=AC=EB=A7=A4 IT&nbsp;</=
+span><span style=3D"font-size: 14.6667px; font-family: &quot;=EB=A7=91=EC=
+=9D=80 =EA=B3=A0=EB=94=95&quot;;">=EC=84=B9=EC=85=98 =EC=A0=84=ED=98=9C=EC=
+=A7=84=EC=9E=85=EB=8B=88=EB=8B=A4.&nbsp;</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EC=98=A4=EB=8A=98 AI Agent =EA=B2=80=EC=A6=9D Plan =EB=AF=B8=ED=8C=85 =EB=
+=82=B4=EC=9A=A9 =EA=B3=B5=EC=9C=A0 =EB=93=9C=EB=A6=BD=EB=8B=88=EB=8B=A4.&nb=
+sp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>1. =EC=9D=BC=EC=A0=95</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;- =EC=8B=9C=EB=82=98=EB=A6=AC=EC=98=A4 =EC=A4=80=EB=B9=84 : 8=EC=9B=
+=94 29=EC=9D=BC, DX =EC=99=80 =EC=98=A4=EB=9D=BC=ED=81=B4(=EB=82=B4=EB=B6=
+=80 =EC=83=98=ED=94=8C =EC=A0=9C=EA=B3=B5 =EC=98=88=EC=A0=95)</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;- =ED=99=98=EA=B2=BD=EC=A4=80=EB=B9=84 =EB=B0=8F =EA=B5=90=EC=9C=A1 =
+=EC=9D=BC=EC=A0=95 : 9=EC=9B=94 1=EC=A3=BC=EC=B0=A8, =EC=98=A4=EB=9D=BC=ED=
+=81=B4 (=EC=8B=9C=EB=82=98=EB=A6=AC=EC=98=A4 =EA=B2=80=ED=86=A0 =EB=B0=8F =
+=ED=99=98=EA=B2=BD=EA=B3=BC =EA=B5=90=EC=9C=A1 =EC=9D=BC=EC=A0=95 =EC=9E=AC=
+=EA=B3=B5=EC=A7=80=EB=A1=9C =EC=9D=B8=ED=95=9C =EB=AF=B8=ED=8C=85 =ED=95=84=
+=EC=9A=94)</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>2. =EC=8B=9C=EB=82=98=EB=A6=AC=EC=98=A4 =EC=A4=80=EB=B9=84 =EB=B0=A9=EC=95=
+=88</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;- =EC=9D=B4=EB=B2=88 =EA=B5=90=EC=9C=A1=EC=9D=80 EBS =EB=B2=84=EC=A0=
+=84(12.2.11), DB(19C) =EC=97=90=EC=84=9C =EC=98=A4=EB=9D=BC=ED=81=B4&nbsp; =
+AI Agent =EB=A5=BC =EA=B5=AC=EC=84=B1=ED=95=B4=EB=B3=B4=EB=8A=94 =EA=B3=BC=
+=EC=A0=95=EC=9E=84.&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; &nbsp;Standard =ED=99=98=EA=B2=BD=EC=97=90=EC=84=9C =EA=B5=AC=ED=98=
+=84=ED=95=98=EC=A7=80=EB=A7=8C<span style=3D"font-size: 11pt; font-family: =
+&quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;">&nbsp;AI =EA=B4=80=EB=
+=A0=A8=EB=90=9C =EA=B8=B0=EB=8A=A5(SQL Tool: 23ai =EC=97=B0=EA=B2=B0 =ED=95=
+=84=EC=88=98, =EC=9E=90=EC=97=B0=EC=96=B4 =EA=B2=80=EC=83=89 =EA=B0=80=EB=
+=8A=A5. RAG Tool : =EC=9C=A0=EC=82=AC=EB=8F=84 =EA=B2=80=EC=83=89. Rest Too=
+l) =EC=9D=84&nbsp;</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=
+=B3=A0=EB=94=95&quot;;">&nbsp; &nbsp;=EC=82=AC=EC=9A=A9=ED=95=A0 =EC=88=98 =
+=EC=9E=88=EB=8A=94 =EC=8B=9C=EB=82=98=EB=A6=AC=EC=98=A4&nbsp;=EB=8F=84=EC=
+=B6=9C =ED=95=84=EC=9A=94</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;-&nbsp;<span style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=
+=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;"><b>DX</b> : =EC=9E=AC=EB=AC=B4, =EA=B5=
+=AC=EB=A7=A4=EC=97=90=EC=84=9C =EC=84=A0=EC=A0=95</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;- =EC=98=A4=EB=9D=BC=ED=81=B4 : =EC=98=A4=EB=9D=BC=ED=81=B4 =EB=82=
+=B4=EB=B6=80=EC=A0=81=EC=9C=BC=EB=A1=9C =EB=8F=84=EC=B6=9C=EB=90=98=EA=B1=
+=B0=EB=82=98 Application =EC=97=90=EC=84=9C AI Agent =EB=A5=BC =EB=A7=8C=EB=
+=93=A4=EB=A9=B4 =EC=A2=8B=EC=9D=84 =EC=83=98=ED=94=8C=EC=9D=84 DX =EC=97=90=
+ =EC=A0=9C=EA=B3=B5 =EC=98=88=EC=A0=95(<b>=EC=9E=A5=EC=A4=80=EB=AF=BC =EC=
+=83=81=EB=AC=B4</b>)</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>3. =EA=B5=90=EC=9C=A1 =EB=82=B4=EC=9A=A9&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; - Select AI</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; - Generative AI</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; - Generative AI Agent Platform</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; - Data Science</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp; -&nbsp;<span style=3D"color: rgb(54, 65, 82); font-family: Pretenda=
+rd, Arial, sans-serif; font-size: 16px;">Integrated SOA Gateway</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"color: rgb(54, 65, 82); font-family: Pretendard, Arial, san=
+s-serif; font-size: 16px;">&nbsp; =EC=9D=B8=EC=9B=90 : 5-10=EB=AA=85 =EC=9D=
+=B4=EB=82=B4</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"color: rgb(54, 65, 82); font-family: Pretendard, Arial, san=
+s-serif; font-size: 16px;">4. =EA=B8=B0=ED=83=80&nbsp;</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"color: rgb(54, 65, 82); font-family: Pretendard, Arial, san=
+s-serif; font-size: 16px;">&nbsp; &nbsp;- ADB(23ai) =EB=A5=BC =EC=B6=94=EA=
+=B0=80 =EC=84=A4=EC=B9=98 =EC=8B=9C =EA=B8=B0=EA=B0=84=EC=9D=B4 =EC=98=A4=
+=EB=9E=98 =EA=B1=B8=EB=A6=B4 =EC=88=98 =EC=9E=88=EC=9D=8C.</span></p>
+<p style=3D"line-height: 1.5; margin-top: 0px; margin-bottom: 0px; font-fam=
+ily: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt;"><=
+font color=3D"#364152" face=3D"Pretendard, Arial, sans-serif"><span style=
+=3D"font-size: 16px; font-family: Pretendard, Arial, sans-serif;">&nbsp; &n=
+bsp;- =EC=9E=A5=EB=AF=BC=EC=A4=80 =EC=83=81=EB=AC=B4=EB=8B=98, =EC=8B=9C=EB=
+=82=98=EB=A6=AC=EC=98=A4 =EB=A6=AC=EC=8A=A4=ED=8A=B8=EB=8F=84 =EB=A9=94=EC=
+=9D=BC=EB=A1=9C =EB=B6=80=ED=83=81=EB=93=9C=EB=A6=BD=EB=8B=88=EB=8B=A4.&nbs=
+p;</span></font></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EA=B0=90=EC=82=AC=ED=95=A9=EB=8B=88=EB=8B=A4.</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EC=A0=84=ED=98=9C=EC=A7=84 =EB=93=9C=EB=A6=BC.</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;">&=
+nbsp;</p>
+<blockquote style=3D"padding-left: 1ex; margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0.8ex; border-left-color: #ccc; border-le=
+ft-width: 1px; border-left-style: solid;" class=3D"kmslab_quote"><p style=
+=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-si=
+ze: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><span sty=
+le=3D"color: blue; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95=
+&quot;; font-size: 11pt;">----- =EC=9B=90=EB=B3=B8 =EB=A9=94=EC=8B=9C=EC=A7=
+=80 ----- </span></p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EB=B0=9C=EC=8B=A0=EC=9D=B8: </b>=EC=A0=84=ED=98=9C=EC=A7=84&lt;hyejin@po=
+scodx.com&gt;(2025.08.19 15:05)</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=88=98=EC=8B=A0=EC=9D=B8: </b>Taebum Kim&lt;taebum.kim@oracle.com&gt;<=
+/p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=B0=B8=EC=A1=B0=EC=9D=B8: </b>=EB=B0=95=ED=98=B8=EC=95=88&lt;hopark@po=
+scodx.com&gt;, HyungJoo Lim&lt;hyungjoo.lim@oracle.com&gt;, JoonMin Chang	&=
+lt;joonmin.chang@oracle.com&gt;, WonYong Lee&lt;wonyong.lee@oracle.com&gt;,=
+ JongHyeon Hong&lt;jonghyeon.hong@oracle.com&gt;, Joohan Kim&lt;joohan.kim@=
+oracle.com&gt;, KwangSik Jeong&lt;kwangsik.jeong@oracle.com&gt;, =EC=96=B4=
+=EC=9C=A0=EC=84=A0&lt;yuson.ur@poscodx.com&gt;, =EC=A1=B0=EC=9D=80=EC=88=99=
+&lt;choes@poscodx.com&gt;, =ED=99=A9=EC=88=98=EB=B9=88&lt;hsb030@poscodx.co=
+m&gt;, =EC=86=A1=EC=98=81=EC=9A=B0&lt;youngwoo.song@poscodx.com&gt;, =EC=86=
+=A1=EC=A7=84=EC=84=AD&lt;jinsubsong@poscodx.com&gt;</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=A0=9C&nbsp;&nbsp;=EB=AA=A9: </b>Re: [Oracle Korea] EBS =EB=8C=80=EC=
+=83=81 AI Agent =EA=B2=80=EC=A6=9D=EC=9D=84 =EC=9C=84=ED=95=9C Plan =EA=B3=
+=B5=EC=9C=A0</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;">&=
+nbsp;</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;">&=
+nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EC=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=9A=94.&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+><span style=3D"font-size: 14.6667px; font-family: &quot;=EB=A7=91=EC=9D=80=
+ =EA=B3=A0=EB=94=95&quot;;">=EC=9E=AC=EB=AC=B4=EA=B5=AC=EB=A7=A4 IT&nbsp;</=
+span><span style=3D"font-size: 14.6667px; font-family: &quot;=EB=A7=91=EC=
+=9D=80 =EA=B3=A0=EB=94=95&quot;;">=EC=84=B9=EC=85=98 =EC=A0=84=ED=98=9C=EC=
+=A7=84=EC=9E=85=EB=8B=88=EB=8B=A4.&nbsp;</span></p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>8=EC=9B=9421=EC=9D=BC =EB=AA=A9=EC=9A=94=EC=9D=BC 1=EC=8B=9C~3=EC=8B=9C =
+=ED=9A=8C=EC=9D=98=EC=8B=A4 =EC=98=88=EC=95=BD=ED=95=98=EC=98=80=EC=8A=B5=
+=EB=8B=88=EB=8B=A4.</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=ED=8C=90=EA=B5=90 1=EC=B8=B5 Respect 02 =EC=9E=85=EB=8B=88=EB=8B=A4.&nbsp=
+;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EC=98=A4=EC=8B=9C=EB=A9=B4 =EC=97=B0=EB=9D=BD=EC=A3=BC=EC=84=B8=EC=9A=94.=
+</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>&nbsp;</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EA=B0=90=EC=82=AC=ED=95=A9=EB=8B=88=EB=8B=A4.</p>
+<p style=3D"font-size: 11pt; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>=EC=A0=84=ED=98=9C=EC=A7=84 =EB=93=9C=EB=A6=BC.</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;">&=
+nbsp;</p>
+<blockquote style=3D"padding-left: 1ex; margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0.8ex; border-left-color: #ccc; border-le=
+ft-width: 1px; border-left-style: solid;" class=3D"kmslab_quote"><p style=
+=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-si=
+ze: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><span sty=
+le=3D"color: blue; font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95=
+&quot;; font-size: 11pt;">----- =EC=9B=90=EB=B3=B8 =EB=A9=94=EC=8B=9C=EC=A7=
+=80 ----- </span></p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EB=B0=9C=EC=8B=A0=EC=9D=B8: </b>&quot;Taebum Kim&quot; &lt;taebum.kim@or=
+acle.com&gt;(2025.08.18 17:20)</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=88=98=EC=8B=A0=EC=9D=B8: </b>=EB=B0=95=ED=98=B8=EC=95=88&lt;hopark@po=
+scodx.com&gt;, =EC=A0=84=ED=98=9C=EC=A7=84&lt;hyejin@poscodx.com&gt;</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=B0=B8=EC=A1=B0=EC=9D=B8: </b>&quot;HyungJoo Lim&quot; &lt;hyungjoo.li=
+m@oracle.com&gt;, &quot;JoonMin Chang\t&quot; &lt;joonmin.chang@oracle.com&=
+gt;, &quot;WonYong Lee&quot; &lt;wonyong.lee@oracle.com&gt;, &quot;JongHyeo=
+n Hong&quot; &lt;jonghyeon.hong@oracle.com&gt;, &quot;Joohan Kim&quot; &lt;=
+joohan.kim@oracle.com&gt;, &quot;KwangSik Jeong&quot; &lt;kwangsik.jeong@or=
+acle.com&gt;</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"><=
+b>=EC=A0=9C&nbsp;&nbsp;=EB=AA=A9: </b>[Oracle Korea] EBS =EB=8C=80=EC=83=81=
+ AI Agent =EA=B2=80=EC=A6=9D=EC=9D=84 =EC=9C=84=ED=95=9C Plan =EA=B3=B5=EC=
+=9C=A0</p>
+<p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;">&=
+nbsp;</p>=0A=
+=0A=
+=0A=
+<div class=3D"WordSection1" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =
+=EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0p=
+x; margin-bottom: 0px;">
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=EC=95=88=EB=85=95=ED=95=98=EC=84=B8=EC=9A=94<span style=3D"fon=
+t-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11p=
+t;">, </span>=EC=98=A4=EB=9D=BC=ED=81=B4 =EA=B9=80=ED=83=9C=EB=B2=94=EC=9E=
+=85=EB=8B=88=EB=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =
+=EA=B3=A0=EB=94=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">&nbsp;</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=EC=A7=80=EB=82=9C =EC=97=B0=ED=9C=B4 =EC=A6=90=EA=B2=81=EA=B2=
+=8C =EB=B3=B4=EB=82=B4=EC=85=A8=EB=8A=94=EC=A7=80=EC=9A=94<span style=3D"fo=
+nt-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11=
+pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">EBS </span>=EB=8C=80=EC=83=81 <span styl=
+e=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-s=
+ize: 11pt;">AI Agent=0A=
+</span>=EA=B2=80=EC=A6=9D=EC=9D=84 =EC=9C=84=ED=95=9C =EB=82=B4=EC=9A=A9 =
+=EA=B4=80=EB=A0=A8=ED=95=98=EC=97=AC =EC=B2=A8=EB=B6=80=EC=99=80 =EA=B0=99=
+=EC=9D=B4 =ED=96=A5=ED=9B=84 =EC=A7=84=ED=96=89=EC=82=AC=ED=95=AD=EC=97=90 =
+=EB=8C=80=ED=95=B4=EC=84=9C =EC=A0=95=EB=A6=AC=ED=95=9C =EC=9E=A5=ED=91=9C =
+=EC=B2=A8=EB=B6=80=EC=99=80 =EA=B0=99=EC=9D=B4 =EA=B3=B5=EC=9C=A0=EB=93=9C=
+=EB=A6=BD=EB=8B=88=EB=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=
+=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=EC=9D=B4=EB=B2=88 =EA=B2=80=EC=A6=9D=EC=9D=84 =EC=9C=84=ED=95=
+=B4=EC=84=9C =EC=98=A4=EB=9D=BC=ED=81=B4=EC=97=90=EC=84=9C =ED=8F=AC=EC=8A=
+=A4=EC=BD=94=EB=A5=BC =EC=A7=80=EC=9B=90=ED=95=98=EB=8A=94 =EA=B0=81 =EC=A1=
+=B0=EC=A7=81=EC=97=90=EC=84=9C =EB=A7=8E=EC=9D=80 =EB=8F=84=EC=9B=80=EC=9D=
+=84 =EC=A3=BC=EC=8B=A4 =EC=98=88=EC=A0=95=EC=9D=B4=EB=A9=B0<span style=3D"f=
+ont-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 1=
+1pt;">,=0A=
+</span>=EB=98=90=ED=95=9C<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=
+=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt;"> 12</span>=EC=9B=94=EA=B9=
+=8C=EC=A7=80 =ED=95=B4=EB=8B=B9 =EA=B2=80=EC=A6=9D=EC=9D=84 =EC=9C=84=ED=95=
+=9C <span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95=
+&quot;; font-size: 11pt;">OCI </span>=0A=
+=ED=99=98=EA=B2=BD =EC=82=AC=EC=9A=A9=EC=97=90 =EB=8C=80=ED=95=9C =EC=8A=B9=
+=EC=9D=B8=EB=8F=84 =EC=99=84=EB=A3=8C=ED=95=98=EC=98=80=EC=8A=B5=EB=8B=88=
+=EB=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">&nbsp;</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=EC=9D=B4=EC=97=90 =EA=B4=80=EB=A0=A8 =EB=82=B4=EC=9A=A9 =EB=85=
+=BC=EC=9D=98=EB=A5=BC =EC=9C=84=ED=95=B4=EC=84=9C =EA=B8=88=EC=A3=BC=EC=97=
+=90<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&=
+quot;; font-size: 11pt;"> 1</span>=EC=B0=A8 =EB=AF=B8=ED=8C=85=EC=9D=84 =EC=
+=A7=84=ED=96=89=EC=9D=84 =ED=86=B5=ED=95=B4 =EA=B4=80=EB=A0=A8 =EB=82=B4=EC=
+=9A=A9 =EC=84=A4=EB=AA=85=EC=9D=84 =EB=93=9C=EB=A6=AC=EA=B3=A0=EC=9E=90 =ED=
+=95=A9=EB=8B=88=EB=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=
+=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=ED=98=B9=EC=8B=9C =EC=9D=B4=EB=B2=88 =EC=A3=BC =EB=AA=A9=EC=9A=
+=94=EC=9D=BC <span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">21</span>=EC=9D=BC =EC=98=A4=ED=9B=84<sp=
+an style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;;=
+ font-size: 11pt;"> 1</span>=EC=8B=9C=EC=97=90 =EB=AF=B8=ED=8C=85 =EA=B0=80=
+=EB=8A=A5=ED=95=98=EC=8B=A0=EC=A7=80 =EB=A7=90=EC=94=80=EC=A3=BC=EC=8B=9C=
+=EB=A9=B4 =EC=B0=BE=EC=95=84=EB=B5=99=EA=B3=A0 =EC=84=A4=EB=AA=85=EB=93=9C=
+=EB=A6=AC=EB=8F=84=EB=A1=9D =ED=95=98=EA=B2=A0=EC=9C=BC=EB=A9=B0<span style=
+=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-si=
+ze: 11pt;">,=0A=
+</span>=EA=B0=80=EB=8A=A5=EC=97=AC=EB=B6=80 =EB=A7=90=EC=94=80=EC=A3=BC=EC=
+=8B=9C=EB=A9=B4 =EA=B0=90=EC=82=AC=ED=95=98=EA=B2=A0=EC=8A=B5=EB=8B=88=EB=
+=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=
+=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">&nbsp;</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">=EC=B6=94=EA=B0=80=EC=A0=81=EC=9C=BC=EB=A1=9C =EA=B6=81=EA=B8=
+=88=ED=95=98=EC=8B=A0 =EC=82=AC=ED=95=AD=EC=9D=B4 =EC=9E=88=EC=9C=BC=EC=8B=
+=A0 =EA=B2=BD=EC=9A=B0 =EB=A7=90=EC=94=80 =EB=B6=80=ED=83=81=EB=93=9C=EB=A6=
+=BD=EB=8B=88=EB=8B=A4<span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =
+=EA=B3=A0=EB=94=95&quot;; font-size: 11pt;">.</span></p>
+<p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=
+=EB=94=95&quot;; font-size: 11pt;">&nbsp;</span></p>
+<div style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot=
+;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bottom: 0px;"=
+>
+<p class=3D"" align=3D"left" style=3D"text-align: left; font-family: &quot;=
+=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: =
+1.5; margin-top: 0px; margin-bottom: 0px;">=0A=
+=EA=B0=90=EC=82=AC=ED=95=A9=EB=8B=88=EB=8B=A4<span style=3D"font-family: &q=
+uot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt;">.</span>=
+</p>
+<p class=3D"" align=3D"left" style=3D"text-align: left; font-family: &quot;=
+=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: =
+1.5; margin-top: 0px; margin-bottom: 0px;">=0A=
+=EA=B9=80=ED=83=9C=EB=B2=94 =EB=93=9C=EB=A6=BC</p>
+<p class=3D"" align=3D"left" style=3D"text-align: left; font-family: &quot;=
+=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: =
+1.5; margin-top: 0px; margin-bottom: 0px;">
+<span style=3D"font-family: &quot;Arial Unicode MS&quot;, sans-serif; font-=
+size: 11pt;">&nbsp;</span></p>
+<p class=3D"" align=3D"left" style=3D"text-align: left; font-family: &quot;=
+=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: =
+1.5; margin-top: 0px; margin-bottom: 0px;">
+<span style=3D"font-family: &quot;Arial Unicode MS&quot;, sans-serif; font-=
+size: 11pt;">Taebum Kim | Tech Cloud Senior Sales Rep. | Tech Cloud MFG Tea=
+m=0A=
+<span style=3D"color:#021A4A"><br>
+</span><span style=3D"color: rgb(255, 70, 0); font-family: &quot;Arial Unic=
+ode MS&quot;, sans-serif; font-size: 11pt;">ORACLE Korea</span></span><span=
+ style=3D"font-size:11.0pt;font-family:&quot;Arial Unicode MS&quot;,sans-se=
+rif;color:#FF4600">&nbsp;</span><span style=3D"font-family: &quot;Arial Uni=
+code MS&quot;, sans-serif; font-size: 11pt;">| Mobile :&nbsp;<a href=3D"mai=
+lto:+82%2010%209500%208963"><span style=3D"color: windowtext; font-family: =
+&quot;Arial Unicode MS&quot;, sans-serif; font-size: 11pt;">+82=0A=
+ 10 9500 8963</span></a>&nbsp;| Email :</span><span style=3D"font-size:11.0=
+pt;font-family:&quot;Arial Unicode MS&quot;,sans-serif">&nbsp;</span><span =
+style=3D"font-family:&quot;Arial Unicode MS&quot;,sans-serif"><a href=3D"ma=
+ilto:taebum.kim@oracle.com"><span style=3D"color: rgb(5, 99, 193); font-fam=
+ily: &quot;Arial Unicode MS&quot;, sans-serif; font-size: 11pt;">taebum.kim=
+@oracle.com</span></a></span></p>
+<p class=3D"" align=3D"left" style=3D"text-align: left; font-family: &quot;=
+=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=94=95&quot;; font-size: 11pt; line-height: =
+1.5; margin-top: 0px; margin-bottom: 0px;">
+<span style=3D"font-family: &quot;Arial Unicode MS&quot;, sans-serif; font-=
+size: 11pt;">15F, 16F ASEM Tower | 159-1 Samsung-dong | Gangnam-gu | Seoul =
+Korea</span></p>
+</div><p class=3D"" style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; mar=
+gin-bottom: 0px;"><span style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=
+=B3=A0=EB=94=95&quot;; font-size: 11pt;">&nbsp;</span></p>
+</div></blockquote><p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=
+=A0=EB=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; mar=
+gin-bottom: 0px;">&nbsp;</p>=0A=
+=0A=
+=0A=
+=0A=
+</blockquote><p style=3D"font-family: &quot;=EB=A7=91=EC=9D=80 =EA=B3=A0=EB=
+=94=95&quot;; font-size: 11pt; line-height: 1.5; margin-top: 0px; margin-bo=
+ttom: 0px;">&nbsp;</p>
+</body></html><br>
+<br><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">=
+<tr><td style=3D"word-wrap:break-word;font-size:12px;font-weight:bold">=EB=
+=B3=B8 =EB=A9=94=EC=9D=BC=EC=9D=80 =EC=A7=80=EC=A0=95=EB=90=9C =EC=88=98=EC=
+=8B=A0=EC=9E=90=EB=A7=8C=EC=9D=84 =EC=9C=84=ED=95=9C =EA=B2=83=EC=9D=B4=EB=
+=A9=B0 =EC=88=98=EC=8B=A0=EC=9E=90=EC=99=B8=EC=97=90=EB=8A=94 =EA=B3=B5=EA=
+=B0=9C, =EB=B3=B5=EC=82=AC, =EB=B0=B0=ED=8F=AC=ED=95=98=EA=B1=B0=EB=82=98 =
+=EB=8B=A4=EB=A5=B8 =EB=AA=A9=EC=A0=81=EC=9C=BC=EB=A1=9C =ED=99=9C=EC=9A=A9=
+=ED=95=A0 =EC=88=98 =EC=97=86=EC=8A=B5=EB=8B=88=EB=8B=A4. =EB=A7=8C=EC=95=
+=BD =EB=A9=94=EC=9D=BC=EC=9D=B4 =EC=9E=98=EB=AA=BB =EC=A0=84=EC=86=A1=EB=90=
+=9C =EA=B2=BD=EC=9A=B0=EC=97=90=EB=8A=94 =EB=B0=9C=EC=8B=A0=EC=9D=B8=EC=97=
+=90=EA=B2=8C =EC=95=8C=EB=A0=A4=EC=A3=BC=EC=8B=9C=EA=B3=A0 =EC=88=98=EC=8B=
+=A0=EB=90=9C =EB=A9=94=EC=9D=BC=EC=9D=80 =EC=A6=89=EC=8B=9C =EC=82=AD=EC=A0=
+=9C=ED=95=98=EC=97=AC =EC=A3=BC=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=EB=8B=
+=88=EB=8B=A4.<br>This e-mail and any attachments may contain confidential a=
+nd/or privileged information. If you are not the intended recipient or have=
+ received this e-mail in error, please immediately notify the sender and de=
+stroy this e-mail and its attachments, if any, from your system. Any unauth=
+orized copying, disclosure or distribution of the materials in this e-mail =
+and its attachments is strictly forbidden.</td>
+</tr>
+</table></body></html>
+
+--=NextPart_related_572E5366545716C549258CED00283062=--
+
+--=NextPart_572E5366545716C549258CED00283062=--

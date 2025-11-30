@@ -1,0 +1,309 @@
+Received: from DS0PR10MB6993.namprd10.prod.outlook.com (2603:10b6:8:153::15)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Thu, 21 Aug 2025
+ 14:21:20 +0000
+Received: from SN6PR16CA0041.namprd16.prod.outlook.com (2603:10b6:805:ca::18)
+ by DS0PR10MB6993.namprd10.prod.outlook.com (2603:10b6:8:153::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Thu, 21 Aug
+ 2025 14:21:16 +0000
+Received: from SN1PEPF0002636A.namprd02.prod.outlook.com
+ (2603:10b6:805:ca:cafe::af) by SN6PR16CA0041.outlook.office365.com
+ (2603:10b6:805:ca::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.16 via Frontend Transport; Thu,
+ 21 Aug 2025 14:21:16 +0000
+Authentication-Results: spf=fail (sender IP is 147.154.18.20)
+ smtp.mailfrom=ap-northeast-2.amazonses.com; dkim=fail (signature did not
+ verify) header.d=amazonses.com;dmarc=temperror action=none
+ header.from=lge.com;
+Received-SPF: Fail (protection.outlook.com: domain of
+ ap-northeast-2.amazonses.com does not designate 147.154.18.20 as permitted
+ sender) receiver=protection.outlook.com; client-ip=147.154.18.20;
+ helo=iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com;
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com
+ (147.154.18.20) by SN1PEPF0002636A.mail.protection.outlook.com
+ (10.167.241.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.8 via Frontend
+ Transport; Thu, 21 Aug 2025 14:21:15 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57LE26TE030219
+	for <wonyong.lee@oracle.com>; Thu, 21 Aug 2025 14:21:15 GMT
+Authentication-Results-Original: Oracle OCI internal-mail-router;	dkim=fail
+ header.d=amazonses.com header.s=myrwpgnzv3rf5jbsdckyw4kazmbvqr4g;	spf=fail
+ smtp.mailfrom=010c0198cd014171-81933ade-c41a-4ec9-904f-20b115104143-000000@ap-northeast-2.amazonses.com;
+	dmarc=fail header.from=lge.com
+Received: from mx0a-00069f01.pphosted.com (mx0a-00069f01.pphosted.com [205.220.165.26])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48my3veke2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK)
+	for <wonyong.lee@oracle.com>; Thu, 21 Aug 2025 14:21:13 +0000
+Received: from pps.filterd (m0246571.ppops.net [127.0.0.1])
+	by mx0b-00069f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LDVHG7019636
+	for <wonyong.lee@oracle.com>; Thu, 21 Aug 2025 14:21:12 GMT
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=010c0198cd014171-81933ade-c41a-4ec9-904f-20b115104143-000000@ap-northeast-2.amazonses.com;
+	dkim=pass header.s=myrwpgnzv3rf5jbsdckyw4kazmbvqr4g header.d=amazonses.com;
+	dmarc=fail header.from=lge.com
+Received: from c177-60.smtp-out.ap-northeast-2.amazonses.com (c177-60.smtp-out.ap-northeast-2.amazonses.com [76.223.177.60])
+	by mx0b-00069f01.pphosted.com (PPS) with ESMTPS id 48p4dk8r3h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=NO)
+	for <wonyong.lee@oracle.com>; Thu, 21 Aug 2025 14:21:11 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=myrwpgnzv3rf5jbsdckyw4kazmbvqr4g; d=amazonses.com; t=1755786068;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=ZmhO7wl+0Ok61SLsxbcLuSJXqjmH83XG/HPvX1KZbE8=;
+	b=JP6Oj/SyoBRk/50aB44UNLHS9ioYCg/+SOtD7YKpTkLXG1K/t1W4EgmGDoLHZs1u
+	NpFjAUYukUBzX80DAI3hb25DZNU3IjfX1aavz9OyngpcOJb8Vmh8e8hE04iQEitBwfz
+	Pxq5asAMPDQpGtWXHg9eVK48ELDmatLjJd0A5RAw=
+From: LG Electronics <noreplylgea@lge.com>
+To: wonyong.lee@oracle.com
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010c0198cd014171-81933ade-c41a-4ec9-904f-20b115104143-000000@ap-northeast-2.amazonses.com>
+Date: Thu, 21 Aug 2025 14:21:08 +0000
+Feedback-ID: ::1.ap-northeast-2.dVccXrfjgQP2/3wgmrLGN2pTVlwESrBdYkZTamf8ltc=:AmazonSES
+X-SES-Outgoing: 2025.08.21-76.223.177.60
+X-Authority-Analysis: v=2.4 cv=JpOobM4C c=1 sm=1 tr=0 ts=68a72b57 b=1 cx=c_pps
+ a=7lOirXoLvoySBuZvwaWvuQ==:117 a=7lOirXoLvoySBuZvwaWvuQ==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=Hgn-wnRn1-cA:10 a=5KLPUuaC_9wA:10
+ a=YFHz6ByJM4cA:10 a=5z0-d39aAAAA:8 a=FOeu5C73o6SJjF_kt78A:9
+ a=Je3nZPOU4Ym--SvD:21 a=_W_S_7VecoQA:10 a=QEXdDO2ut3YA:10
+ a=XgQnhxgrlTbGixegrXpD:22
+X-Proofpoint-ORIG-GUID: I_PClmBhyiTfkBX_eEOBQTJMZ7oS7QYd
+X-CLX-Shades: MLX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIxMDEwOCBTYWx0ZWRfX53xLXRoRtNiR
+ it+4h/7lIOfwc8J/JZGGVUsbcL8oN15pzPea51Ygel7Lfl75QyUruz4qMgdt5kBY/MJZsDn81F8
+ xxUQuZ0VWoXFEXD3+Z+AwIrIg20iwIhiYCfxBcGv67mevPg8oWcM8ajnieot7/57++/PGn58mZS
+ Zhzw1Hk87a5A9yB1TSzDmrT9QJBqi88Pxtv5GXG+zIVfz8TjDpDhVsJOruP266FgxnnNkfQU5DF
+ fLFmj6UbR+hPysfsHY1YNtlandV4t/uWJxFvGq0BWIi6mJMfjySEf2I0t+gvDK1qjkS/QhYD7Xo
+ 8ySiBbDjgfpQ400K6EAPIRD48lAOZe4vQo/e6TOwpbDb8/n09aolLuCXZACR9WpDq+UuxdtYh2D
+ pGj/SNtk2bZjLFi2H46lj+AznKS9CSKxL92GUXqM1ivsH+AuX/Fqy+WrLJLq1oaTiopkAy44NGp
+ 1Ce5azuQr4V/tHWZ3dg==
+X-Proofpoint-GUID: I_PClmBhyiTfkBX_eEOBQTJMZ7oS7QYd
+X-CLX-Response: 1TFkXGx0TEQpMehcaEQpZRBdraVJiZVJ7AW5YQBEKWFgXbh5PYEkdfEZMEk8
+ RCnhOF2hsR2BMWhpzW1pdEQp5TBdtTxIFUHN+Z0BTWBEKQ0gXBxsTEhEKQ1kXBxgfEQpDSRcaBB
+ oaGhEKWU0XZ2ZyEQpZSRcacRoQGncGGx8TcRkSEBp3BhgaBhoRClleF2hjeREKSUYXRVhLSUZPd
+ UNESEVfRE51QkVZXk9OEQpJRxd4T00RCkNOF2N1emlGR2hCU0N+TEFocnVPb2Voe35gZ3AdRXkd
+ e3NOEQpYXBcfBBoEHhoTBRsaBBsaGgQbGR4EGR4QGx4aHxoRCl5ZF0wZZwVTEQpNXBcYEQpMWhd
+ pa21NTU0RCkJPF2FLGHNFG0ZZZU1nEQpDWhcdHAQYGBkEGx0dBBwaEQpCXhcbEQpCRRdpHmIecB
+ 9OXkx4WhEKQk4XaGxHYExaGnNbWl0RCkJMF24eT2BJHXxGTBJPEQpCbBdnQW1/HlgecwFlbBEKQ
+ kAXY1phZHpQTX9AS0cRCkJYF2RmbUNgTFIZE2BDEQpNXhcbEQpaWBcYEQp5QxdrEhx4TGxTU2Jy
+ fhEKWUsXGxsbEhoRCnBoF2doUFpubFt5aHlkEBkaEQpwaBdkZX9PR3h5XEhneBAZGhEKcGgXZxJ
+ kbUhmb1tFUh4QGRoRCnBoF2Bfc2NwQGdDXV4BEBkaEQpwaBdgfFBGZBobQ2tHcBAZGhEKcGgXbm
+ lkHEBtRwVOGkYQGRoRCnBoF2V7UENNS2lecBlYEBkaEQpwaBdrE1NNREJ6aF5QTxAZGhEKcH0Xe
+ loSZ2xIQWxOHBwQGRoRCnB/F2MdfEVCcGBsaXseEBkaEQpwXxdka0hkE2ttW2NpGRAZGhEKcGwX
+ aRtPGH1PYH0ZQngQGxgcEQptfhcbEQpYTRdLESA=
+Subject: =?UTF-8?Q?[External]_:_LG=EC=A0=84=EC=9E=90_=EC=9E=84=EC=A7=81?=
+ =?UTF-8?Q?=EC=9B=90_=EC=9D=B8=EC=A6=9D=EB=B2=88=ED=98=B8_?=
+Thread-Topic: =?UTF-8?Q?[External]_:_LG=EC=A0=84=EC=9E=90_=EC=9E=84=EC=A7=81?=
+ =?UTF-8?Q?=EC=9B=90_=EC=9D=B8=EC=A6=9D=EB=B2=88=ED=98=B8_?=
+X-Proofpoint-SPF-Result: pass
+X-Proofpoint-SPF-Record: v=spf1 include:amazonses.com -all
+X-Source-IP: 76.223.177.60
+X-ServerName: c177-60.smtp-out.ap-northeast-2.amazonses.com
+X-Proofpoint-Virus-Version: vendor=nai engine=6800 definitions=11529
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=low_priority_poc_notspam
+ policy=low_priority_poc score=0 adultscore=0 clxscore=179 impostorscore=0
+ bulkscore=0 suspectscore=0 priorityscore=0 lowpriorityscore=0 spamscore=0
+ malwarescore=0 phishscore=0 classifier=typeunknown authscore=0 authtc=
+ authcc= route=inbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2508110000 definitions=main-2508210108 domainage_hfrom=11180
+X-Spam: Clean
+Return-Path: 010c0198cd014171-81933ade-c41a-4ec9-904f-20b115104143-000000@ap-northeast-2.amazonses.com
+X-MS-Exchange-Organization-ExpirationStartTime: 21 Aug 2025 14:21:15.8754
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 6af33ee4-68c4-4fcc-1619-08dde0bdfd40
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender: ip=[76.223.177.60];domain=c177-60.smtp-out.ap-northeast-2.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002636A:EE_|DS0PR10MB6993:EE_|PH8PR10MB6358:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF0002636A.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: oracle.onmicrosoft.com
+X-MS-Office365-Filtering-Correlation-Id: 6af33ee4-68c4-4fcc-1619-08dde0bdfd40
+X-Oracle-Tenancy: 1
+X-MS-Exchange-Organization-SCL: -1
+X-Oracle-IMR: IMR Trust
+X-Microsoft-Antispam: BCL:0;ARA:13230040|2092899012|3072899012|5073199012|69100299015|82310400026|32142699015|12012899012|8096899003|4076899003;
+X-Forefront-Antispam-Report: CIP:147.154.18.20;CTRY:US;LANG:ko;SCL:-1;SRV:;IPV:CAL;SFV:NSPM;H:iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com;PTR:iadpaimrmta02.appoci.oracle.com;CAT:NONE;SFS:(13230040)(2092899012)(3072899012)(5073199012)(69100299015)(82310400026)(32142699015)(12012899012)(8096899003)(4076899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 14:21:15.7318
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6af33ee4-68c4-4fcc-1619-08dde0bdfd40
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=4e2c6054-71cb-48f1-bd6c-3a9705aca71b;Ip=[147.154.18.20];Helo=[iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6993
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.3838193
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9052.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(4710137)(4717077)(4999163)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?WmxOV3RUTUpEZnFGcmhjNkpvWlVnaGNHYlZpdjVNdkIvaHViM0JCcTFvTHEw?=
+ =?utf-8?B?VUpYemM0eTgxcGFCaVRyY21xTUxSc2tYb3c1YnFBQ2oydlJQOUw0RW9hUEpB?=
+ =?utf-8?B?MWRJNDNsc0JUVWs0TlB3RUlkdzVUR2t6SmtFcy9laHdDQjh4MEtrbk9FNEpC?=
+ =?utf-8?B?ZWZmSHVJQ0VvbkZMN0c3bCsxMkFOd1QyMnBVQ0g4WGJ5VE9zMzBZT3FaNlY5?=
+ =?utf-8?B?bFliTXNLQXdkM0laM2pDajNXaE5MenJ6ZjNJMXgvcUhUdG5XaUFPbks4aTBP?=
+ =?utf-8?B?SW5ndGRxaWJCSG4yczhWU0FHNTJERGw2UUtySllBeEFqZ2F5c05OTzBFS1JI?=
+ =?utf-8?B?V0dHeG5NdzdUQXgrMnJyb3lLVkpYZSt1aFdudEVwdGJUK3hmRk5HZnVQREs1?=
+ =?utf-8?B?VmhiNTRjOVlvM1hyNUd4S3JyMU1Pc2FCcEJVRDgrMHZWQVdMcE5rUjlzeFBT?=
+ =?utf-8?B?ZFpkVlFkN0ExNXlhSDdNalJycFhUWDZ6cmZKamVsWlpodmw1NHlLWFErSy93?=
+ =?utf-8?B?ZWdraGhYZ3J3TTljeHVZVy93c3ZiMmE3bndDa2ZydVpDdjVadDk1VUFRb1Bo?=
+ =?utf-8?B?OW1pWnFUR1I0K0Z6TnhTcmpHLzNWOG5PWXpnaEdWaXF6SmN6UWRxRnFYKy9w?=
+ =?utf-8?B?REl0c1pJbXViVzJ6MmlGTGtzUkRLSHk4ME1KenhOQWNaczI3N2dPUkxqZVlh?=
+ =?utf-8?B?SWtXVGRTRHNOdU9pVzhsVjdwVm1xN1hlSml6Y2puWDVHcmZmWDVZdks2MExs?=
+ =?utf-8?B?OFpxMCtNTUk2ajliL3F4QThiY2gzVGRjL1VpdFBXUE15bGluZ3RmZUNDV1p3?=
+ =?utf-8?B?blE1OFpVSWNBOWdBYis1TUJPSXFkM1R0bG1vYXdXZER4T240eDhQbms2ZUkw?=
+ =?utf-8?B?Q0pwNkZxRjJRYklCT0pkR0VyKzd6eUpiVytTRGNEZ01tUHZHQ1JUWG8xQ0xE?=
+ =?utf-8?B?WHFnWHdpY2poeW9mSkdRUkVpcy9WTE54amlDV21mdm9yb05RV2c0UmQ3cGoz?=
+ =?utf-8?B?U2lKeWVYMVZYVjU2bmVwL0V2alI0cXdYNXlHQ25ZbzFxRzBMWForbld4Q3Y5?=
+ =?utf-8?B?SGNGd3NpcXUrdVhtQmtuUm5yWUJybzFNN3VROGljRHgyVWYveHo0SjByRnRM?=
+ =?utf-8?B?TDdPeWc5cHNjeXpyS2lLblk0a053aXVhUzJsMGNIaU55V05mZ1ZZRW9aVFk1?=
+ =?utf-8?B?UG92VEtUek9NL3VjNDBSdUlybVlla1lyL1ZXQkZMSFFMWUthZkRPbkR4YU1M?=
+ =?utf-8?B?UXFiUVFEbDV4TVhFUUdtb3VqZDByLzNJSTdqbUhnck9MRGFMcDNYckh4d2pV?=
+ =?utf-8?B?L2FuMVphTU50cWNUU0EzVVVVd05tT3U3a3ZFWlMrcUdQSk00SUNvTXpMNlJX?=
+ =?utf-8?B?OVpMSkJTMzhBTFhzNnVKNjllVzc3Y01nY2E2Y3c1b29Idi91VndKS2hiTFRJ?=
+ =?utf-8?B?MHJKWVJTYzc5ZXRBckxobUxBUUd6OXVhNjVkaXJnRUNDMVRyZWh6M2pQRGdS?=
+ =?utf-8?B?UjdYZEVpSDgzeEV1c3FUcGt2TWZkYUZuWlBqOVk5SXBacmZFaUxKbWttNytS?=
+ =?utf-8?B?NWgybjgvczVzb2ZYTFZ1eURBR3M1L2s4bWxPVHc3aDRYd3JIR3huUFVJMlZK?=
+ =?utf-8?B?QjZsdW5mKy9YUzdUSUhsUnNtU1VRMm5QYzVTT0JDcDZ4ZzVoNUhCZ1ZmYXZQ?=
+ =?utf-8?B?cnozQno2QytjdXZZQTRBbXg3cGUvRUwzYlI1V3N4WGtBZWMxbVpnUVlNdjJw?=
+ =?utf-8?B?TlRhbXh3MW5FUWxDSXRxQWtScFVCRWFvRkM4bjBaMk1lSUhvcHlHQTlwbnNj?=
+ =?utf-8?B?T0JIdi9PWUsyTkx4YW1jT3N5V0UyLytTZFd1MGtMRkx1NFUvaEN0RDJqRVpO?=
+ =?utf-8?B?VkpnanVmTHBYV0xNRi9EODgzc2NyZ3J2bHIvNWlsS1QrSU5hTTBWT0dGYnFY?=
+ =?utf-8?B?cEU0QzROWCswL3lhVkpaOW1BY2MrZjR1Tlp1a2dOYUE5cnpFazlZSVNjaW05?=
+ =?utf-8?B?b3l6VzBYWGtDOGtGSGozTyt4Q2wwMndNL0JmREhuNU5EYlZpY0NEdDFlTjlr?=
+ =?utf-8?B?NzF1YUt4SUhlb2pHVnlNS3Z3Q3FxSEdWMUVFUDdEOEJQY29wS1JWME9SYkFF?=
+ =?utf-8?B?dlVLYzhpRDBhVXZDSitqaVpBcUZ6cG1EQi81VUdzSUF4U1pHRjhhd0NiUVZa?=
+ =?utf-8?B?dUs1R0pjRUVDK0JTK0RSUjJaU0VwZXRKUTFmV1Jsa1V0OHE2VWRydEJzLzdr?=
+ =?utf-8?B?OG85aEtKN3dJemt4RzFOT3hRcENxeGp2cXdNY0ZNTmowb29jVW02c2JDaldP?=
+ =?utf-8?B?U2Uwc21Zdm45KzVrUFcwNDlTMDMrWlkwR1VYMEFrd0lEaysxRDJFMGdHWTY3?=
+ =?utf-8?B?R0hNc0xOWExEMFpxOEFXOFZldkZ6Vmlkam13c2htY2xpSXFVVmFNOWxicHRQ?=
+ =?utf-8?B?cVkzKzFmZUJtTmNBWDAxOFM3VzdYZ3NkVlgxRWlZWmppWE1EV0pjc2xpL1kw?=
+ =?utf-8?B?cWVEcjZDQVVpOUl0b3ZrU2w0TjJ5RzFQZ2Z5NkMzMTNSaVFMVnMwME43WDRG?=
+ =?utf-8?B?d0dZczJwbXBTZC9POGwycnpaRHpnY3JORjNNWjB4ZFlQUTZKT0c0Y1QvUzdF?=
+ =?utf-8?B?REs3NVBPbDcvdWdKS1VWN1Y3djduYzZzKzdsZ2RHR0tzRzl1MS9lZ2JOYTFN?=
+ =?utf-8?B?M2hFRDJDVmppb3Y1QkJwVGZwRGxVNkw5bUR2QVZVSTlWNWJmd0NDYmp1WFly?=
+ =?utf-8?B?djJZZUo3Qk0vQkVvTWxsWmZuT1lBaVY0QjJTV09KdzVmTE5ralFuVFBzWVZy?=
+ =?utf-8?B?STZoeGVQbCs4blltbHRrOFY4cWFZK1MwVFlZcmN0MGlZSGc2QUlIVU5rL1hN?=
+ =?utf-8?B?dU5mVTVuODI2aXM1blNXdVpFWCsxRklIV2tnYjZ0NDVSNzU3VkcrQ0xTZ2dF?=
+ =?utf-8?B?aTFia1VORFYzKzRCTWUzOFRoc0xia2swR1RoZFZUZk4wbEtEN1BNV1cwNFVk?=
+ =?utf-8?B?RzZhbTF6R3gvZG5lc0lCdnllK0MvdVBneUhVaEVIUUVVNS9RR1RFM1FVb3lX?=
+ =?utf-8?B?SWxMK3ZIeU05a2pUekptd25TN3V0SXJaYU5oeTNMSjluT0lUQVM2Y216Mk5D?=
+ =?utf-8?B?R201MlhRWWQ1VzlMdjFpSXZDVnFsNGVpdHRQa2dBdz09?=
+MIME-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"ko"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><t=
+itle>lg=EC=A0=84=EC=9E=90 =ED=9A=8C=EC=9B=90</title>
+   =20
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=
+=3D1.0,minimum-scale=3D1.0,maximum-scale=3D1.0,user-scalable=3Dno">
+    <meta name=3D"description" content=3D"LG=EC=A0=84=EC=9E=90 =ED=9A=8C=EC=
+=9B=90">
+</head>
+<body style=3D"margin:0;">
+<div style=3D"max-width:700px;margin:0 auto;padding:40px 15px 18px;backgrou=
+nd:#fff;">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+        <tr>
+            <td>
+                <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                        <td style=3D"text-align:center;padding:30px;backgro=
+und-color:#333;vertical-align:middle;"><img src=3D"https://account.lge.co.k=
+r/lg5-common-member/lg5-common/images/mail/mail-logo2.png" alt=3D"LG=EC=A0=
+=84=EC=9E=90" style=3D"width:181px;height:30px;border:0"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style=3D"padding:30px 11.4% 0;">
+                <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                        <td style=3D"background:#f6f6f6;padding: 32px 8.8% =
+24px 8.8%;">
+                            <table width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0">
+                                <tr>
+                                    <td style=3D"font-family:'Apple SD Goth=
+ic Neo',=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95,'Malgun Gothic',sans-serif;fon=
+t-size:20px;line-height:1.25;font-weight:700;text-align:center;">=EC=9D=B8=
+=EC=A6=9D=EB=B2=88=ED=98=B8 : 993020</td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"font-family:'Apple SD Goth=
+ic Neo',=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95,'Malgun Gothic',sans-serif;fon=
+t-size:14px;line-height:1.75;padding-top:12px;text-align:center;color:#222;=
+">=E2=80=BB 3=EB=B6=84 =EC=9D=B4=EB=82=B4=EC=97=90 =EB=A9=94=EC=9D=BC=EB=A1=
+=9C =EC=A0=84=EC=86=A1=EB=90=9C =EC=9D=B8=EC=A6=9D=EB=B2=88=ED=98=B8=EB=A5=
+=BC =EC=9E=85=EB=A0=A5=ED=95=B4=EC=95=BC =EB=A1=9C=EA=B7=B8=EC=9D=B8=EC=9D=
+=B4 =EA=B0=80=EB=8A=A5=ED=95=A9=EB=8B=88=EB=8B=A4.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=3D"font-family:'Apple SD Gothic Neo',=EB=
+=A7=91=EC=9D=80=EA=B3=A0=EB=94=95,'Malgun Gothic',sans-serif;font-size:14px=
+;line-height:1.75;padding-top:16px;color:#222;">=EC=9E=84=EC=A7=81=EC=9B=90=
+ =EC=9D=B8=EC=A6=9D =EA=B4=80=EB=A0=A8 =EB=AC=B8=EC=9D=98=EB=8A=94 1544-877=
+7=EB=A1=9C =EB=AC=B8=EC=9D=98=ED=95=98=EC=8B=9C=EA=B8=B0 =EB=B0=94=EB=9E=8D=
+=EB=8B=88=EB=8B=A4.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style=3D"padding-top:38px;">
+                <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                        <td style=3D"padding:0 8.5% 30px">
+                            <table width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"padding-top:26px;border-top:1px solid #999;">
+                                <tr>
+                                    <td style=3D"display:inline-block;font-=
+size:12px;font-family:'Apple SD Gothic Neo',=EB=A7=91=EC=9D=80=EA=B3=A0=EB=
+=94=95,'Malgun Gothic',sans-serif;color:#666;vertical-align:top;">- =EB=B3=
+=B8 =EC=9D=B4=EB=A9=94=EC=9D=BC=EC=9D=80 =EC=9D=B4=EB=A9=94=EC=9D=BC =EC=88=
+=98=EC=8B=A0 =EB=8F=99=EC=9D=98=EC=99=80 =EA=B4=80=EA=B3=84=EC=97=86=EC=9D=
+=B4 =EB=B0=9C=EC=86=A1=EB=90=98=EB=8A=94 =EB=A9=94=EC=9D=BC=EC=9E=85=EB=8B=
+=88=EB=8B=A4.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=3D"padding:16px 8.5% 24px;background:#eae=
+9e9;font-family:'Apple SD Gothic Neo',=EB=A7=91=EC=9D=80=EA=B3=A0=EB=94=95,=
+'Malgun Gothic',sans-serif;font-size:12px;line-height:1.66;color:#666;text-=
+align:left;">
+                            <div>
+                                <span style=3D"display:block;font-size:14px=
+;font-weight:700">LG Electronics</span>
+                                =EC=82=AC=EC=97=85=EC=9E=90=EB=93=B1=EB=A1=
+=9D=EB=B2=88=ED=98=B8 : 107-86-14075<span style=3D"display:inline-block;ver=
+tical-align:1px;margin:0 10px;color:#999;">|</span>=EB=8C=80=ED=91=9C=EC=9D=
+=B4=EC=82=AC : =EC=A1=B0=EC=A3=BC=EC=99=84<br>
+                                =EC=A3=BC=EC=86=8C : =EC=84=9C=EC=9A=B8=ED=
+=8A=B9=EB=B3=84=EC=8B=9C =EC=98=81=EB=93=B1=ED=8F=AC=EA=B5=AC =EC=97=AC=EC=
+=9D=98=EB=8C=80=EB=A1=9C 128 =ED=8A=B8=EC=9C=88=ED=83=80=EC=9B=8C (=EC=97=
+=AC=EC=9D=98=EB=8F=84=EB=8F=99 20 =ED=8A=B8=EC=9C=88=ED=83=80=EC=9B=8C)
+                            </div>
+                            <div style=3D"line-height:1.2;padding-top:6px;c=
+olor:#999">Copyright LG Electronics. All Rights Reserved.</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

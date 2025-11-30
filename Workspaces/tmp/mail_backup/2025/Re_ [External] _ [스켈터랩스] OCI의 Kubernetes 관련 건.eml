@@ -1,0 +1,2072 @@
+Received: from SA1PR10MB5688.namprd10.prod.outlook.com (2603:10b6:806:23e::12)
+ by PH8PR10MB6358.namprd10.prod.outlook.com with HTTPS; Mon, 6 Jan 2025
+ 07:21:20 +0000
+Received: from SJ0PR10MB6373.namprd10.prod.outlook.com (2603:10b6:a03:47d::18)
+ by SA1PR10MB5688.namprd10.prod.outlook.com (2603:10b6:806:23e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.15; Mon, 6 Jan
+ 2025 07:21:19 +0000
+Received: from SJ0PR10MB6373.namprd10.prod.outlook.com
+ ([fe80::f3df:4055:c4b4:447c]) by SJ0PR10MB6373.namprd10.prod.outlook.com
+ ([fe80::f3df:4055:c4b4:447c%3]) with mapi id 15.20.8314.015; Mon, 6 Jan 2025
+ 07:21:18 +0000
+From: chosuky CHO <seonggyun.cho@oracle.com>
+To: BumSoo Choi <bumsoo.choi@oracle.com>
+CC: WonYong Lee <wonyong.lee@oracle.com>, =?ks_c_5601-1987?B?wMzBpsfK?=
+	<jplee@gtplus.co.kr>, =?ks_c_5601-1987?B?wMy1v7+x?= <dylee@gtplus.co.kr>
+Subject:
+	=?ks_c_5601-1987?B?UmU6IFtFeHRlcm5hbF0gOiBbvbrEzMXNt6a9ul0gT0NJwMcgS3Vi?=
+ =?ks_c_5601-1987?B?ZXJuZXRlcyCw/LfDILDH?=
+Thread-Topic:
+	=?ks_c_5601-1987?B?W0V4dGVybmFsXSA6IFu9usTMxc23pr26XSBPQ0nAxyBLdWJlcm5l?=
+ =?ks_c_5601-1987?B?dGVzILD8t8MgsMc=?=
+Thread-Index:
+	AQHbTFATa48c/+p830uy4f0PvuAzu7LiCykNgAa26yuAAPduHYADKTeRgAA4rICAHGKoZA==
+Date: Mon, 6 Jan 2025 07:21:18 +0000
+Message-ID:
+	<SJ0PR10MB637343B08EA06E2B747FAC2C9C102@SJ0PR10MB6373.namprd10.prod.outlook.com>
+References:
+	<CA+jGv9VTFJ5cVfJ3X-76ht=LDNZT4pcHSoCykhcVyq0TE1MoeQ@mail.gmail.com>
+ <DS7PR10MB5085237354DAC200CBF5025F893F2@DS7PR10MB5085.namprd10.prod.outlook.com>
+ <SJ0PR10MB6373DF284DD33E3B33692E7C9C3B2@SJ0PR10MB6373.namprd10.prod.outlook.com>
+ <DS7PR10MB508556C51125EE96D72CAA1789042@DS7PR10MB5085.namprd10.prod.outlook.com>
+ <BLAPR10MB507494598047B7C8D099A59589062@BLAPR10MB5074.namprd10.prod.outlook.com>
+ <SL2P216MB121388FEAECFC1933D71202397062@SL2P216MB1213.KORP216.PROD.OUTLOOK.COM>
+In-Reply-To:
+	<SL2P216MB121388FEAECFC1933D71202397062@SL2P216MB1213.KORP216.PROD.OUTLOOK.COM>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: SJ0PR10MB6373.namprd10.prod.outlook.com
+X-MS-Has-Attach: yes
+X-MS-Exchange-Organization-Network-Message-Id:
+	9b3b6b23-f231-476b-11b1-08dd2e22b6d7
+X-MS-Exchange-Organization-SCL: 1
+X-Message-Flag: =?ks_c_5601-1987?B?w9+woSDA2773?=
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+msip_labels:
+x-ms-publictraffictype: Email
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oracle.com;
+x-ms-office365-filtering-correlation-id: 9b3b6b23-f231-476b-11b1-08dd2e22b6d7
+x-ms-traffictypediagnostic:
+	SJ0PR10MB6373:EE_|SA1PR10MB5688:EE_|PH8PR10MB6358:EE_
+x-oracle-tenancy: 1
+x-microsoft-antispam:
+	BCL:0;ARA:13230040|366016|7053199007|8096899003|41050700001;
+x-forefront-antispam-report:
+	CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR10MB6373.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7053199007)(8096899003)(41050700001);DIR:INT;
+x-ms-exchange-crosstenant-authas: Internal
+x-ms-exchange-crosstenant-authsource: SJ0PR10MB6373.namprd10.prod.outlook.com
+x-ms-exchange-crosstenant-network-message-id:
+	9b3b6b23-f231-476b-11b1-08dd2e22b6d7
+x-ms-exchange-crosstenant-originalarrivaltime: 06 Jan 2025 07:21:18.7395 (UTC)
+x-ms-exchange-crosstenant-fromentityheader: Hosted
+x-ms-exchange-crosstenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+x-ms-exchange-crosstenant-mailboxtype: HOSTED
+x-ms-exchange-crosstenant-userprincipalname:
+	YvVOJNVp7TGrMObd7aNAuDwzZtomDBJaq6YbWd/gTYWP+by3oLqoBDmgH7eKS5y+AqzL4cfYlu/akXy/47W4xrxFRJHjd5IZxwNP7lue6jA=
+x-ms-exchange-transport-crosstenantheadersstamped: SA1PR10MB5688
+x-ms-exchange-transport-endtoendlatency: 00:00:01.9109443
+x-ms-exchange-processed-by-bccfoldering: 15.20.8314.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	UsCuk86DfvkCs6vq5GNIt83alegN3N4xDAIDWbazQi69B2Qxnu18P5YeE+0C+TIXeOl7A/s78OnQ//IClEBdKoi3TgENTv12vwdoVkH7nqNE9Oa3XHhAfCbZBuWgJR5oSFNEGrz/UyxFN+xpUwtvGLM2vjwnKdgxhQj3AHkZTAp1P/Q9pTyUvWvTZKR1hVikkIkWw1S8ZXzhfLrcH7Z1cR7Fj5cIW1M0hFblS3VRanMQUQWIQKNz1d7tpGxLwnek48EBHbk2zyR2ri2SBIunhNOkCKkEfAC/YJU7a/7IoiUtmLSk5rvFIX2+e+dWAuOF6lXJ2p3VjfWjkK6JMRXh13GBV40Jpc2kTuf1POEWOXoKaAvN/nOsYFeiqJyTE6uJiu1t1Y1DPYBUuV6xYYtCYTk9WuxGbI0qWuTGzaJc+uwArWlr+ONxmUUBrQ5ID+//8rNz+oYuuRMeH8rl37YkFoV8qB2jIFcixUfBPUTn9CLCfoMAjowgrJ5GW5VrAKaB+iPaGDlnK0ex/8KFTXyODlddpU4/deMYMN7PaVc7R70Xn2eW1qvEHorh3Aflm7Bt6Km4f8zrpmaJrKijvJiGpQ3xpJM/o6IOseQAlTNYlKKh6M0Fktq8WKR5CQb/yDW8fzUGyvplKeN3wzDL9SIV7qpMB5cLduyLS+oSBdX1Xr3kOYBLaYV377HYoeJW2B3Mxf42x5ddApsr+sfRmpYAsKKklDOe+tvnkIG9v+o6trPgorEOzMkd6fhxc/NyR7eXFzWZ8RIz7/+gT7NCxpZ6ysVBB0gLNzdFN+b7pjUlERfr7+DippsW0y/TL1pL7nV/
+Content-Type: multipart/related;
+	boundary="_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+
+--_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: multipart/alternative;
+	boundary="_000_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_"
+
+--_000_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: base64
+
+DQq+yLPnx8+8vL/kIMG2vLqx1cDUtM+02S4NCg0Kvsa3oSC8vLChwfYgs7u/6yC48LXOIEdLRSC0
+67rxIE9LRcDHIMDatb/IrSCw/LfDILO7v+vAziC17SDH1bTPtNkuDQpHS0W/zSC03riuIE9LRbTC
+IE5ldHdvcmsgsbi8usDMtvO0+MH2LCC+97HXt7nAzLXlLCC48LTPxc24tSC51yC3zrHrILXuv6Eg
+tOvH0SC6sLW1ILyzwaTAzCDHyr/kx9W0z7TZLg0Kvsa3ocDHILTcsOi6sCC+7rfBv/LAzCDA1sC4
+vcO02bjpIMbExq6zyrimIMXrx9ggtbW/8iC15biuuOkgwcHAuyCwzSCwsL3AtM+02S4gwMy/zSCw
+/LfDx8+/qSC5zMbDIMH4x+DHz7DtILTZwL0gvbrF3MC7ILPtwMcgx8+0wiCw1CC+7razse6/5A0K
+DQoxLiCz18auv/bFqSAoVkNOILXuILv9vLopDQoyLiDFrLevvbrFzSC7/by6DQozLiCz67XlILD8
+uK4gudcgvvex17e5wMy15Q0KNC4gwNq1v8itILnXIMXbx8O4tA0KDQq7573HIMCnILO7v+uw+iCw
+/LfDx9i8rbTCIMf2x+AgvK268b26IMDaw7zAxyC5rsGmwMy5x7fOILDtsLTAzCDAzbz3x9jB+ran
+se7B9iC1tb/ywLsgteW4rrTCILnmx+LAuLfOIL7ux8rHz7TCILDUIL7utrOx7iC9zbPXv+QuLi4N
+Cg0KwMy788DUtM+02S4NCsG2vLqx1SC15biyLg0KDQoNCg0KDQpbT3JhY2xlXTxodHRwOi8vd3d3
+Lm9yYWNsZS5jb20vPg0Kwba8urHVIChTZW9uZ2d5dW4gQ2hvKSwgQ2xvdWQgQXJjaGl0ZWN0DQoN
+Ck1vYmlsZTogKzgyLjEwLjUzODUuODQzNQ0KDQpPcmFjbGUgRGlnaXRhbCBQcmltZSBUZWNobm9s
+b2d5IENsb3VkIEVuZ2luZWVyaW5nDQoNCk9yYWNsZSBLb3JlYSBPZmZpY2UgMTUsMTYsMzZGIEFT
+RU0gVG93ZXIsIDUxNyBZZW9uZ2RvbmctZGFlcm8sIEdhbmduYW0tZ3UsIFNlb3VsLCBLb3JlYQ0K
+DQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KurizvSC757b3OiDAzLW/v7EgPGR5
+bGVlQGd0cGx1cy5jby5rcj4NCrq4s70gs6/CpTogMjAyNLPiIDEyv/kgMTnAzyC48b/kwM8gv8DI
+xCAyOjU0DQq53rTCILvntvc6IEJ1bVNvbyBDaG9pIDxidW1zb28uY2hvaUBvcmFjbGUuY29tPg0K
+wvzBtjogY2hvc3VreSBDSE8gPHNlb25nZ3l1bi5jaG9Ab3JhY2xlLmNvbT47IFdvbllvbmcgTGVl
+IDx3b255b25nLmxlZUBvcmFjbGUuY29tPjsgwMzBpsfKIDxqcGxlZUBndHBsdXMuY28ua3I+DQrB
+prjxOiBSRTogW0V4dGVybmFsXSA6IFu9usTMxc23pr26XSBPQ0nAxyBLdWJlcm5ldGVzILD8t8Mg
+sMcNCg0KDQq068eltNQuDQoNCg0KDQrAzMGmx8q89ryutNSw+iC788DHx9EgsOGw+iDHz7HiIDOw
+ocH2ILvnx9e/oSC068fYvK0gseK8+sD7wM4gwba+8MC7IMfSILz2sKEgvvi02bDtIMfVtM+02S4N
+Cg0Kvsa3oSAzsKHB9rChILjCtMIgs7u/68DMuOcgsOG30MC6IE9DSbChILCzvLG1x77uvt8gx9Ig
+u+fH18DMwfYgtOvDvMfPsMWzqiCws7yxx9Iguea5/cC6IL74tNmw7SDHz7PXv+QuDQoNCrTcLCDA
++sjxwMcgwOXBocC6IEdDULq4tNkgseK0ycDMILrSxu3H0SC4uMWtIMD6t8XHz7TZIMGktbXAzyC1
+7SDH1bTPtNkuDQoNCg0KDQqwqLvnx9W0z7TZLg0KDQoNCg0KW2NpZDppbWFnZTAwMi5wbmdAMDFE
+QjUyMjUuRTlFRjhFMjBdDQoNCkRvbmd5dXAgTGVlIHwgR2VuZXJhbCBNYW5hZ2VyDQoNCkdUUGx1
+cyBDby4sIEx0ZC4gfCBDbG91ZCBEZXBhcnRtZW50DQoNCk9mZmljZSA6ICs4MiAyIDYyNzYgMzc2
+OCB8IE1vYmlsZSA6ICs4MiAxMCA5NTA0IDIzOTENCg0KOUYsIDEwRiwgMTdGLCAzMjksIEdhbmdu
+YW0tZGFlcm8sIFNlb2Noby1ndSwgU2VvdWwNCg0KDQoNCkZyb206IEJ1bVNvbyBDaG9pIDxidW1z
+b28uY2hvaUBvcmFjbGUuY29tPg0KU2VudDogVGh1cnNkYXksIERlY2VtYmVyIDE5LCAyMDI0IDEx
+OjQ2IEFNDQpUbzogY2hvc3VreSBDSE8gPHNlb25nZ3l1bi5jaG9Ab3JhY2xlLmNvbT47IFdvbllv
+bmcgTGVlIDx3b255b25nLmxlZUBvcmFjbGUuY29tPjsgwMzBpsfKIDxqcGxlZUBndHBsdXMuY28u
+a3I+OyDAzLW/v7EgPGR5bGVlQGd0cGx1cy5jby5rcj4NClN1YmplY3Q6IEZXOiBbRXh0ZXJuYWxd
+IDogW726xMzFzbemvbpdIE9DScDHIEt1YmVybmV0ZXMgsPy3wyCwxw0KDQoNCg0Kvsiz58fPvLy/
+5CDD1rn8vPbA1LTPtNkuDQoNCrDtsLSysrytILi3u/MgveG6uLTPILD8uK6woSCzyrmrILrSxu3H
+z7TZtMIgx8e15bnpwMwgwNbAuLzMtMK1pQ0KDQqx17+hILTrx9gNCg0KDQoNCiAgMS4gIL/AxeS9
+usTJwM8gus660MDMILyzxKG0wiDHz7Dawfa4uCC47rPiIMH2s6q46SCw6LzTIL73sde3ucDMteUg
+x9jB4L7fIMfPtMIgus660L+hILTrx9EgutLG7cfULiBHQ1C0wiC1+7fOILDHtemw1CC++MC9Lg0K
+ICAyLiAgt87F18DMvMfAuiC9usWpuLPGrrimILvnv+vHz8H2uLggR0NQtMIgM340wdnAzLjpILOh
+s68gwM/AzrWlIMDPwMwguLm+xsH4tNkuDQogIDMuICBPS0Ugt84gs9G+7iCwrMC7ILanIL/Cx8G3
+ubnMvbq/oSC8wr73x9IgtqcgvLPBpMfPtMIgvPbB2LHuwfYgx9i+3yDHz7DtILDovNMgwK/B9rq4
+vPa1tSC81cDMILi5wMwgsKUgsM3AuLfOILq4wM602S4NCg0KDQoNCrbztMIgwMew38C7IMHWvMy9
+wLTPtNkuDQoNCkdDUCC/zSC68bGzx9/AuyC2pyDA2rW/yK0gus660MDMIL7gx9EgsMewob/kPw0K
+DQq+xrTPuOkgsLO8scOlwMwgwNa0wiDB9iDBuyC09SCw7bC0wLsgvLO15sfSILz2IMDWtMIguO26
+0MC7ILi4tem+7r7fIMfSILDNILCwvcC0z7TZLg0KDQpAwMy1v7+xus7A5SDB9sa8x8O3r726PG1h
+aWx0bzpkeWxlZUBndHBsdXMuY28ua3I+IMDMwabHyiC89ryutNQgx9i05yC758fXILDtsLQgseK8
++iCw/LfDIMPfsKEgwba+8CDB1r3HILO7v+sgwNbAuL3Hse6/5D8NCg0KDQoNCrDtsLSysrytIE9L
+RSC4uCCw6LzTIMH9wd/Hz7+pIMXXvbrGriDB38DMvcO28yC6/LilILTrwMDAzCDHyr/kIMfVtM+0
+2S4NCg0KuPC1ziC1tb/yILrOxbm15biztM+02S4NCg0KDQoNCrCou+fH1bTPtNkuDQoNCsPWufy8
+9iC15biyLg0KDQpbc2lnbmF0dXJlSW1hZ2VdDQoNCsPWILn8ILz2IEJ1bXNvby5DaG9pIHy/tb73
+tOvHpSBDbG91ZCBTYWxlcyBSZXAuDQoNCg0KDQpPcmFjbGUgVGVjaCBDbG91ZA0KDQpQaG9uZTog
+KzgyIDIgMjE5NCA4MDAwPHRlbDorODIyMjE5NDgwMDA+IHwgRmF4OiArODIgMiAyMTk0IDgyNTI8
+dGVsOis4MjIyMTk0ODI1Mj4gfCBNb2JpbGU6ICs4MiAxMCA5MDM1IDU2OTk8dGVsOis4MjEwOTAz
+NTU2OTk+DQoNCk9SQUNMRSBTb3V0aCBLb3JlYSB8IDE2dGggRmwuLCBBU0VNIFRvd2VyLCBTYW1z
+dW5nLURvbmcsIEthbmduYW0tR3UgfCAxMzUtNzQ1IFNlb3VsDQoNCi0tDQoNCg0KDQoNCg0Kuriz
+vSC757b3OiBCdW1Tb28gQ2hvaSA8YnVtc29vLmNob2lAb3JhY2xlLmNvbTxtYWlsdG86YnVtc29v
+LmNob2lAb3JhY2xlLmNvbT4+DQqzr8KlOiDIrb/kwM8sIDIwMjSz4iAxMr/5IDE3wM8gv8DA/CAx
+MToyNQ0Kud60wiC757b3OiBieXVuZ3dvb0Bza2VsdGVybGFicy5jb208bWFpbHRvOmJ5dW5nd29v
+QHNrZWx0ZXJsYWJzLmNvbT4gPGJ5dW5nd29vQHNrZWx0ZXJsYWJzLmNvbTxtYWlsdG86Ynl1bmd3
+b29Ac2tlbHRlcmxhYnMuY29tPj4NCsL8wbY6IEpvbmdob29uIFNlbyA8am9uZ2hvb24uc2VvQHNr
+ZWx0ZXJsYWJzLmNvbTxtYWlsdG86am9uZ2hvb24uc2VvQHNrZWx0ZXJsYWJzLmNvbT4+LCBJbmZy
+YSBUZWFtIDxpbmZyYS10ZWFtQHNrZWx0ZXJsYWJzLmNvbTxtYWlsdG86aW5mcmEtdGVhbUBza2Vs
+dGVybGFicy5jb20+PiwgS2V2aW4gSmVvbiA8a2V2aW4uamVvbkBvcmFjbGUuY29tPG1haWx0bzpr
+ZXZpbi5qZW9uQG9yYWNsZS5jb20+PiwgY2hvc3VreSBDSE8gPHNlb25nZ3l1bi5jaG9Ab3JhY2xl
+LmNvbTxtYWlsdG86c2VvbmdneXVuLmNob0BvcmFjbGUuY29tPj4sIFdvbllvbmcgTGVlIDx3b255
+b25nLmxlZUBvcmFjbGUuY29tPG1haWx0bzp3b255b25nLmxlZUBvcmFjbGUuY29tPj4NCsHWwaY6
+IFJFOiBbRXh0ZXJuYWxdIDogW726xMzFzbemvbpdIE9DScDHIEt1YmVybmV0ZXMgsPy3wyCwxw0K
+DQq+yLPnx8+9yrTPse4hIMD8urS/7CBsZWFkILTUDQoNCsfRsbkgv8C288WsIMPWufy89iDA1LTP
+tNkuDQoNCg0KDQq4u764wda9xSC5rsDHu+fH1yCw/LfDx8+/qSDIuL3FILXluLO0z7TZLg0KDQoN
+Cg0KICAxLiAgs+u15SBhdXRvIHNjYWxpbmcgx8+3wbjpILqwtbUgYWRkIG9uIMfKv+THz7TZsO0g
+tce+7sDWvcC0z7TZLiC02bilILnmuf3AuiC++LTCwfa/5D8NCi0+IEt1YmVybmV0ZXMgQ2x1c3Rl
+ciBBdXRvc2NhbGVytMIguN60ur7zIMfPsNQgwffBoiC8s8Shx8+wxbOqLCBDbHVzdGVyIEFkZC1P
+bsC4t84gvLPEocfSILz2IMDWvcC0z7TZLg0KQWRkLU9uILHitMnAuiC43rS6vvMgx8+w1CC8s8Sh
+IMfYvt8gx8+0wiC6zrrQv6EgtOvH2CDG7cDHseK0ycC7IMGmsPjHz7TCILHitMnAuLfOILq4vcO4
+6SC1y7TPtNkuDQrC/LDtIFVSTCA6IGh0dHBzOi8vZG9jcy5vcmFjbGUuY29tL2VuLXVzL2lhYXMv
+Q29udGVudC9Db250RW5nL1Rhc2tzL2NvbnRlbmd1c2luZ2NsdXN0ZXJhdXRvc2NhbGVyLmh0bQ0K
+DQogIDEuICBPS0UgdGVycmFmb3JtwLi3ziCz67XlILv9vLq03LDov6G8rSB0YWludCCwxbTCILHi
+tMkgvvi+7rytILqwtbUgvbrFqbizxq4gvcfH4MDMIMfKv+THz7TZsO0gtce+7sDWvcC0z7TZLiC0
+2bilILnmuf3AuiC++LTCwfa/5D8NCi0+IHRhaW50ILyzwaTAuiBub2RlIHBvb2wgu/28uiC9wyDD
+s8C9ILPrteWwoSC6zsbDtckgtqcgwPu/67XHtMIgSW5pdGlhbGl6YXRpb24gc2NyaXB0uKYgxevH
+2CC8s8Gkx9IgvPYgwNa9wLTPtNkuDQpJbml0aWFsaXphdGlvbiBzY3JpcHQgtMIgY2xvdWQgY29u
+c29sZSC/obytIMDbvLogsKG0ycfPwfa4uCB0ZXJyYWZvcm0gvbrFqbizxq4gwNu8ur3Dv6G1tSDA
++7/rILChtMnH1bTPtNkuDQrC/LDtIFVSTCA6IGh0dHBzOi8vYmxvZ3Mub3JhY2xlLmNvbS9jbG91
+ZC1pbmZyYXN0cnVjdHVyZS9wb3N0L2F1dG8tdGFpbnRpbmctb2tlLW5vZGVzLXN0YXJ0dXANCmh0
+dHBzOi8vZ2l0aHViLmNvbS9vcmFjbGUtdGVycmFmb3JtLW1vZHVsZXMvdGVycmFmb3JtLW9jaS1v
+a2UvaXNzdWVzLzc1NCNpc3N1ZWNvbW1lbnQtMjQzNzA0MjkyMjxodHRwczovL3VybGRlZmVuc2Uu
+Y29tL3YzL19faHR0cHM6Ly9naXRodWIuY29tL29yYWNsZS10ZXJyYWZvcm0tbW9kdWxlcy90ZXJy
+YWZvcm0tb2NpLW9rZS9pc3N1ZXMvNzU0Kmlzc3VlY29tbWVudC0yNDM3MDQyOTIyX187SXchIUFD
+V1Y1TjlNMlJWOTloUSFQTDQyTzR5TEhvTVRJZlY2SkV4TFJqY2FsVThRX1hWOUFid1dnQUFvRnc5
+c0g1dDduclhDUldNRXFucGRaLV9wX2o2LTQ0TWVKSzJLbWF5eDNQbyQ+DQoNCiAgMS4gILPrteUg
+cm90YXRpb24gv8m8x8C7ILj4IMOjvtK0wrWlILnmuf3AzCDA1rTCwfa/5D8NCrDtsLTAzCC757/r
+x8+0wiBwcm9kIMivsOa/obyttMIgu/PIsr+hILX7tvO8rSBhbHBoYSAvIGJldGEgtNzAp8DHILPr
+teW3ziCxuLrQx8+/qSByb3RhdGlvbiC1ubfBsKG46bytIMDbvvfAuyDH2L7fIMfSIMfKv+SwoSDA
+1r3AtM+02S4gsde/oSC068fRIL/JvMfAzCC++LTCILDNwM7B9iC4+CDDo77SvcC0z7TZLg0KLT4g
+x8+zqsDHIMWst6+9usXNv6G8rSBhbHBoYSAvIGJldGEgtNzAp7fOILPrteW4piCxuLrQx9IgsOa/
+7L+htMIgbm9kZSBzZWxlY3RvciCx4rTJwLsgwMy/68fPvcO46SC1y7TPtNkuDQq+xrTPuOkgYWxw
+aGEgLyBiZXRhILTcwKe3ziC6sLW1wMcgxay3r726xc24piCxuLrQx8+9xyC89rW1IMDWvcC0z7TZ
+Lg0KuLu+uMfPvcO0wiCw1CDAzCCzu7/rwMwguMLAuL3Hse6/5D8NCg0KICAxLiAgbWFpbnRlbmFu
+Y2UgZXhjbHVzaW9uILHitMnAuyC4+CDDo77StMK1pSC55rn9wMwgwNa0wsH2v+Q/DQrApSDE3LzW
+v6G8rSC+8MGmIGs4cyC02cC9ILn2wPzAuLfOIL73sde3ucDMteUgtcnB9iC+yyC89iC++L76sO0s
+ILTZwL0gufbA/MC4t84gvvex17e5wMy15SDH0iC89iC++LDUILi3tMIgv8m8x8DMIMfKv+TH0bWl
+ILj4IMOjvtK9wLTPtNkuDQotPiBPS0UgtMIgu+e/68DawMcgvLHFw7+hIMDHx9ggxO259rPXxry9
+uiC59sD8wLsguN60ur7zIMfPsNQgvvex17e5wMy15SDH0iC89iDA1sC4uOcgvvex17e5wMy15bim
+ILCtwabHz8H2IL7KvcC0z7TZLg0Ksde3uLHiILanua6/oSC+8MGmIL73sde3ucDMteUgtce0wsH2
+v6EgtOvH2CDBprD4tcfB9iC+ysC4uOcgvvex17e5wMy15bimILi3tMIgv8m8xyC2x8fRIMG4wOfH
+z8H2IL7KvcC0z7TZLg0KDQogIDEuICDA+sjxsKEgv/jHz7TCIMW4wNTAxyCz67Xlv6EgR1BVuKYg
+wOXC+MfPtMIgv8m8x8C7ILj4IMOjvtK0wrWlILnmuf3AzCDA1rTCwfa/5D8NCkdDUMLKwLogZ3Vl
+c3RfYWNjZWxlcmF0b3Igv8m8x8DMIMDWvu68rSDA+sjxsKEgs+u15bimIMGkx8+w7SC/+MfPtMIg
+R1BVIMW4wNSw+iCws7z2IMH2waTAzCCwobTJx9+0wrWlIE9LRb+hvK20wiCw/LfDIL/JvMfAuyC4
++CDDo77SvcC0z7TZLg0KLT4gT0tFILTCILPrteUgx64gurC3ziCz67XlIMW4wNTAuyDB9sGkx9Ig
+vPYgwNa9wLTPtNkuIMOzwL0gT0tFILimILnoxvfH0SDAzMjEv6EgurC1tcDHDQqz67XlIMeuwLsg
+w9+wocfSILz2IMDWsO0gwMy2pyCz67XlwMcgwMy5zMH2uKYgR1BVIMDMuczB9rfOILqvsObH0iC8
+9iDA1r3AtM+02S4NCg0KyKS9wyDD37Cht84gua7AxyDB1r3HILO7v+vAzCDA1sC4vcO46SC+8MGm
+tecguLu+uCC6zsW5teW4rrDavcC0z7TZLg0KDQoNCg0KsKi758fVtM+02S4NCg0Kw9a5/Lz2ILXl
+uLIuDQoNCltzaWduYXR1cmVJbWFnZV0NCg0Kw9YgufwgvPYgQnVtc29vLkNob2kgfL+1vve068el
+IENsb3VkIFNhbGVzIFJlcC4NCg0KDQoNCk9yYWNsZSBUZWNoIENsb3VkDQoNClBob25lOiArODIg
+MiAyMTk0IDgwMDA8dGVsOis4MjIyMTk0ODAwMD4gfCBGYXg6ICs4MiAyIDIxOTQgODI1Mjx0ZWw6
+KzgyMjIxOTQ4MjUyPiB8IE1vYmlsZTogKzgyIDEwIDkwMzUgNTY5OTx0ZWw6KzgyMTA5MDM1NTY5
+OT4NCg0KT1JBQ0xFIFNvdXRoIEtvcmVhIHwgMTZ0aCBGbC4sIEFTRU0gVG93ZXIsIFNhbXN1bmct
+RG9uZywgS2FuZ25hbS1HdSB8IDEzNS03NDUgU2VvdWwNCg0KLS0NCg0KDQoNCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fDQoNCkZyb206IEJ5dW5nd29vIEplb24gPGJ5dW5nd29vQHNr
+ZWx0ZXJsYWJzLmNvbTxtYWlsdG86Ynl1bmd3b29Ac2tlbHRlcmxhYnMuY29tPj4NClNlbnQ6IFRo
+dXJzZGF5LCBEZWNlbWJlciAxMiwgMjAyNCAxOjQwOjI3IFBNDQpUbzogQnVtU29vIENob2kgPGJ1
+bXNvby5jaG9pQG9yYWNsZS5jb208bWFpbHRvOmJ1bXNvby5jaG9pQG9yYWNsZS5jb20+Pg0KQ2M6
+IEpvbmdob29uIFNlbyA8am9uZ2hvb24uc2VvQHNrZWx0ZXJsYWJzLmNvbTxtYWlsdG86am9uZ2hv
+b24uc2VvQHNrZWx0ZXJsYWJzLmNvbT4+OyBJbmZyYSBUZWFtIDxpbmZyYS10ZWFtQHNrZWx0ZXJs
+YWJzLmNvbTxtYWlsdG86aW5mcmEtdGVhbUBza2VsdGVybGFicy5jb20+Pg0KU3ViamVjdDogW0V4
+dGVybmFsXSA6IFu9usTMxc23pr26XSBPQ0nAxyBLdWJlcm5ldGVzILD8t8MgsMcNCg0KDQoNCg0K
+vsiz58fPvLy/5CwgvbrEzMXNt6a9uiDA/Lq0v+zA1LTPtNkuDQoNCg0KDQoNCg0KS3ViZXJuZXRl
+cyCz67Xlv6G8rSC757/rwd/AziBjb21wdXRlILiuvNK9uiDH9siyIChHUFUgs+u15SDBpr/cKQ0K
+DQogICogICBkZXY6IDM0IHZDUFUgNzlHIG1lbQ0KICAqICAgc3RhZ2U6IDYzIHZDUFUgMTEzRyBt
+ZW0NCiAgKiAgIHByb2Q6IDY0IHZDUFUgMTIxRyBtZW0NCg0KDQoNCrTrx6W01LD6IMH2s60gxL/H
+x8OqIMDMyMQgudm3ziBPS0W4piC757/rx9i6uLjpvK0gsMvF5MfYuri+0r3AtM+02S4NCg0KwPrI
+8bTCIMf2wOcgR0NQKGdvb2dsZSBjbG91ZCBwbGF0Zm9ybSnAxyBHS0W4piC757/rwd+/oSDA1r7u
+vK0gsde/zSC68bGzx8+46bytILDLxeTH373AtM+02S4NCg0KDQoNCrDLxeTH0SCw4bD6IE9LRSCw
+/LfDILjusKHB9iC5rsDHteW4s7TPtNkuDQoNCg0KDQogIDEuICCz67XlIGF1dG8gc2NhbGluZyDH
+z7fBuOkgurC1tSBhZGQgb24gx8q/5DxodHRwczovL2RvY3Mub3JhY2xlLmNvbS9lbi11cy9pYWFz
+L0NvbnRlbnQvQ29udEVuZy9UYXNrcy9jb250ZW5nYXV0b3NjYWxpbmdjbHVzdGVycy5odG0+x8+0
+2bDtILXHvu7A1r3AtM+02S4gtNm4pSC55rn9wLogvvi0wsH2v+Q/DQogIDIuICBPS0UgdGVycmFm
+b3JtwLi3ziCz67XlILv9vLq03LDov6G8rSB0YWludCCwxbTCILHitMkgvvi+7rytILqwtbUgvbrF
+qbizxq4gvcfH4MDMIMfKv+Q8aHR0cHM6Ly9ibG9ncy5vcmFjbGUuY29tL2Nsb3VkLWluZnJhc3Ry
+dWN0dXJlL3Bvc3QvYXV0by10YWludGluZy1va2Utbm9kZXMtc3RhcnR1cD7Hz7TZsO0gtce+7sDW
+vcC0z7TZLiC02bilILnmuf3AuiC++LTCwfa/5D8NCiAgMy4gILPrteUgcm90YXRpb24gv8m8x8C7
+ILj4IMOjvtK0wrWlILnmuf3AzCDA1rTCwfa/5D8NCrDtsLTAzCC757/rx8+0wiBwcm9kIMivsOa/
+obyttMIgu/PIsr+hILX7tvO8rSBhbHBoYSAvIGJldGEgtNzAp8DHILPrteW3ziCxuLrQx8+/qSBy
+b3RhdGlvbiC1ubfBsKG46bytIMDbvvfAuyDH2L7fx9Igx8q/5LChIMDWvcC0z7TZLiCx17+hILTr
+x9Egv8m8x8DMIL74tMKwzcDOwfYguPggw6O+0r3AtM+02S4NCiAgNC4gIG1haW50ZW5hbmNlIGV4
+Y2x1c2lvbiCx4rTJwLsguPggw6O+0rTCtaUguea5/cDMIMDWtMLB9r/kPw0KwKUgxNy81r+hvK0g
+vvDBpiBrOHMgtNnAvSC59sD8wLi3ziC+97HXt7nAzLXlILXJwfYgvssgvPYgvvi++rDtLCC02cC9
+ILn2wPzAuLfOIL73sde3ucDMteUgx9IgvPYgvviw1CC4t7TCIL/JvMfAzCDHyr/kx9G1pSC4+CDD
+o77SvcC0z7TZLg0KICA1LiAgwPrI8bChIL/4x8+0wiDFuMDUwMcgs+u15b+hIEdQVbimIMDlwvjH
+z7TCIL/JvMfAuyC4+CDDo77StMK1pSC55rn9wMwgwNa0wsH2v+Q/DQpHQ1DCysC6IGd1ZXN0X2Fj
+Y2VsZXJhdG9yIL/JvMfAzCDA1r7uvK0gwPrI8bChILPrteW4piDBpMfPsO0gv/jHz7TCIEdQVSDF
+uMDUsPogsLO89iDB9sGkwMwgsKG0ycfftMK1pSBPS0W/obyttMIgsPy3wyC/ybzHwLsguPggw6O+
+0r3AtM+02S4NCg0KDQoNCg0KDQoNCg0KsKi758fVtM+02S4NCg0KwPy6tL/sILXluLINCg0KW7q4
+s70gu+e298DMIMGmsMXH0SDAzLnMwfbA1LTPtNkuIFNrZWx0ZXIgTGFic10NCg0KQnl1bmd3b28g
+SmVvbg0KDQpJbmZyYSAvIERldk9wcyBFbmdpbmVlcg0KDQorODIgMTAgOTQ4MiA3MDI2DQoNCmJ5
+dW5nd29vQHNrZWx0ZXJsYWJzLmNvbTxtYWlsdG86Ynl1bmd3b29Ac2tlbHRlcmxhYnMuY29tPg0K
+DQpza2VsdGVybGFicy5jb208aHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHBzOi93d3cu
+c2tlbHRlcmxhYnMuY29tX187ISFBQ1dWNU45TTJSVjk5aFEhUHpkdjlNcndxbmMzREZRdHFHU3FM
+V0U2Y1dqbkd0cThXczUxUzUwRU5YS01aeGtJRFcyNWxpeG5wSkE2ODFLaTBlZEpZYWdqQjU0OWtu
+ZEtRbVpaVV9FJD4NCg0KDQo=
+
+--_000_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: text/html; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dks_c_5601=
+-1987">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=BE=C8=B3=E7=C7=CF=BC=BC=BF=E4 =C1=B6=BC=BA=B1=D5=C0=D4=B4=CF=B4=D9.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=BE=C6=B7=A1 =BC=BC=B0=A1=C1=F6 =B3=BB=BF=EB =B8=F0=B5=CE GKE =B4=EB=BA=F1 =
+OKE=C0=C7 =C0=DA=B5=BF=C8=AD =B0=FC=B7=C3 =B3=BB=BF=EB=C0=CE =B5=ED =C7=D5=
+=B4=CF=B4=D9.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+GKE=BF=CD =B4=DE=B8=AE OKE=B4=C2 Network =B1=B8=BC=BA=C0=CC=B6=F3=B4=F8=C1=
+=F6, =BE=F7=B1=D7=B7=B9=C0=CC=B5=E5, =B8=F0=B4=CF=C5=CD=B8=B5 =B9=D7 =B7=CE=
+=B1=EB =B5=EE=BF=A1 =B4=EB=C7=D1 =BA=B0=B5=B5 =BC=B3=C1=A4=C0=CC =C7=CA=BF=
+=E4=C7=D5=B4=CF=B4=D9.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=BE=C6=B7=A1=C0=C7 =B4=DC=B0=E8=BA=B0 =BE=EE=B7=C1=BF=F2=C0=CC =C0=D6=C0=B8=
+=BD=C3=B4=D9=B8=E9 =C6=C4=C6=AE=B3=CA=B8=A6 =C5=EB=C7=D8 =B5=B5=BF=F2 =B5=
+=E5=B8=AE=B8=E9 =C1=C1=C0=BB =B0=CD =B0=B0=BD=C0=B4=CF=B4=D9. =C0=CC=BF=CD =
+=B0=FC=B7=C3=C7=CF=BF=A9 =B9=CC=C6=C3 =C1=F8=C7=E0=C7=CF=B0=ED =B4=D9=C0=BD=
+ =BD=BA=C5=DC=C0=BB =B3=ED=C0=C7 =C7=CF=B4=C2 =B0=D4 =BE=EE=B6=B3=B1=EE=BF=
+=E4</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+1. =B3=D7=C6=AE=BF=F6=C5=A9 (VCN =B5=EE =BB=FD=BC=BA)</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+2. =C5=AC=B7=AF=BD=BA=C5=CD =BB=FD=BC=BA</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+3. =B3=EB=B5=E5 =B0=FC=B8=AE =B9=D7 =BE=F7=B1=D7=B7=B9=C0=CC=B5=E5</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+4. =C0=DA=B5=BF=C8=AD =B9=D7 =C5=DB=C7=C3=B8=B4</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=BB=E7=BD=C7 =C0=A7 =B3=BB=BF=EB=B0=FA =B0=FC=B7=C3=C7=D8=BC=AD=B4=C2 =C7=
+=F6=C7=E0 =BC=AD=BA=F1=BD=BA =C0=DA=C3=BC=C0=C7 =B9=AE=C1=A6=C0=CC=B9=C7=B7=
+=CE =B0=ED=B0=B4=C0=CC =C0=CD=BC=F7=C7=D8=C1=FA=B6=A7=B1=EE=C1=F6 =B5=B5=BF=
+=F2=C0=BB =B5=E5=B8=AE=B4=C2 =B9=E6=C7=E2=C0=B8=B7=CE =BE=EE=C7=CA=C7=CF=B4=
+=C2 =B0=D4 =BE=EE=B6=B3=B1=EE =BD=CD=B3=D7=BF=E4...</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=C0=CC=BB=F3=C0=D4=B4=CF=B4=D9.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+=C1=B6=BC=BA=B1=D5 =B5=E5=B8=B2.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"Signature" class=3D"elementToProof">
+<p style=3D"text-align: justify; text-indent: 0px; background-color: rgb(25=
+5, 255, 255); margin: 0cm 0cm 0.0001pt;">
+<span style=3D"font-family: &quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; font-siz=
+e: 10pt; color: rgb(36, 36, 36);">&nbsp;</span></p>
+<p style=3D"text-align: justify; text-indent: 0px; background-color: rgb(25=
+5, 255, 255); margin: 0cm 0cm 0.0001pt;">
+<span style=3D"font-family: &quot;Oracle Sans&quot;, sans-serif; font-size:=
+ 10pt; color: blue;"><u><a href=3D"http://www.oracle.com/" target=3D"_blank=
+" rel=3D"noopener noreferrer" data-linkindex=3D"0" data-auth=3D"NotApplicab=
+le" style=3D"color: blue; margin: 0px;"><img alt=3D"Oracle" id=3D"x_=B1=D7=
+=B8=B2_x0020_1" width=3D"114" height=3D"25" style=3D"width: 1.1875in; heigh=
+t: 0.2708in; max-width: 780px; min-width: auto; min-height: auto; margin: 0=
+px;" data-outlook-trace=3D"F:1|T:1" src=3D"cid:2d348a24-f0f8-4d45-bbb3-dab6=
+137c09a6"></a></u></span><span style=3D"font-family: &quot;Oracle Sans&quot=
+;, sans-serif; font-size: 10pt; color: black;"><br>
+</span><span style=3D"letter-spacing: 0.2pt; font-family: &quot;=B8=BC=C0=
+=BA =B0=ED=B5=F1&quot;; font-size: 10pt; color: rgb(49, 45, 42);">=C1=B6=BC=
+=BA=B1=D5</span><span style=3D"letter-spacing: 0.2pt; font-family: &quot;Or=
+acle Sans App Light&quot;; font-size: 10pt; color: rgb(49, 45, 42);">&nbsp;=
+(Seonggyun Cho), Cloud
+ Architect</span></p>
+<p style=3D"text-align: justify; text-indent: 0px; background-color: rgb(25=
+5, 255, 255); margin: 0cm 0cm 0.0001pt;">
+<span style=3D"letter-spacing: 0.2pt; font-family: &quot;Oracle Sans App Li=
+ght&quot;; font-size: 10pt; color: rgb(49, 45, 42);">Mobile: +82.10.5385.84=
+35</span></p>
+<p style=3D"text-align: justify; text-indent: 0px; background-color: rgb(25=
+5, 255, 255); margin: 0cm 0cm 0.0001pt;">
+<span style=3D"letter-spacing: 0.2pt; font-family: &quot;Oracle Sans App Li=
+ght&quot;; font-size: 10pt; color: rgb(192, 0, 0);">Oracle Digital Prime</s=
+pan><span style=3D"letter-spacing: 0.2pt; font-family: &quot;Oracle Sans Ap=
+p Light&quot;; font-size: 10pt; color: rgb(49, 45, 42);">&nbsp;Technology
+ Cloud Engineering</span></p>
+<p style=3D"text-align: justify; text-indent: 0px; background-color: rgb(25=
+5, 255, 255); margin: 0cm 0cm 0.0001pt;">
+<span style=3D"letter-spacing: 0.2pt; font-family: &quot;Oracle Sans App Li=
+ght&quot;; font-size: 11pt; color: rgb(38, 38, 38);">Oracle Korea Office</s=
+pan><span style=3D"letter-spacing: 0.2pt; font-family: &quot;Oracle Sans Ap=
+p Light&quot;; font-size: 10pt; color: rgb(38, 38, 38);">&nbsp;15,16,36F
+ ASEM Tower, 517 Yeongdong-daero, Gangnam-gu, Seoul, Korea</span></p>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>=BA=B8=B3=BD =BB=E7=B6=F7:</b> =
+=C0=CC=B5=BF=BF=B1 &lt;dylee@gtplus.co.kr&gt;<br>
+<b>=BA=B8=B3=BD =B3=AF=C2=A5:</b> 2024=B3=E2 12=BF=F9 19=C0=CF =B8=F1=BF=E4=
+=C0=CF =BF=C0=C8=C4 2:54<br>
+<b>=B9=DE=B4=C2 =BB=E7=B6=F7:</b> BumSoo Choi &lt;bumsoo.choi@oracle.com&gt=
+;<br>
+<b>=C2=FC=C1=B6:</b> chosuky CHO &lt;seonggyun.cho@oracle.com&gt;; WonYong =
+Lee &lt;wonyong.lee@oracle.com&gt;; =C0=CC=C1=A6=C7=CA &lt;jplee@gtplus.co.=
+kr&gt;<br>
+<b>=C1=A6=B8=F1:</b> RE: [External] : [=BD=BA=C4=CC=C5=CD=B7=A6=BD=BA] OCI=
+=C0=C7 Kubernetes =B0=FC=B7=C3 =B0=C7</font>
+<div>&nbsp;</div>
+</div>
+<style>
+<!--
+@font-face
+	{font-family:=B9=D9=C5=C1}
+@font-face
+	{font-family:=B1=BC=B8=B2}
+@font-face
+	{font-family:"Cambria Math"}
+@font-face
+	{font-family:Calibri}
+@font-face
+	{font-family:"=B8=BC=C0=BA =B0=ED=B5=F1"}
+@font-face
+	{font-family:Tahoma}
+@font-face
+	{}
+@font-face
+	{}
+@font-face
+	{font-family:Aptos}
+p.x_MsoNormal, li.x_MsoNormal, div.x_MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:=B1=BC=B8=B2}
+a:link, span.x_MsoHyperlink
+	{color:blue;
+	text-decoration:underline}
+p.x_MsoListParagraph, li.x_MsoListParagraph, div.x_MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	font-size:12.0pt;
+	font-family:=B1=BC=B8=B2}
+span.x_xxgmaildefault
+	{}
+span.x_EmailStyle24
+	{font-family:"=B8=BC=C0=BA =B0=ED=B5=F1";
+	color:windowtext}
+.x_MsoChpDefault
+	{font-size:10.0pt}
+@page WordSection1
+	{margin:3.0cm 72.0pt 72.0pt 72.0pt}
+div.x_WordSection1
+	{}
+ol
+	{margin-bottom:0cm}
+ul
+	{margin-bottom:0cm}
+-->
+</style>
+<div lang=3D"KO" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:break-wo=
+rd">
+<div class=3D"x_WordSection1">
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B4=EB=
+=C7=A5=B4=D4<span lang=3D"EN-US">.</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=C0=CC=
+=C1=A6=C7=CA=BC=F6=BC=AE=B4=D4=B0=FA =BB=F3=C0=C7=C7=D1 =B0=E1=B0=FA =C7=CF=
+=B1=E2<span lang=3D"EN-US"> 3</span>=B0=A1=C1=F6 =BB=E7=C7=D7=BF=A1 =B4=EB=
+=C7=D8=BC=AD =B1=E2=BC=FA=C0=FB=C0=CE =C1=B6=BE=F0=C0=BB =C7=D2 =BC=F6=B0=
+=A1 =BE=F8=B4=D9=B0=ED =C7=D5=B4=CF=B4=D9<span lang=3D"EN-US">.</span></spa=
+n></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=BE=C6=
+=B7=A1<span lang=3D"EN-US"> 3</span>=B0=A1=C1=F6=B0=A1 =B8=C2=B4=C2 =B3=BB=
+=BF=EB=C0=CC=B8=E7 =B0=E1=B7=D0=C0=BA<span lang=3D"EN-US"> OCI</span>=B0=A1=
+ =B0=B3=BC=B1=B5=C7=BE=EE=BE=DF =C7=D2 =BB=E7=C7=D7=C0=CC=C1=F6 =B4=EB=C3=
+=BC=C7=CF=B0=C5=B3=AA =B0=B3=BC=B1=C7=D2 =B9=E6=B9=FD=C0=BA =BE=F8=B4=D9=B0=
+=ED =C7=CF=B3=D7=BF=E4<span lang=3D"EN-US">.</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B4=DC<=
+span lang=3D"EN-US">,
+</span>=C0=FA=C8=F1=C0=C7 =C0=E5=C1=A1=C0=BA<span lang=3D"EN-US"> GCP</span=
+>=BA=B8=B4=D9 =B1=E2=B4=C9=C0=CC =BA=D2=C6=ED=C7=D1 =B8=B8=C5=AD =C0=FA=B7=
+=C5=C7=CF=B4=D9 =C1=A4=B5=B5=C0=CF =B5=ED =C7=D5=B4=CF=B4=D9<span lang=3D"E=
+N-US">.</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B0=A8=
+=BB=E7=C7=D5=B4=CF=B4=D9<span lang=3D"EN-US">.</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<div>
+<p class=3D"x_MsoNormal" style=3D"text-align:justify; text-justify:inter-id=
+eograph; background:white">
+<b><span lang=3D"EN-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=
+=C0=BA =B0=ED=B5=F1&quot;; color:black"><img width=3D"122" height=3D"42" id=
+=3D"x_=B1=D7=B8=B2_x0020_1755453082" style=3D"width:1.2708in; height:.4375i=
+n" data-outlook-trace=3D"F:1|T:1" src=3D"cid:image002.png@01DB5225.E9EF8E20=
+"></span></b><span lang=3D"EN-US" style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"text-align:justify; text-justify:inter-id=
+eograph; background:white">
+<b><span lang=3D"EN-US" style=3D"font-size:10.5pt; font-family:&quot;=B8=BC=
+=C0=BA =B0=ED=B5=F1&quot;; color:#1F4E79">Dongyup Lee</span></b><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=
+=B5=F1&quot;; color:#1F4E79">&nbsp;| General Manager</span><span lang=3D"EN=
+-US" style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"text-align:justify; text-justify:inter-id=
+eograph; background:white">
+<span lang=3D"EN-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=
+=BA =B0=ED=B5=F1&quot;; color:#1F4E79">GTPlus Co., Ltd. | Cloud Department<=
+/span><span lang=3D"EN-US" style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"text-align:justify; text-justify:inter-id=
+eograph; background:white">
+<span lang=3D"EN-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=
+=BA =B0=ED=B5=F1&quot;; color:#1F4E79">Office : +82 2 6276 3768 | Mobile : =
++82 10 9504 2391</span><span lang=3D"EN-US" style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"text-align:justify; text-justify:inter-id=
+eograph; background:white">
+<span lang=3D"EN-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=
+=BA =B0=ED=B5=F1&quot;; color:#1F4E79">9F, 10F, 17F, 329, Gangnam-daero, Se=
+ocho-gu, Seoul</span><span lang=3D"EN-US" style=3D""></span></p>
+</div>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:10.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<div>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0c=
+m 0cm 0cm">
+<p class=3D"x_MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;=
+ font-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span lang=3D"=
+EN-US" style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-seri=
+f"> BumSoo Choi &lt;bumsoo.choi@oracle.com&gt;
+<br>
+<b>Sent:</b> Thursday, December 19, 2024 11:46 AM<br>
+<b>To:</b> chosuky CHO &lt;seonggyun.cho@oracle.com&gt;; WonYong Lee &lt;wo=
+nyong.lee@oracle.com&gt;;
+</span><span style=3D"font-size:11.0pt">=C0=CC=C1=A6=C7=CA</span><span lang=
+=3D"EN-US" style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-=
+serif"> &lt;jplee@gtplus.co.kr&gt;;
+</span><span style=3D"font-size:11.0pt">=C0=CC=B5=BF=BF=B1</span><span lang=
+=3D"EN-US" style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-=
+serif"> &lt;dylee@gtplus.co.kr&gt;<br>
+<b>Subject:</b> FW: [External] : [</span><span style=3D"font-size:11.0pt">=
+=BD=BA=C4=CC=C5=CD=B7=A6=BD=BA</span><span lang=3D"EN-US" style=3D"font-siz=
+e:11.0pt; font-family:&quot;Calibri&quot;,sans-serif">] OCI</span><span sty=
+le=3D"font-size:11.0pt">=C0=C7</span><span lang=3D"EN-US" style=3D"font-siz=
+e:11.0pt; font-family:&quot;Calibri&quot;,sans-serif">
+ Kubernetes </span><span style=3D"font-size:11.0pt">=B0=FC=B7=C3</span><spa=
+n style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-serif">
+</span><span style=3D"font-size:11.0pt">=B0=C7</span><span lang=3D"EN-US" s=
+tyle=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-serif"></spa=
+n></p>
+</div>
+</div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=BE=C8=
+=B3=E7=C7=CF=BC=BC=BF=E4 =C3=D6=B9=FC=BC=F6=C0=D4=B4=CF=B4=D9<span lang=3D"=
+EN-US">.</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B0=ED=
+=B0=B4=B2=B2=BC=AD =B8=B7=BB=F3 =BD=E1=BA=B8=B4=CF =B0=FC=B8=AE=B0=A1 =B3=
+=CA=B9=AB =BA=D2=C6=ED=C7=CF=B4=D9=B4=C2 =C7=C7=B5=E5=B9=E9=C0=CC =C0=D6=C0=
+=B8=BC=CC=B4=C2=B5=A5
+<span lang=3D"EN-US"></span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B1=D7=
+=BF=A1 =B4=EB=C7=D8
+<span lang=3D"EN-US"></span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<ol start=3D"1" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoListParagraph" style=3D"margin-left:4.0pt; word-break:bre=
+ak-hangul">
+<span style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=
+=F1&quot;">=BF=C0=C5=E4=BD=BA=C4=C9=C0=CF =BA=CE=BA=D0=C0=CC =BC=B3=C4=A1=
+=B4=C2 =C7=CF=B0=DA=C1=F6=B8=B8 =B8=EE=B3=E2 =C1=F6=B3=AA=B8=E9 =B0=E8=BC=
+=D3 =BE=F7=B1=D7=B7=B9=C0=CC=B5=E5 =C7=D8=C1=E0=BE=DF =C7=CF=B4=C2 =BA=CE=
+=BA=D0=BF=A1 =B4=EB=C7=D1 =BA=D2=C6=ED=C7=D4<span lang=3D"EN-US">. GCP</spa=
+n>=B4=C2 =B5=FB=B7=CE =B0=C7=B5=E9=B0=D4 =BE=F8=C0=BD<span lang=3D"EN-US">.
+</span></span></li><li class=3D"x_MsoListParagraph" style=3D"margin-left:4.=
+0pt; word-break:break-hangul">
+<span style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=
+=F1&quot;">=B7=CE=C5=D7=C0=CC=BC=C7=C0=BA =BD=BA=C5=A9=B8=B3=C6=AE=B8=A6 =
+=BB=E7=BF=EB=C7=CF=C1=F6=B8=B8<span lang=3D"EN-US"> GCP</span>=B4=C2<span l=
+ang=3D"EN-US"> 3~4</span>=C1=D9=C0=CC=B8=E9 =B3=A1=B3=AF =C0=CF=C0=CE=B5=A5=
+ =C0=CF=C0=CC =B8=B9=BE=C6=C1=F8=B4=D9<span lang=3D"EN-US">.
+</span></span></li><li class=3D"x_MsoListParagraph" style=3D"margin-left:4.=
+0pt; word-break:break-hangul">
+<span lang=3D"EN-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=
+=BA =B0=ED=B5=F1&quot;">OKE </span><span style=3D"font-size:11.0pt; font-fa=
+mily:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B7=CE =B3=D1=BE=EE =B0=AC=C0=
+=BB =B6=A7 =BF=C2=C7=C1=B7=B9=B9=CC=BD=BA=BF=A1 =BC=C2=BE=F7=C7=D2 =B6=A7 =
+=BC=B3=C1=A4=C7=CF=B4=C2 =BC=F6=C1=D8=B1=EE=C1=F6 =C7=D8=BE=DF =C7=CF=B0=ED=
+ =B0=E8=BC=D3 =C0=AF=C1=F6=BA=B8=BC=F6=B5=B5 =BC=D5=C0=CC =B8=B9=C0=CC =B0=
+=A5 =B0=CD=C0=B8=B7=CE =BA=B8=C0=CE=B4=D9<span lang=3D"EN-US">.
+</span></span></li></ol>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B6=F3=
+=B4=C2 =C0=C7=B0=DF=C0=BB =C1=D6=BC=CC=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US=
+">.
+</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">GCP
+</span><span style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=
+=ED=B5=F1&quot;">=BF=CD =BA=F1=B1=B3=C7=DF=C0=BB =B6=A7 =C0=DA=B5=BF=C8=AD =
+=BA=CE=BA=D0=C0=CC =BE=E0=C7=D1 =B0=C7=B0=A1=BF=E4<span lang=3D"EN-US">?
+</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=BE=C6=
+=B4=CF=B8=E9 =B0=B3=BC=B1=C3=A5=C0=CC =C0=D6=B4=C2 =C1=F6 =C1=BB =B4=F5 =B0=
+=ED=B0=B4=C0=BB =BC=B3=B5=E6=C7=D2 =BC=F6 =C0=D6=B4=C2 =B8=ED=BA=D0=C0=BB =
+=B8=B8=B5=E9=BE=EE=BE=DF =C7=D2 =B0=CD =B0=B0=BD=C0=B4=CF=B4=D9<span lang=
+=3D"EN-US">.
+</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;"><a id=3D"OWAAM416FB11FF6BA0241B0F846C7D834F332" href=3D"mailto:dyle=
+e@gtplus.co.kr"><span style=3D"font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&=
+quot;; text-decoration:none">@</span><span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; text-decoration:none"><span lang=
+=3D"EN-US">=C0=CC=B5=BF=BF=B1=BA=CE=C0=E5</span></span><span lang=3D"EN-US"=
+ style=3D"font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; text-decoratio=
+n:none"><span lang=3D"EN-US">
+</span></span><span lang=3D"EN-US" style=3D"font-family:&quot;=B8=BC=C0=BA =
+=B0=ED=B5=F1&quot;; text-decoration:none"><span lang=3D"EN-US">=C1=F6=C6=BC=
+=C7=C3=B7=AF=BD=BA</span></span></a>
+</span><span style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=
+=ED=B5=F1&quot;">=C0=CC=C1=A6=C7=CA =BC=F6=BC=AE=B4=D4 =C7=D8=B4=E7 =BB=E7=
+=C7=D7 =B0=ED=B0=B4 =B1=E2=BC=FA =B0=FC=B7=C3 =C3=DF=B0=A1 =C1=B6=BE=F0 =C1=
+=D6=BD=C7 =B3=BB=BF=EB =C0=D6=C0=B8=BD=C7=B1=EE=BF=E4<span lang=3D"EN-US">?
+</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B0=ED=
+=B0=B4=B2=B2=BC=AD<span lang=3D"EN-US"> OKE
+</span>=B8=B8 =B0=E8=BC=D3 =C1=FD=C1=DF=C7=CF=BF=A9 =C5=D7=BD=BA=C6=AE =C1=
+=DF=C0=CC=BD=C3=B6=F3 =BA=FC=B8=A5 =B4=EB=C0=C0=C0=CC =C7=CA=BF=E4 =C7=D5=
+=B4=CF=B4=D9<span lang=3D"EN-US">. </span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B8=F0=
+=B5=CE =B5=B5=BF=F2 =BA=CE=C5=B9=B5=E5=B8=B3=B4=CF=B4=D9<span lang=3D"EN-US=
+">.
+</span></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<div>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:11.0pt; font-family:&quot=
+;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; color:#212121">=B0=A8=BB=E7=C7=D5=B4=CF=
+=B4=D9<span lang=3D"EN-US">.</span></span><span lang=3D"EN-US" style=3D"fon=
+t-size:13.5pt; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:11.0pt; font-family:&quot=
+;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; color:#212121">=C3=D6=B9=FC=BC=F6 =B5=E5=
+=B8=B2<span lang=3D"EN-US">.<b>&nbsp;</b></span></span><span lang=3D"EN-US"=
+ style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,sans-serif; color=
+:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121"><img border=3D"0" wi=
+dth=3D"254" height=3D"65" id=3D"x_=B1=D7=B8=B2_x0020_2" alt=3D"signatureIma=
+ge" style=3D"width:2.6458in; height:.677in" data-outlook-trace=3D"F:1|T:1" =
+src=3D"cid:image003.png@01DB5225.E9EF8E20"></span><span lang=3D"EN-US" styl=
+e=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,sans-serif; color:blac=
+k"></span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:13.5pt; color:#212121">=
+=C3=D6</span><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&q=
+uot;Aptos&quot;,sans-serif; color:#212121">&nbsp;</span><span style=3D"font=
+-size:13.5pt; color:#212121">=B9=FC</span><span lang=3D"EN-US" style=3D"fon=
+t-size:13.5pt; font-family:&quot;Aptos&quot;,sans-serif; color:#212121">&nb=
+sp;</span><span style=3D"font-size:13.5pt; color:#212121">=BC=F6</span><spa=
+n lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,s=
+ans-serif; color:#212121">&nbsp;Bumsoo.Choi
+ |</span><span style=3D"font-size:13.5pt; color:#212121">=BF=B5=BE=F7=B4=EB=
+=C7=A5</span><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&q=
+uot;Aptos&quot;,sans-serif; color:#212121">&nbsp;Cloud Sales Rep.&nbsp;</sp=
+an><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&=
+quot;,sans-serif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">&nbsp;</span><span l=
+ang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,sans=
+-serif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">Oracle Tech Cloud&nb=
+sp;</span><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot=
+;Aptos&quot;,sans-serif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">Phone:&nbsp;<a href=
+=3D"tel:+82221948000"><span style=3D"color:#0078D7">+82 2 2194 8000</span><=
+/a>&nbsp;| Fax:&nbsp;<a href=3D"tel:+82221948252"><span style=3D"color:#007=
+8D7">+82
+ 2 2194 8252</span></a>&nbsp;| Mobile:&nbsp;<a href=3D"tel:+821090355699"><=
+span style=3D"color:#0078D7">+82 10 9035 5699</span></a></span><span lang=
+=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,sans-se=
+rif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">ORACLE South Korea |=
+ 16th Fl., ASEM Tower, Samsung-Dong, Kangnam-Gu | 135-745 Seoul</span><span=
+ lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,sa=
+ns-serif; color:black"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:black">--&nbsp;</span></p>
+</div>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span></p>
+<div id=3D"x_mail-editor-reference-message-container">
+<div>
+<div>
+<div style=3D"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0c=
+m 0cm 0cm">
+<p class=3D"x_MsoNormal" style=3D"margin-bottom:12.0pt"><b><span style=3D"c=
+olor:black">=BA=B8=B3=BD</span></b><b><span style=3D"font-family:&quot;Apto=
+s&quot;,sans-serif; color:black">
+</span><span style=3D"color:black">=BB=E7=B6=F7</span></b><b><span lang=3D"=
+EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">:
+</span></b><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans=
+-serif; color:black">BumSoo Choi &lt;<a href=3D"mailto:bumsoo.choi@oracle.c=
+om">bumsoo.choi@oracle.com</a>&gt;<br>
+</span><b><span style=3D"color:black">=B3=AF=C2=A5</span></b><b><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">=
+:
+</span></b><span style=3D"color:black">=C8=AD=BF=E4=C0=CF</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">=
+, 2024</span><span style=3D"color:black">=B3=E2</span><span lang=3D"EN-US" =
+style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black"> 12</span><=
+span style=3D"color:black">=BF=F9</span><span lang=3D"EN-US" style=3D"font-=
+family:&quot;Aptos&quot;,sans-serif; color:black">
+ 17</span><span style=3D"color:black">=C0=CF</span><span style=3D"font-fami=
+ly:&quot;Aptos&quot;,sans-serif; color:black">
+</span><span style=3D"color:black">=BF=C0=C0=FC</span><span lang=3D"EN-US" =
+style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black"> 11:25<br>
+</span><b><span style=3D"color:black">=B9=DE=B4=C2</span></b><b><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">
+</span><span style=3D"color:black">=BB=E7=B6=F7</span></b><b><span lang=3D"=
+EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">:
+</span></b><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans=
+-serif; color:black"><a href=3D"mailto:byungwoo@skelterlabs.com">byungwoo@s=
+kelterlabs.com</a> &lt;<a href=3D"mailto:byungwoo@skelterlabs.com">byungwoo=
+@skelterlabs.com</a>&gt;<br>
+</span><b><span style=3D"color:black">=C2=FC=C1=B6</span></b><b><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">=
+:
+</span></b><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans=
+-serif; color:black">Jonghoon Seo &lt;<a href=3D"mailto:jonghoon.seo@skelte=
+rlabs.com">jonghoon.seo@skelterlabs.com</a>&gt;, Infra Team &lt;<a href=3D"=
+mailto:infra-team@skelterlabs.com">infra-team@skelterlabs.com</a>&gt;,
+ Kevin Jeon &lt;<a href=3D"mailto:kevin.jeon@oracle.com">kevin.jeon@oracle.=
+com</a>&gt;, chosuky CHO &lt;<a href=3D"mailto:seonggyun.cho@oracle.com">se=
+onggyun.cho@oracle.com</a>&gt;, WonYong Lee &lt;<a href=3D"mailto:wonyong.l=
+ee@oracle.com">wonyong.lee@oracle.com</a>&gt;<br>
+</span><b><span style=3D"color:black">=C1=D6=C1=A6</span></b><b><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">=
+:
+</span></b><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans=
+-serif; color:black">RE: [External] : [</span><span style=3D"color:black">=
+=BD=BA=C4=CC=C5=CD=B7=A6=BD=BA</span><span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:black">] OCI</span><span style=3D"c=
+olor:black">=C0=C7</span><span lang=3D"EN-US" style=3D"font-family:&quot;Ap=
+tos&quot;,sans-serif; color:black">
+ Kubernetes </span><span style=3D"color:black">=B0=FC=B7=C3</span><span sty=
+le=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black">
+</span><span style=3D"color:black">=B0=C7</span><span lang=3D"EN-US" style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:black"></span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=BE=C8=
+=B3=E7=C7=CF=BD=CA=B4=CF=B1=EE<span lang=3D"EN-US">!
+</span>=C0=FC=BA=B4=BF=EC<span lang=3D"EN-US"> lead </span>=B4=D4</span><sp=
+an lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=C7=D1=
+=B1=B9 =BF=C0=B6=F3=C5=AC =C3=D6=B9=FC=BC=F6 =C0=D4=B4=CF=B4=D9<span lang=
+=3D"EN-US">.
+</span></span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=B8=BB=
+=BE=B8=C1=D6=BD=C5 =B9=AE=C0=C7=BB=E7=C7=D7 =B0=FC=B7=C3=C7=CF=BF=A9 =C8=B8=
+=BD=C5 =B5=E5=B8=B3=B4=CF=B4=D9<span lang=3D"EN-US">.
+</span></span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span><span lang=3D"EN-US"></span></p>
+<ol start=3D"1" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D"color:black">=B3=EB=B5=E5<span lang=3D"E=
+N-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif"> auto scaling
+</span>=C7=CF=B7=C1=B8=E9<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=BA=B0=B5=B5<span lang=3D"EN-US" style=3D"font-family:&quot;=
+Aptos&quot;,sans-serif"> add on
+</span>=C7=CA=BF=E4=C7=CF=B4=D9=B0=ED<span style=3D"font-family:&quot;Aptos=
+&quot;,sans-serif"> </span>=B5=C7=BE=EE=C0=D6=BD=C0=B4=CF=B4=D9<span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif">.
+</span>=B4=D9=B8=A5<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=B9=E6=B9=FD=C0=BA<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=BE=F8=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif">?<br>
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-ser=
+if; color:red">-&gt; Kubernetes Cluster Autoscaler</span><span style=3D"col=
+or:red">=B4=C2</span><span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f; color:red">
+</span><span style=3D"color:red">=B8=DE=B4=BA=BE=F3</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=CF=B0=D4</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C1=F7=C1=A2</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=B3=C4=A1=C7=CF=B0=C5=B3=AA</span><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:re=
+d">, Cluster Add-On</span><span style=3D"color:red">=C0=B8=B7=CE</span><spa=
+n style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=B3=C4=A1=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+br>
+Add-On </span><span style=3D"color:red">=B1=E2=B4=C9=C0=BA</span><span styl=
+e=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B8=DE=B4=BA=BE=F3</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=CF=B0=D4</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=B3=C4=A1</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=D8=BE=DF</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=CF=B4=C2</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=CE=BA=D0=BF=A1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B4=EB=C7=D8</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C6=ED=C0=C7=B1=E2=B4=C9=C0=BB</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C1=A6=B0=F8=C7=CF=B4=C2</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B1=E2=B4=C9=C0=B8=B7=CE</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=B8=BD=C3=B8=E9</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B5=CB=B4=CF=B4=D9</span><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<br>
+</span><span style=3D"color:red">=C2=FC=B0=ED</span><span lang=3D"EN-US" st=
+yle=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> URL :
+<a href=3D"https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/conteng=
+usingclusterautoscaler.htm" target=3D"_blank">
+<span style=3D"color:red">https://docs.oracle.com/en-us/iaas/Content/ContEn=
+g/Tasks/contengusingclusterautoscaler.htm</span></a></span><span lang=3D"EN=
+-US"></span></li></ol>
+<ol start=3D"2" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D"color:black"><span lang=3D"EN-US" style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif">OKE terraform</span>=C0=B8=B7=
+=CE<span style=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=B3=EB=B5=E5<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=BB=FD=BC=BA=B4=DC=B0=E8=BF=A1=BC=AD<span lang=3D"EN-US" style=3D"=
+font-family:&quot;Aptos&quot;,sans-serif"> taint
+</span>=B0=C5=B4=C2<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=B1=E2=B4=C9<span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f">
+</span>=BE=F8=BE=EE=BC=AD<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=BA=B0=B5=B5<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=BD=BA=C5=A9=B8=B3=C6=AE<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=BD=C7=C7=E0=C0=CC<span style=3D"font-family:&quot;Apt=
+os&quot;,sans-serif">
+</span>=C7=CA=BF=E4=C7=CF=B4=D9=B0=ED<span style=3D"font-family:&quot;Aptos=
+&quot;,sans-serif"> </span>=B5=C7=BE=EE=C0=D6=BD=C0=B4=CF=B4=D9<span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif">.
+</span>=B4=D9=B8=A5<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=B9=E6=B9=FD=C0=BA<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=BE=F8=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif">?<br>
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-ser=
+if; color:red">-&gt; taint
+</span><span style=3D"color:red">=BC=B3=C1=A4=C0=BA</span><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> node poo=
+l
+</span><span style=3D"color:red">=BB=FD=BC=BA</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BD=C3</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C3=B3=C0=BD</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=EB=B5=E5=B0=A1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=CE=C6=C3=B5=C9</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B6=A7</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=FB=BF=EB=B5=C7=B4=C2</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> I=
+nitialization script</span><span style=3D"color:red">=B8=A6</span><span sty=
+le=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C5=EB=C7=D8</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=B3=C1=A4=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+br>
+Initialization script </span><span style=3D"color:red">=B4=C2</span><span l=
+ang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"=
+> cloud console
+</span><span style=3D"color:red">=BF=A1=BC=AD</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=DB=BC=BA</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B0=A1=B4=C9=C7=CF=C1=F6=B8=B8</span><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:re=
+d"> terraform
+</span><span style=3D"color:red">=BD=BA=C5=A9=B8=B3=C6=AE</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=DB=BC=BA=BD=C3=BF=A1=B5=B5</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=FB=BF=EB</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B0=A1=B4=C9=C7=D5=B4=CF=B4=D9</span><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:re=
+d">.</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans=
+-serif"><br>
+</span>=C2=FC=B0=ED<span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&qu=
+ot;,sans-serif"> URL : <a href=3D"https://blogs.oracle.com/cloud-infrastruc=
+ture/post/auto-tainting-oke-nodes-startup" target=3D"_blank">
+https://blogs.oracle.com/cloud-infrastructure/post/auto-tainting-oke-nodes-=
+startup</a><br>
+<a href=3D"https://urldefense.com/v3/__https://github.com/oracle-terraform-=
+modules/terraform-oci-oke/issues/754*issuecomment-2437042922__;Iw!!ACWV5N9M=
+2RV99hQ!PL42O4yLHoMTIfV6JExLRjcalU8Q_XV9AbwWgAAoFw9sH5t7nrXCRWMEqnpdZ-_p_j6=
+-44MeJK2Kmayx3Po$" target=3D"_blank">https://github.com/oracle-terraform-mo=
+dules/terraform-oci-oke/issues/754#issuecomment-2437042922</a></span><span =
+lang=3D"EN-US"></span></li></ol>
+<ol start=3D"3" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D"color:black">=B3=EB=B5=E5<span lang=3D"E=
+N-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif"> rotation
+</span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f">
+</span>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Apt=
+os&quot;,sans-serif">
+</span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif">?<br>
+</span>=B0=ED=B0=B4=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=BB=E7=BF=EB=C7=CF=B4=C2<span lang=3D"EN-US" style=3D"font-f=
+amily:&quot;Aptos&quot;,sans-serif"> prod
+</span>=C8=AF=B0=E6=BF=A1=BC=AD=B4=C2<span style=3D"font-family:&quot;Aptos=
+&quot;,sans-serif"> </span>=BB=F3=C8=B2=BF=A1<span style=3D"font-family:&qu=
+ot;Aptos&quot;,sans-serif">
+</span>=B5=FB=B6=F3=BC=AD<span lang=3D"EN-US" style=3D"font-family:&quot;Ap=
+tos&quot;,sans-serif"> alpha / beta
+</span>=B4=DC=C0=A7=C0=C7<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B3=EB=B5=E5=B7=CE<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=B1=B8=BA=D0=C7=CF=BF=A9<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif"> rotation </span>
+=B5=B9=B7=C1=B0=A1=B8=E9=BC=AD<span style=3D"font-family:&quot;Aptos&quot;,=
+sans-serif"> </span>=C0=DB=BE=F7=C0=BB<span style=3D"font-family:&quot;Apto=
+s&quot;,sans-serif">
+</span>=C7=D8=BE=DF<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=C7=D2<span style=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=C7=CA=BF=E4=B0=A1<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=C0=D6=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-f=
+amily:&quot;Aptos&quot;,sans-serif">.
+</span>=B1=D7=BF=A1<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=B4=EB=C7=D1<span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f">
+</span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=BE=F8=B4=C2<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=B0=CD=C0=CE=C1=F6<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f">
+</span>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif">.<br>
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-ser=
+if; color:red">-&gt; </span>
+<span style=3D"color:red">=C7=CF=B3=AA=C0=C7</span><span style=3D"font-fami=
+ly:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C5=AC=B7=AF=BD=BA=C5=CD=BF=A1=BC=AD</span=
+><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; co=
+lor:red"> alpha / beta
+</span><span style=3D"color:red">=B4=DC=C0=A7=B7=CE</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=EB=B5=E5=B8=A6</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B1=B8=BA=D0=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B0=E6=BF=EC=BF=A1=B4=C2</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> n=
+ode selector
+</span><span style=3D"color:red">=B1=E2=B4=C9=C0=BB</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=CC=BF=EB=C7=CF=BD=C3=B8=E9</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B5=CB=B4=CF=B4=D9</span><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<br>
+</span><span style=3D"color:red">=BE=C6=B4=CF=B8=E9</span><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> alpha / =
+beta
+</span><span style=3D"color:red">=B4=DC=C0=A7=B7=CE</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=B0=B5=B5=C0=C7</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C5=AC=B7=AF=BD=BA=C5=CD=B8=A6</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B1=B8=BA=D0=C7=CF=BD=C7</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6=B5=B5</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+br>
+</span><span style=3D"color:red">=B8=BB=BE=B8=C7=CF=BD=C3=B4=C2</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B0=D4</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=CC</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=BB=BF=EB=C0=CC</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B8=C2=C0=B8=BD=C7=B1=EE=BF=E4</span><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:re=
+d">?</span><span lang=3D"EN-US"></span></li></ol>
+<ol start=3D"4" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D"color:black"><span lang=3D"EN-US" style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif">maintenance exclusion
+</span>=B1=E2=B4=C9=C0=BB<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,sans-seri=
+f">
+</span>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Apt=
+os&quot;,sans-serif">
+</span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif">?<br>
+</span>=C0=A5<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"> </sp=
+an>=C4=DC=BC=D6=BF=A1=BC=AD<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=BE=F0=C1=A6<span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&qu=
+ot;,sans-serif"> k8s </span>=B4=D9=C0=BD<span style=3D"font-family:&quot;Ap=
+tos&quot;,sans-serif">
+</span>=B9=F6=C0=FC=C0=B8=B7=CE<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5<span style=3D"font-fami=
+ly:&quot;Aptos&quot;,sans-serif">
+</span>=B5=C9=C1=F6<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=BE=CB<span style=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=BC=F6<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"> </sp=
+an>=BE=F8=BE=FA=B0=ED<span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&=
+quot;,sans-serif">,
+</span>=B4=D9=C0=BD<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=B9=F6=C0=FC=C0=B8=B7=CE<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5<span style=3D"font-family:&quot;Aptos=
+&quot;,sans-serif"> </span>=C7=D2<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=BC=F6<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"> </sp=
+an>=BE=F8=B0=D4<span style=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=B8=B7=B4=C2<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=C7=CA=BF=E4=C7=D1=B5=A5<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif">.<br>
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-ser=
+if; color:red">-&gt; OKE
+</span><span style=3D"color:red">=B4=C2</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BB=E7=BF=EB=C0=DA=C0=C7</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=B1=C5=C3=BF=A1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=C7=C7=D8</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C4=ED=B9=F6=B3=D7=C6=BC=BD=BA</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B9=F6=C0=FC=C0=BB</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B8=DE=B4=BA=BE=F3</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=CF=B0=D4</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=D2</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=C0=B8=B8=E7</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5=B8=A6</span=
+><span style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B0=AD=C1=A6=C7=CF=C1=F6</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=CA=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+br>
+</span><span style=3D"color:red">=B1=D7=B7=B8=B1=E2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B6=A7=B9=AE=BF=A1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=F0=C1=A6</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5</span><span=
+ style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B5=C7=B4=C2=C1=F6=BF=A1</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B4=EB=C7=D8</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C1=A6=B0=F8=B5=C7=C1=F6</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=CA=C0=B8=B8=E7</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5=B8=A6</span=
+><span style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B8=B7=B4=C2</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BF=C9=BC=C7</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B6=C7=C7=D1</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C1=B8=C0=E7=C7=CF=C1=F6</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BE=CA=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+/span><span lang=3D"EN-US"></span></li></ol>
+<ol start=3D"5" type=3D"1" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D"color:black">=C0=FA=C8=F1=B0=A1<span sty=
+le=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=BF=F8=C7=CF=B4=C2<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=C5=B8=C0=D4=C0=C7<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=B3=EB=B5=E5=BF=A1<span lang=3D"EN-US" style=3D"font-family:&quot;Ap=
+tos&quot;,sans-serif"> GPU</span>=B8=A6<span style=3D"font-family:&quot;Apt=
+os&quot;,sans-serif">
+</span>=C0=E5=C2=F8=C7=CF=B4=C2<span style=3D"font-family:&quot;Aptos&quot;=
+,sans-serif"> </span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Apt=
+os&quot;,sans-serif">
+</span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"> </sp=
+an>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-f=
+amily:&quot;Aptos&quot;,sans-serif">?<br>
+GCP</span>=C2=CA=C0=BA<span lang=3D"EN-US" style=3D"font-family:&quot;Aptos=
+&quot;,sans-serif"> guest_accelerator
+</span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=C0=D6=BE=EE=BC=AD<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=C0=FA=C8=F1=B0=A1<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B3=EB=B5=E5=B8=A6<span style=3D"font-family:&quot;Aptos&quo=
+t;,sans-serif">
+</span>=C1=A4=C7=CF=B0=ED<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=BF=F8=C7=CF=B4=C2<span lang=3D"EN-US" style=3D"font-family:=
+&quot;Aptos&quot;,sans-serif"> GPU
+</span>=C5=B8=C0=D4=B0=FA<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B0=B3=BC=F6<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=C1=F6=C1=A4=C0=CC<span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif"> </span>=B0=A1=B4=C9=C7=DF=B4=C2=B5=A5<span lang=3D"EN-US" style=3D"=
+font-family:&quot;Aptos&quot;,sans-serif"> OKE</span>=BF=A1=BC=AD=B4=C2<spa=
+n style=3D"font-family:&quot;Aptos&quot;,sans-serif">
+</span>=B0=FC=B7=C3<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"=
+> </span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Aptos&quot;,san=
+s-serif">
+</span>=B8=F8<span style=3D"font-family:&quot;Aptos&quot;,sans-serif"> </sp=
+an>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-family:=
+&quot;Aptos&quot;,sans-serif">.<br>
+</span><span lang=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-ser=
+if; color:red">-&gt; OKE
+</span><span style=3D"color:red">=B4=C2</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=EB=B5=E5</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=AE</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=B0=B7=CE</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=EB=B5=E5</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C5=B8=C0=D4=C0=BB</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C1=F6=C1=A4=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.
+</span><span style=3D"color:red">=C3=B3=C0=BD</span><span lang=3D"EN-US" st=
+yle=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> OKE
+</span><span style=3D"color:red">=B8=A6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B9=E8=C6=F7=C7=D1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=CC=C8=C4=BF=A1</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=B0=B5=B5=C0=C7</span><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"><br>
+</span><span style=3D"color:red">=B3=EB=B5=E5</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C7=AE=C0=BB</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C3=DF=B0=A1=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=B0=ED</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=CC=B6=A7</span><span style=3D"font-fam=
+ily:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=B3=EB=B5=E5=C0=C7</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=CC=B9=CC=C1=F6=B8=A6</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red"> G=
+PU
+</span><span style=3D"color:red">=C0=CC=B9=CC=C1=F6=B7=CE</span><span style=
+=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BA=AF=B0=E6=C7=D2</span><span style=3D"fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=BC=F6</span><span style=3D"font-family:&q=
+uot;Aptos&quot;,sans-serif; color:red">
+</span><span style=3D"color:red">=C0=D6=BD=C0=B4=CF=B4=D9</span><span lang=
+=3D"EN-US" style=3D"font-family:&quot;Aptos&quot;,sans-serif; color:red">.<=
+/span><span lang=3D"EN-US"></span></li></ol>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1&quot;">=C8=A4=
+=BD=C3 =C3=DF=B0=A1=B7=CE =B9=AE=C0=C7 =C1=D6=BD=C7 =B3=BB=BF=EB=C0=CC =C0=
+=D6=C0=B8=BD=C3=B8=E9 =BE=F0=C1=A6=B5=E7 =B8=BB=BE=B8 =BA=CE=C5=B9=B5=E5=B8=
+=AE=B0=DA=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US">.
+</span></span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span><span lang=3D"EN-US"></span></p>
+<div>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:11.0pt; font-family:&quot=
+;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; color:#212121">=B0=A8=BB=E7=C7=D5=B4=CF=
+=B4=D9<span lang=3D"EN-US">.</span></span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:11.0pt; font-family:&quot=
+;=B8=BC=C0=BA =B0=ED=B5=F1&quot;; color:#212121">=C3=D6=B9=FC=BC=F6 =B5=E5=
+=B8=B2<span lang=3D"EN-US">.<b>&nbsp;</b></span></span><span lang=3D"EN-US"=
+></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121"><img border=3D"0" wi=
+dth=3D"254" height=3D"65" id=3D"x_=B1=D7=B8=B2_x0020_1" alt=3D"signatureIma=
+ge" style=3D"width:2.6458in; height:.677in" data-outlook-trace=3D"F:1|T:1" =
+src=3D"cid:image003.png@01DB5225.E9EF8E20"></span><span lang=3D"EN-US"></sp=
+an></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:13.5pt; color:#212121">=
+=C3=D6</span><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&q=
+uot;Aptos&quot;,sans-serif; color:#212121">&nbsp;</span><span style=3D"font=
+-size:13.5pt; color:#212121">=B9=FC</span><span lang=3D"EN-US" style=3D"fon=
+t-size:13.5pt; font-family:&quot;Aptos&quot;,sans-serif; color:#212121">&nb=
+sp;</span><span style=3D"font-size:13.5pt; color:#212121">=BC=F6</span><spa=
+n lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&quot;Aptos&quot;,s=
+ans-serif; color:#212121">&nbsp;Bumsoo.Choi
+ |</span><span style=3D"font-size:13.5pt; color:#212121">=BF=B5=BE=F7=B4=EB=
+=C7=A5</span><span lang=3D"EN-US" style=3D"font-size:13.5pt; font-family:&q=
+uot;Aptos&quot;,sans-serif; color:#212121">&nbsp;Cloud Sales Rep.&nbsp;</sp=
+an><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">&nbsp;</span><span l=
+ang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">Oracle Tech Cloud&nb=
+sp;</span><span lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">Phone:&nbsp;<a href=
+=3D"tel:+82221948000"><span style=3D"color:#0078D7">+82 2 2194 8000</span><=
+/a>&nbsp;| Fax:&nbsp;<a href=3D"tel:+82221948252"><span style=3D"color:#007=
+8D7">+82
+ 2 2194 8252</span></a>&nbsp;| Mobile:&nbsp;<a href=3D"tel:+821090355699"><=
+span style=3D"color:#0078D7">+82 10 9035 5699</span></a></span><span lang=
+=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:#212121">ORACLE South Korea |=
+ 16th Fl., ASEM Tower, Samsung-Dong, Kangnam-Gu | 135-745 Seoul</span><span=
+ lang=3D"EN-US"></span></p>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:13.5pt; fo=
+nt-family:&quot;Aptos&quot;,sans-serif; color:black">--&nbsp;</span><span l=
+ang=3D"EN-US"></span></p>
+</div>
+<p class=3D"x_MsoNormal" style=3D"word-break:break-hangul"><span lang=3D"EN=
+-US" style=3D"font-size:11.0pt; font-family:&quot;=B8=BC=C0=BA =B0=ED=B5=F1=
+&quot;">&nbsp;</span><span lang=3D"EN-US"></span></p>
+<div id=3D"x_mail-editor-reference-message-container">
+<div>
+<div>
+<div>
+<div class=3D"x_MsoNormal" align=3D"center" style=3D"text-align:center"><sp=
+an lang=3D"EN-US">
+<hr size=3D"1" width=3D"83%" align=3D"center">
+</span></div>
+<div id=3D"x_x_divRplyFwdMsg">
+<p class=3D"x_MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;=
+ font-family:&quot;Calibri&quot;,sans-serif; color:black">From:</span></b><=
+span lang=3D"EN-US" style=3D"font-size:11.0pt; font-family:&quot;Calibri&qu=
+ot;,sans-serif; color:black"> Byungwoo Jeon &lt;<a href=3D"mailto:byungwoo@=
+skelterlabs.com">byungwoo@skelterlabs.com</a>&gt;<br>
+<b>Sent:</b> Thursday, December 12, 2024 1:40:27 PM<br>
+<b>To:</b> BumSoo Choi &lt;<a href=3D"mailto:bumsoo.choi@oracle.com">bumsoo=
+.choi@oracle.com</a>&gt;<br>
+<b>Cc:</b> Jonghoon Seo &lt;<a href=3D"mailto:jonghoon.seo@skelterlabs.com"=
+>jonghoon.seo@skelterlabs.com</a>&gt;; Infra Team &lt;<a href=3D"mailto:inf=
+ra-team@skelterlabs.com">infra-team@skelterlabs.com</a>&gt;<br>
+<b>Subject:</b> [External] : [</span><span style=3D"font-size:11.0pt; color=
+:black">=BD=BA=C4=CC=C5=CD=B7=A6=BD=BA</span><span lang=3D"EN-US" style=3D"=
+font-size:11.0pt; font-family:&quot;Calibri&quot;,sans-serif; color:black">=
+] OCI</span><span style=3D"font-size:11.0pt; color:black">=C0=C7</span><spa=
+n lang=3D"EN-US" style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;=
+,sans-serif; color:black">
+ Kubernetes </span><span style=3D"font-size:11.0pt; color:black">=B0=FC=B7=
+=C3</span><span style=3D"font-size:11.0pt; font-family:&quot;Calibri&quot;,=
+sans-serif; color:black">
+</span><span style=3D"font-size:11.0pt; color:black">=B0=C7</span> <span la=
+ng=3D"EN-US"></span></p>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US"><br clear=3D"all">
+</span></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:10.0pt; color:#222222">=
+=BE=C8=B3=E7=C7=CF=BC=BC=BF=E4</span><span lang=3D"EN-US" style=3D"font-siz=
+e:10.0pt; font-family:&quot;Tahoma&quot;,sans-serif; color:#222222">,
+</span><span style=3D"font-size:10.0pt; color:#222222">=BD=BA=C4=CC=C5=CD=
+=B7=A6=BD=BA</span><span style=3D"font-size:10.0pt; font-family:&quot;Tahom=
+a&quot;,sans-serif; color:#222222">
+</span><span style=3D"font-size:10.0pt; color:#222222">=C0=FC=BA=B4=BF=EC=
+=C0=D4=B4=CF=B4=D9</span><span lang=3D"EN-US" style=3D"font-size:10.0pt; fo=
+nt-family:&quot;Tahoma&quot;,sans-serif; color:#222222">.</span><span lang=
+=3D"EN-US"></span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span class=3D"x_xxgmaildefault"><span lang=3D"EN-=
+US" style=3D"font-family:&quot;Tahoma&quot;,sans-serif; color:#222222">Kube=
+rnetes
+</span><span style=3D"color:#222222">=B3=EB=B5=E5=BF=A1=BC=AD</span></span>=
+<span class=3D"x_xxgmaildefault"><span style=3D"font-family:&quot;Tahoma&qu=
+ot;,sans-serif; color:#222222">
+</span><span style=3D"color:#222222">=BB=E7=BF=EB=C1=DF=C0=CE</span></span>=
+<span class=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=3D"font-family:=
+&quot;Tahoma&quot;,sans-serif; color:#222222"> compute
+</span><span style=3D"color:#222222">=B8=AE=BC=D2=BD=BA</span></span><span =
+class=3D"x_xxgmaildefault"><span style=3D"font-family:&quot;Tahoma&quot;,sa=
+ns-serif; color:#222222">
+</span><span style=3D"color:#222222">=C7=F6=C8=B2</span></span><span class=
+=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif; color:#222222"> (GPU
+</span><span style=3D"color:#222222">=B3=EB=B5=E5</span></span><span class=
+=3D"x_xxgmaildefault"><span style=3D"font-family:&quot;Tahoma&quot;,sans-se=
+rif; color:#222222">
+</span><span style=3D"color:#222222">=C1=A6=BF=DC</span></span><span class=
+=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif; color:#222222">)</span></span><span lang=3D"EN-US"></sp=
+an></p>
+</div>
+<div>
+<ul type=3D"disc" style=3D"margin-top:0cm">
+<li class=3D"x_MsoNormal" style=3D""><span class=3D"x_xxgmaildefault"><span=
+ lang=3D"EN-US" style=3D"font-family:&quot;Tahoma&quot;,sans-serif">dev: 34=
+ vCPU&nbsp;79G mem</span></span><span lang=3D"EN-US"></span></li><li class=
+=3D"x_MsoNormal" style=3D""><span class=3D"x_xxgmaildefault"><span lang=3D"=
+EN-US" style=3D"font-family:&quot;Tahoma&quot;,sans-serif">stage: 63 vCPU 1=
+13G mem</span></span><span lang=3D"EN-US"></span></li><li class=3D"x_MsoNor=
+mal" style=3D""><span class=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=
+=3D"font-family:&quot;Tahoma&quot;,sans-serif">prod: 64 vCPU 121G mem</span=
+></span><span lang=3D"EN-US"></span></li></ul>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span class=3D"x_xxgmaildefault">=B4=EB=C7=A5=B4=
+=D4=B0=FA</span><span class=3D"x_xxgmaildefault"><span style=3D"font-family=
+:&quot;Tahoma&quot;,sans-serif">
+</span>=C1=F6=B3=AD</span><span class=3D"x_xxgmaildefault"><span style=3D"f=
+ont-family:&quot;Tahoma&quot;,sans-serif">
+</span>=C4=BF=C7=C7=C3=AA</span><span class=3D"x_xxgmaildefault"><span styl=
+e=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=C0=CC=C8=C4</span><span class=3D"x_xxgmaildefault"><span style=3D"f=
+ont-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B9=D9=B7=CE</span><span class=3D"x_xxgmaildefault"><span lang=3D"EN=
+-US" style=3D"font-family:&quot;Tahoma&quot;,sans-serif">&nbsp;</span></spa=
+n><span lang=3D"EN-US" style=3D"font-family:&quot;Tahoma&quot;,sans-serif">=
+O<span class=3D"x_xxgmaildefault">KE</span></span><span class=3D"x_xxgmaild=
+efault">=B8=A6</span><span class=3D"x_xxgmaildefault"><span style=3D"font-f=
+amily:&quot;Tahoma&quot;,sans-serif">
+</span>=BB=E7=BF=EB=C7=D8=BA=B8=B8=E9=BC=AD</span><span class=3D"x_xxgmaild=
+efault"><span style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B0=CB=C5=E4=C7=D8=BA=B8=BE=D2=BD=C0=B4=CF=B4=D9</span><span class=
+=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif">.</span></span><span lang=3D"EN-US"></span></p>
+</div>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span class=3D"x_xxgmaildefault">=C0=FA=C8=F1=B4=
+=C2</span><span class=3D"x_xxgmaildefault"><span style=3D"font-family:&quot=
+;Tahoma&quot;,sans-serif">
+</span>=C7=F6=C0=E7</span><span class=3D"x_xxgmaildefault"><span style=3D"f=
+ont-family:&quot;Tahoma&quot;,sans-serif">
+<span lang=3D"EN-US">GCP(google cloud platform)</span></span>=C0=C7</span><=
+span class=3D"x_xxgmaildefault"><span lang=3D"EN-US" style=3D"font-family:&=
+quot;Tahoma&quot;,sans-serif"> GKE</span>=B8=A6</span><span class=3D"x_xxgm=
+aildefault"><span style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=BB=E7=BF=EB=C1=DF=BF=A1</span><span class=3D"x_xxgmaildefault"><spa=
+n style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=C0=D6=BE=EE=BC=AD</span><span class=3D"x_xxgmaildefault"><span styl=
+e=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B1=D7=BF=CD</span><span class=3D"x_xxgmaildefault"><span style=3D"f=
+ont-family:&quot;Tahoma&quot;,sans-serif">
+</span>=BA=F1=B1=B3=C7=CF=B8=E9=BC=AD</span><span class=3D"x_xxgmaildefault=
+"><span style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B0=CB=C5=E4=C7=DF=BD=C0=B4=CF=B4=D9</span><span class=3D"x_xxgmaild=
+efault"><span lang=3D"EN-US" style=3D"font-family:&quot;Tahoma&quot;,sans-s=
+erif">.</span></span><span lang=3D"EN-US"></span></p>
+</div>
+<div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">&nbsp;</span><span lang=3D"EN-US"></span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal">=B0=CB=C5=E4=C7=D1<span style=3D"font-family:&quot=
+;Tahoma&quot;,sans-serif"> </span>=B0=E1=B0=FA<span lang=3D"EN-US" style=3D=
+"font-family:&quot;Tahoma&quot;,sans-serif"> OKE
+</span>=B0=FC=B7=C3<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=B8=EE=B0=A1=C1=F6<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=B9=AE=C0=C7=B5=E5=B8=B3=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"fo=
+nt-family:&quot;Tahoma&quot;,sans-serif">.</span><span lang=3D"EN-US"></spa=
+n></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">&nbsp;</span><span lang=3D"EN-US"></span></p>
+</div>
+<div>
+<ol start=3D"1" type=3D"1">
+<li class=3D"x_MsoNormal" style=3D"">=B3=EB=B5=E5<span lang=3D"EN-US" style=
+=3D"font-family:&quot;Tahoma&quot;,sans-serif"> auto scaling
+</span>=C7=CF=B7=C1=B8=E9<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=BA=B0=B5=B5<span lang=3D"EN-US" style=3D"font-family:&quot=
+;Tahoma&quot;,sans-serif"> add on
+<a href=3D"https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/conteng=
+autoscalingclusters.htm">
+<span lang=3D"EN-US" style=3D"font-family:=B1=BC=B8=B2"><span lang=3D"EN-US=
+">=C7=CA=BF=E4</span></span></a></span>=C7=CF=B4=D9=B0=ED<span style=3D"fon=
+t-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B5=C7=BE=EE=C0=D6=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"fo=
+nt-family:&quot;Tahoma&quot;,sans-serif">. </span>
+=B4=D9=B8=A5<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </sp=
+an>=B9=E6=B9=FD=C0=BA<span style=3D"font-family:&quot;Tahoma&quot;,sans-ser=
+if">
+</span>=BE=F8=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">?</span><span lang=3D"EN-US"></span></li><li c=
+lass=3D"x_MsoNormal" style=3D""><span lang=3D"EN-US" style=3D"font-family:&=
+quot;Tahoma&quot;,sans-serif">OKE terraform</span>=C0=B8=B7=CE<span style=
+=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B3=EB=B5=E5<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=BB=FD=BC=BA=B4=DC=B0=E8=BF=A1=BC=AD<span lang=3D"EN-US" style=3D=
+"font-family:&quot;Tahoma&quot;,sans-serif"> taint
+</span>=B0=C5=B4=C2<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=B1=E2=B4=C9<span style=3D"font-family:&quot;Tahoma&quot;,sans-se=
+rif">
+</span>=BE=F8=BE=EE=BC=AD<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=BA=B0=B5=B5<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=BD=BA=C5=A9=B8=B3=C6=AE<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=BD=C7=C7=E0=C0=CC<span lang=3D"EN-US" style=3D"font-=
+family:&quot;Tahoma&quot;,sans-serif"><a href=3D"https://blogs.oracle.com/c=
+loud-infrastructure/post/auto-tainting-oke-nodes-startup">
+<span lang=3D"EN-US" style=3D"font-family:=B1=BC=B8=B2"><span lang=3D"EN-US=
+">=C7=CA=BF=E4</span></span></a></span>=C7=CF=B4=D9=B0=ED<span style=3D"fon=
+t-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B5=C7=BE=EE=C0=D6=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"fo=
+nt-family:&quot;Tahoma&quot;,sans-serif">. </span>
+=B4=D9=B8=A5<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </sp=
+an>=B9=E6=B9=FD=C0=BA<span style=3D"font-family:&quot;Tahoma&quot;,sans-ser=
+if">
+</span>=BE=F8=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">?</span><span lang=3D"EN-US"></span></li><li c=
+lass=3D"x_MsoNormal" style=3D"">=B3=EB=B5=E5<span lang=3D"EN-US" style=3D"f=
+ont-family:&quot;Tahoma&quot;,sans-serif"> rotation
+</span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B8=F8<span style=3D"font-family:&quot;Tahoma&quot;,sans-se=
+rif">
+</span>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">
+</span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">? <br>
+</span>=B0=ED=B0=B4=C0=CC<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=BB=E7=BF=EB=C7=CF=B4=C2<span lang=3D"EN-US" style=3D"font-=
+family:&quot;Tahoma&quot;,sans-serif"> prod
+</span>=C8=AF=B0=E6=BF=A1=BC=AD=B4=C2<span style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif"> </span>=BB=F3=C8=B2=BF=A1<span style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">
+</span>=B5=FB=B6=F3=BC=AD<span lang=3D"EN-US" style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif"> alpha / beta
+</span>=B4=DC=C0=A7=C0=C7<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B3=EB=B5=E5=B7=CE<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=B1=B8=BA=D0=C7=CF=BF=A9<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif"> rotation </span>
+=B5=B9=B7=C1=B0=A1=B8=E9=BC=AD<span style=3D"font-family:&quot;Tahoma&quot;=
+,sans-serif"> </span>=C0=DB=BE=F7=C0=BB<span style=3D"font-family:&quot;Tah=
+oma&quot;,sans-serif">
+</span>=C7=D8=BE=DF=C7=D2<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=C7=CA=BF=E4=B0=A1<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=C0=D6=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">. </span>=B1=D7=BF=A1<span style=3D"font-famil=
+y:&quot;Tahoma&quot;,sans-serif">
+</span>=B4=EB=C7=D1<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=BE=F8=B4=C2=B0=CD=C0=CE=C1=F6<span style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif"> </span>=B8=F8<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Tahoma&quot;,sans-serif">.</span><span lang=3D"EN-US"></span></li=
+><li class=3D"x_MsoNormal" style=3D""><span lang=3D"EN-US" style=3D"font-fa=
+mily:&quot;Tahoma&quot;,sans-serif">maintenance exclusion
+</span>=B1=E2=B4=C9=C0=BB<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B8=F8<span style=3D"font-family:&quot;Tahoma&quot;,sans-se=
+rif">
+</span>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">
+</span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-family:&q=
+uot;Tahoma&quot;,sans-serif">? <br>
+</span>=C0=A5<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </s=
+pan>=C4=DC=BC=D6=BF=A1=BC=AD<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=BE=F0=C1=A6<span lang=3D"EN-US" style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif"> k8s </span>=B4=D9=C0=BD<span style=3D"font-family:&quot;T=
+ahoma&quot;,sans-serif">
+</span>=B9=F6=C0=FC=C0=B8=B7=CE<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5<span style=3D"font-fam=
+ily:&quot;Tahoma&quot;,sans-serif">
+</span>=B5=C9=C1=F6<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=BE=CB<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=BC=F6<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </s=
+pan>=BE=F8=BE=FA=B0=ED<span lang=3D"EN-US" style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif">,
+</span>=B4=D9=C0=BD<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=B9=F6=C0=FC=C0=B8=B7=CE<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=BE=F7=B1=D7=B7=B9=C0=CC=B5=E5<span style=3D"font-family:&quot;Tahom=
+a&quot;,sans-serif"> </span>=C7=D2<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=BC=F6<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </s=
+pan>=BE=F8=B0=D4<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B8=B7=B4=C2<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=C7=CA=BF=E4=C7=D1=B5=A5<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=B8=F8<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-fam=
+ily:&quot;Tahoma&quot;,sans-serif">.</span><span lang=3D"EN-US"></span></li=
+><li class=3D"x_MsoNormal" style=3D"">=C0=FA=C8=F1=B0=A1<span style=3D"font=
+-family:&quot;Tahoma&quot;,sans-serif">
+</span>=BF=F8=C7=CF=B4=C2<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=C5=B8=C0=D4=C0=C7<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=B3=EB=B5=E5=BF=A1<span lang=3D"EN-US" style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif"> GPU</span>=B8=A6<span style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">
+</span>=C0=E5=C2=F8=C7=CF=B4=C2<span style=3D"font-family:&quot;Tahoma&quot=
+;,sans-serif"> </span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">
+</span>=B8=F8<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </s=
+pan>=C3=A3=BE=D2=B4=C2=B5=A5<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=B9=E6=B9=FD=C0=CC<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=C0=D6=B4=C2=C1=F6=BF=E4<span lang=3D"EN-US" style=3D"font-=
+family:&quot;Tahoma&quot;,sans-serif">?
+<br>
+GCP</span>=C2=CA=C0=BA<span style=3D"font-family:&quot;Tahoma&quot;,sans-se=
+rif"> <span lang=3D"EN-US">guest_accelerator
+</span></span>=BF=C9=BC=C7=C0=CC<span style=3D"font-family:&quot;Tahoma&quo=
+t;,sans-serif"> </span>=C0=D6=BE=EE=BC=AD<span style=3D"font-family:&quot;T=
+ahoma&quot;,sans-serif">
+</span>=C0=FA=C8=F1=B0=A1<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B3=EB=B5=E5=B8=A6<span style=3D"font-family:&quot;Tahoma&q=
+uot;,sans-serif">
+</span>=C1=A4=C7=CF=B0=ED<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=BF=F8=C7=CF=B4=C2<span lang=3D"EN-US" style=3D"font-family=
+:&quot;Tahoma&quot;,sans-serif"> GPU
+</span>=C5=B8=C0=D4=B0=FA<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B0=B3=BC=F6<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=C1=F6=C1=A4=C0=CC<span style=3D"font-family:&quot;Tahoma&quot;,sans=
+-serif"> </span>=B0=A1=B4=C9=C7=DF=B4=C2=B5=A5<span lang=3D"EN-US" style=3D=
+"font-family:&quot;Tahoma&quot;,sans-serif"> OKE</span>=BF=A1=BC=AD=B4=C2<s=
+pan style=3D"font-family:&quot;Tahoma&quot;,sans-serif">
+</span>=B0=FC=B7=C3<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif=
+"> </span>=BF=C9=BC=C7=C0=BB<span style=3D"font-family:&quot;Tahoma&quot;,s=
+ans-serif">
+</span>=B8=F8<span style=3D"font-family:&quot;Tahoma&quot;,sans-serif"> </s=
+pan>=C3=A3=BE=D2=BD=C0=B4=CF=B4=D9<span lang=3D"EN-US" style=3D"font-family=
+:&quot;Tahoma&quot;,sans-serif">.</span><span lang=3D"EN-US"></span></li></=
+ol>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Ta=
+homa&quot;,sans-serif">&nbsp;</span><span lang=3D"EN-US"></span></p>
+</div>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:10.0pt; color:#222222">=
+=B0=A8=BB=E7=C7=D5=B4=CF=B4=D9</span><span lang=3D"EN-US" style=3D"font-siz=
+e:10.0pt; font-family:&quot;Tahoma&quot;,sans-serif; color:#222222">.</span=
+><span lang=3D"EN-US"></span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal"><span style=3D"font-size:10.0pt; color:#222222">=
+=C0=FC=BA=B4=BF=EC</span><span style=3D"font-size:10.0pt; font-family:&quot=
+;Tahoma&quot;,sans-serif; color:#222222">
+</span><span style=3D"font-size:10.0pt; color:#222222">=B5=E5=B8=B2</span><=
+span lang=3D"EN-US"></span></p>
+</div>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellpadding=3D"0" style=3D"b=
+order-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"padding:0cm 18.0pt 0cm 18.0pt">
+<p class=3D"x_MsoNormal" style=3D"margin-top:18.0pt"><span lang=3D"EN-US"><=
+span style=3D"border:solid windowtext 1.0pt; padding:0cm"><img border=3D"0"=
+ width=3D"32" height=3D"32" id=3D"x__x0000_i1026" alt=3D"=BA=B8=B3=BD =BB=
+=E7=B6=F7=C0=CC =C1=A6=B0=C5=C7=D1 =C0=CC=B9=CC=C1=F6=C0=D4=B4=CF=B4=D9. Sk=
+elter Labs" style=3D"width:.3333in; height:.3333in" data-outlook-trace=3D"F=
+:0|T:1" src=3D"cid:~WRD0001.jpg"></span></span></p>
+</td>
+<td style=3D"border:none; border-left:solid #BDBDBD 1.0pt; padding:0cm 0cm =
+0cm 18.0pt">
+<div>
+<p class=3D"x_MsoNormal" style=3D"margin-top:18.0pt"><b><span lang=3D"EN-US=
+" style=3D"font-family:&quot;Arial&quot;,sans-serif; color:#212121">Byungwo=
+o Jeon</span></b><span lang=3D"EN-US">
+</span></p>
+</div>
+<div>
+<p class=3D"x_MsoNormal" style=3D"margin-top:18.0pt"><span lang=3D"EN-US" s=
+tyle=3D"font-size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#7=
+57575">Infra / DevOps Engineer</span><span lang=3D"EN-US"></span></p>
+</div>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellpadding=3D"0" style=3D"b=
+order-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:0cm 0cm 0cm 0cm">
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-size:9.0pt; fon=
+t-family:&quot;Arial&quot;,sans-serif; color:#757575">+82 10 9482 7026</spa=
+n><span lang=3D"EN-US"></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm 0cm 0cm 0cm">
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US"><a href=3D"mailto:byungwoo@sk=
+elterlabs.com" target=3D"_blank"><span style=3D"font-size:9.0pt; font-famil=
+y:&quot;Arial&quot;,sans-serif; color:#757575">byungwoo@skelterlabs.com</sp=
+an></a></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm 0cm 0cm 0cm">
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US"><a href=3D"https://urldefense=
+.com/v3/__https:/www.skelterlabs.com__;!!ACWV5N9M2RV99hQ!Pzdv9Mrwqnc3DFQtqG=
+SqLWE6cWjnGtq8Ws51S50ENXKMZxkIDW25lixnpJA681Ki0edJYagjB549kndKQmZZU_E$" tar=
+get=3D"_blank"><span style=3D"font-size:9.0pt; font-family:&quot;Arial&quot=
+;,sans-serif; color:#757575">skelterlabs.com</span></a></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US">&nbsp;</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_--
+
+--_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: image/png; name="image002.png"
+Content-Description: image002.png
+Content-Disposition: inline; filename="image002.png"; size=5006;
+	creation-date="Thu, 19 Dec 2024 05:54:29 GMT";
+	modification-date="Mon, 06 Jan 2025 07:21:20 GMT"
+Content-ID: <image002.png@01DB5225.E9EF8E20>
+Content-Transfer-Encoding: base64
+
+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
+4Ytdv07+Lz+ssbKAm4m7AAAAAElFTkSuQmCC
+
+--_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: image/png; name="image003.png"
+Content-Description: image003.png
+Content-Disposition: inline; filename="image003.png"; size=8288;
+	creation-date="Thu, 19 Dec 2024 05:54:29 GMT";
+	modification-date="Mon, 06 Jan 2025 07:21:20 GMT"
+Content-ID: <image003.png@01DB5225.E9EF8E20>
+Content-Transfer-Encoding: base64
+
+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
+YIIA
+
+--_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_
+Content-Type: image/png; name="Outlook-Oracle.png"
+Content-Description: Outlook-Oracle.png
+Content-Disposition: inline; filename="Outlook-Oracle.png"; size=3888;
+	creation-date="Mon, 06 Jan 2025 07:21:17 GMT";
+	modification-date="Mon, 06 Jan 2025 07:21:20 GMT"
+Content-ID: <2d348a24-f0f8-4d45-bbb3-dab6137c09a6>
+Content-Transfer-Encoding: base64
+
+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
+AAAAAElFTkSuQmCC
+
+--_006_SJ0PR10MB637343B08EA06E2B747FAC2C9C102SJ0PR10MB6373namp_--
