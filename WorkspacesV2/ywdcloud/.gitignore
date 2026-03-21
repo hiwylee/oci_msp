@@ -1,0 +1,4 @@
+.env
+.oci/
+state/
+oci-automation.log

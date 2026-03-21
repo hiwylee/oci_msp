@@ -1,7 +1,14 @@
 import asyncio
 import json
 from pathlib import Path
+import email
+import shutil
+from email.utils import parsedate_to_datetime
 from playwright.async_api import async_playwright
+
+# ============================================================
+# 설정
+# ============================================================
 
 OUTLOOK_URL = "https://outlook.office.com/mail/"
 
@@ -15,26 +22,32 @@ FAILED_LOG.touch(exist_ok=True)
 USER_DATA_DIR = str(Path.home() / "Workspaces/tmp/playwright_profile")
 
 
+# ============================================================
+# 실패 ID 저장/로드
+# ============================================================
+
 def load_failed_ids():
     try:
         with open(FAILED_LOG, "r") as f:
             data = json.load(f)
-            if isinstance(data, list):
-                return data
+            return data if isinstance(data, list) else []
     except:
-        pass
-    return []
+        return []
 
 
 def save_failed_id(msg_id):
     failed_ids = load_failed_ids()
-    failed_ids.append(msg_id)
-    with open(FAILED_LOG, "w") as f:
-        json.dump(failed_ids, f, indent=2, ensure_ascii=False)
+    if msg_id not in failed_ids:
+        failed_ids.append(msg_id)
+        with open(FAILED_LOG, "w") as f:
+            json.dump(failed_ids, f, indent=2, ensure_ascii=False)
 
+
+# ============================================================
+# Frame/Popover 어디서든 selector 탐색
+# ============================================================
 
 async def find_anywhere(page, selector, timeout=800):
-    # 페이지 + 모든 프레임에서 selector 탐색
     frames = [page] + page.frames
     for f in frames:
         try:
@@ -44,15 +57,17 @@ async def find_anywhere(page, selector, timeout=800):
         except:
             pass
 
-    # 팝오버는 종종 frame 없이 page에서 잡힘
     try:
         return await page.wait_for_selector(selector, timeout=timeout)
     except:
         return None
 
 
+# ============================================================
+# Outlook 메시지 목록/항목
+# ============================================================
+
 async def get_message_list(page):
-    # Outlook 새 UI 기준
     return page.locator('div[role="listbox"][aria-label="메시지 목록"]')
 
 
@@ -60,9 +75,13 @@ async def get_visible_mail_items(page):
     return page.locator('div[role="option"]')
 
 
+# ============================================================
+# EML 다운로드
+# ============================================================
+
 async def download_eml(page, msg_id):
     try:
-        # 1) 상위 메뉴 "다운로드"
+        # 상위 "다운로드"
         dl_menu = await find_anywhere(
             page,
             'span.fui-MenuItem__content:has-text("다운로드")',
@@ -76,18 +95,17 @@ async def download_eml(page, msg_id):
         await dl_menu.hover()
         await page.wait_for_timeout(120)
 
-        # 2) 하위 메뉴 "EML" 나타남
+        # "EML로 다운로드"
         eml_menu = await find_anywhere(
             page,
             'span.fui-MenuItem__content:has-text("EML")',
-            timeout=1200
+            timeout=1500
         )
         if not eml_menu:
-            print(f"   ❌ EML 하위 메뉴 없음 (id={msg_id})")
+            print(f"   ❌ EML 메뉴 없음 (id={msg_id})")
             save_failed_id(msg_id)
             return False
 
-        # 3) 다운로드 이벤트
         async with page.expect_download() as dl_info:
             await eml_menu.click()
 
@@ -104,6 +122,43 @@ async def download_eml(page, msg_id):
         return False
 
 
+# ============================================================
+# 다운로드 완료 후 날짜별 분류
+# ============================================================
+
+def organize_downloaded_by_date():
+    print("\n🗂  다운로드 파일 날짜별 정리 시작…")
+
+    for eml_file in SAVE_DIR.glob("*.eml"):
+        try:
+            with open(eml_file, "r", encoding="utf-8", errors="ignore") as f:
+                msg = email.message_from_file(f)
+
+            date_header = msg.get("Date")
+            if not date_header:
+                print(f"   ❓ 날짜 없음 → skip {eml_file.name}")
+                continue
+
+            dt = parsedate_to_datetime(date_header)
+            folder_name = dt.strftime("%Y-%m-%d")
+
+            target_folder = SAVE_DIR / folder_name
+            target_folder.mkdir(exist_ok=True)
+
+            shutil.move(str(eml_file), str(target_folder / eml_file.name))
+
+            print(f"   ✔ {eml_file.name} → {folder_name}/")
+
+        except Exception as e:
+            print(f"   ❌ 정리 실패: {eml_file.name} ({e})")
+
+    print("🎉 날짜별 정리 완료!\n")
+
+
+# ============================================================
+# MAIN (다운로드 + 재시도모드 지원)
+# ============================================================
+
 async def main(retry_mode=False):
     async with async_playwright() as p:
 
@@ -117,51 +172,61 @@ async def main(retry_mode=False):
         await page.goto(OUTLOOK_URL)
 
         if not retry_mode:
-            print("\n👉 2025 폴더로 이동한 뒤 Enter")
+            print("\n👉 아웃룩에서 2025 폴더로 이동한 뒤 Enter")
             input()
 
         message_list = await get_message_list(page)
-
         failed_ids = load_failed_ids() if retry_mode else []
 
         print("\n📥 다운로드 시작 (retry_mode=%s)..." % retry_mode)
+
         processed = 0
         seen_ids = set()
+        scroll_loop = 0
 
         while True:
             items = await get_visible_mail_items(page)
             count = await items.count()
 
             if count == 0:
-                break
+                scroll_loop += 1
+                if scroll_loop > 10:
+                    break
+                await message_list.evaluate("(el)=>el.scrollTop += 500")
+                await page.wait_for_timeout(400)
+                continue
+
+            scroll_loop = 0
 
             for i in range(count):
-                item = items.nth(i)
+                try:
+                    item = items.nth(i)
+                    msg_id = await item.evaluate("el => el.getAttribute('id')", timeout=500)
 
-                msg_id = await item.get_attribute("id")
-                if msg_id is None:
+                    if not msg_id:
+                        continue
+
+                    if msg_id in seen_ids:
+                        continue
+                    seen_ids.add(msg_id)
+
+                except Exception:
                     continue
 
-                if msg_id in seen_ids:
-                    continue
-                seen_ids.add(msg_id)
-
-                # 재시도 모드면 실패 목록만 처리
                 if retry_mode and msg_id not in failed_ids:
                     continue
 
-                # 우클릭
                 try:
-                    await item.click(button="right")
+                    await item.click(button="right", timeout=500)
                 except:
                     save_failed_id(msg_id)
                     continue
 
                 await page.wait_for_timeout(80)
+
                 await download_eml(page, msg_id)
                 processed += 1
 
-            # 스크롤 (속도 최적화)
             await message_list.evaluate("(el)=>el.scrollTop += el.clientHeight")
             await page.wait_for_timeout(400)
 
@@ -170,7 +235,10 @@ async def main(retry_mode=False):
         print(f"실패 로그: {FAILED_LOG}")
 
 
+# ============================================================
+# 실행
+# ============================================================
+
 if __name__ == "__main__":
-    # retry_mode=False → 처음 다운로드
-    # retry_mode=True → failed_ids.json 기준 재다운로드
     asyncio.run(main(retry_mode=False))
+    organize_downloaded_by_date()
