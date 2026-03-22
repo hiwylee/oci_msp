@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-# 구독된 region 목록을 OCI API로 동적 획득
-# TENANCY_ID 환경변수 필요
+# 구독된 region 목록 반환 (home region으로 IAM 호출)
 discover_regions() {
-  oci iam region-subscription list \
+  local home_region
+  home_region=$(get_home_region)
+  local _r=()
+  [[ -n "$home_region" ]] && _r=(--region "$home_region")
+  oci iam region-subscription list ${_r[@]+"${_r[@]}"} \
     --tenancy-id "$TENANCY_ID" \
-    | jq -r '.data[] | select(.status == "READY") | .region-name'
+    | jq -r '.data[] | select(.status == "READY") | .["region-name"]'
 }
 
 log() {
@@ -39,6 +42,7 @@ require_env() {
 print_section() {
   local title="$1"
   local rows="${2:-}"
+  local header="${3:-NAME\tIP\tSTATE}"
 
   if [[ -z "${rows//[$'\t'\n' ']/}" ]]; then
     return 0
@@ -47,7 +51,7 @@ print_section() {
   echo
   echo "=== $title ==="
   {
-    printf "NAME\tIP\tSTATE\n"
+    printf '%b\n' "$header"
     printf "%s\n" "$rows"
   } | column -t -s $'\t'
 }

@@ -14,7 +14,7 @@ OCI(Oracle Cloud Infrastructure) 리소스 라이프사이클 자동화 CLI 툴�
 git clone https://github.com/hiwylee/oci_cmd.git
 cd oci_cmd
 cp .env.example .env   # 환경 설정
-chmod +x main.sh
+chmod +x oci_cmd.sh
 ```
 
 ### `.env` 설정
@@ -32,7 +32,7 @@ chmod +x main.sh
 ## 사용법
 
 ```
-./main.sh <command> [type] [options]
+./oci_cmd.sh <command> [type] [options]
 ```
 
 ### Commands
@@ -59,33 +59,33 @@ chmod +x main.sh
 
 ```bash
 # 전체 리소스 조회 (state.json 갱신)
-./main.sh list all
+./oci_cmd.sh list all
 
 # VM만 조회
-./main.sh list vm
+./oci_cmd.sh list vm
 
 # 특정 VM만 조회
-./main.sh list vm --name mattermost
+./oci_cmd.sh list vm --name mattermost
 
 # 모든 VM 시작 (state.json 참조)
-./main.sh start vm
+./oci_cmd.sh start vm
 
 # 특정 VM만 시작
-./main.sh start vm --name mattermost
+./oci_cmd.sh start vm --name mattermost
 
 # OCID로 특정 ADB 중지
-./main.sh stop adb --id ocid1.autonomousdatabase.oc1...
+./oci_cmd.sh stop adb --id ocid1.autonomousdatabase.oc1...
 
 # Compartment 목록
-./main.sh compartments
+./oci_cmd.sh compartments
 ```
 
-> `start` / `stop` 실행 전 반드시 `./main.sh list`로 state.json을 최신화하세요.
+> `start` / `stop` 실행 전 반드시 `./oci_cmd.sh list`로 state.json을 최신화하세요.
 
 ## 아키텍처
 
 ```
-main.sh                  # CLI 진입점 · 인자 파싱 · 커맨드 라우팅
+oci_cmd.sh                  # CLI 진입점 · 인자 파싱 · 커맨드 라우팅
 ├── lib/
 │   ├── common.sh        # log · retry · print_table · discover_regions() 유틸
 │   ├── state.sh         # state/state.json 읽기·쓰기
