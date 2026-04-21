@@ -2,13 +2,17 @@
 --  01_precheck.sql  —  사전 환경 점검
 --  실행: sqlplus / as sysdba @01_precheck.sql
 -- =============================================================================
+--  ★ 변수 수정: _lib/vars.sql  (TABLE_OWNER, TBS_DATA, TBS_LOB)
+-- =============================================================================
+
+@@_lib/vars.sql
 
 SET LINESIZE 120
 SET PAGESIZE 50
 SET FEEDBACK OFF
 PROMPT
 PROMPT ================================================================
-PROMPT  STEP 1 : 사전 환경 점검
+PROMPT  STEP 1 : 사전 환경 점검  (&&TABLE_OWNER / &&TABLE_NAME)
 PROMPT ================================================================
 
 -- ── 1. Force Logging 확인 (NOLOGGING 효과 여부) ──────────────────────────
@@ -88,7 +92,7 @@ PROMPT ---------------------------------------------------------------
 SELECT tablespace_name, status,
        ROUND(SUM(bytes)/1024/1024/1024, 2) AS size_gb
 FROM   dba_data_files
-WHERE  tablespace_name IN ('IMGLOG_DATA_TBS','IMGLOG_LOB_TBS')
+WHERE  tablespace_name IN ('&&TBS_DATA','&&TBS_LOB')
 GROUP  BY tablespace_name, status;
 
 PROMPT
@@ -96,7 +100,7 @@ PROMPT [10] 기존 사용자 확인
 PROMPT ---------------------------------------------------------------
 SELECT username, account_status, created
 FROM   dba_users
-WHERE  username = 'AOSORA';
+WHERE  username = '&&TABLE_OWNER';
 
 PROMPT
 PROMPT ================================================================

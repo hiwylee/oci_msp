@@ -6,6 +6,9 @@
 --  대상: AOSORA.TBAIIMGLOG01M  /  DB: NAOSPOC
 -- =============================================================================
 
+-- ★ 변수 수정: _lib/vars.sql  (TABLE_OWNER, TABLE_NAME, TBS_DATA, TBS_LOB)
+@@vars.sql
+
 SET ECHO OFF
 SET FEEDBACK OFF
 SET HEADING OFF
@@ -30,11 +33,11 @@ PROMPT ============================================================
 PROMPT  1. 행수 / NULL LOB 확인
 PROMPT ============================================================
 -- COUNT(*): 가장 중요한 기준값
-SELECT '[ROW] total_count=' || COUNT(*) FROM AOSORA.TBAIIMGLOG01M;
+SELECT '[ROW] total_count=' || COUNT(*) FROM &&TABLE_OWNER..&&TABLE_NAME;
 
 -- LOB 컬럼명은 dba_lobs에서 동적으로 조회 후 아래 SQL에 반영
 -- ★ 실제 LOB 컬럼명을 확인하여 col_name 부분을 수정하세요
---    SELECT column_name FROM dba_lobs WHERE owner='AOSORA' AND table_name='TBAIIMGLOG01M';
+--    SELECT column_name FROM dba_lobs WHERE owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME';
 -- 예시 (컬럼명이 확인되면 주석 해제):
 -- SELECT '[ROW] null_lob_count=' || COUNT(*)
 -- FROM   AOSORA.TBAIIMGLOG01M
@@ -53,7 +56,7 @@ PROMPT ============================================================
 SELECT '[SEG] ' || segment_type || '_' || segment_name || '='
        || ROUND(SUM(bytes)/1024/1024/1024, 4) || 'GB'
 FROM   dba_segments
-WHERE  owner = 'AOSORA'
+WHERE  owner = '&&TABLE_OWNER'
   AND  segment_name LIKE '%TBAIIMGLOG01M%'
 GROUP  BY segment_type, segment_name
 ORDER  BY segment_type, segment_name;
@@ -61,7 +64,7 @@ ORDER  BY segment_type, segment_name;
 SELECT '[SEG] total_all_segments_gb='
        || ROUND(SUM(bytes)/1024/1024/1024, 4)
 FROM   dba_segments
-WHERE  owner = 'AOSORA';
+WHERE  owner = '&&TABLE_OWNER';
 
 PROMPT
 PROMPT ============================================================
@@ -69,19 +72,19 @@ PROMPT  3. dba_tables 통계 (마지막 analyze 기준)
 PROMPT ============================================================
 SELECT '[STAT] num_rows='     || NVL(TO_CHAR(num_rows),'NULL')
 FROM   dba_tables
-WHERE  owner='AOSORA' AND table_name='TBAIIMGLOG01M';
+WHERE  owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME';
 
 SELECT '[STAT] blocks='       || NVL(TO_CHAR(blocks),'NULL')
 FROM   dba_tables
-WHERE  owner='AOSORA' AND table_name='TBAIIMGLOG01M';
+WHERE  owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME';
 
 SELECT '[STAT] avg_row_len='  || NVL(TO_CHAR(avg_row_len),'NULL')
 FROM   dba_tables
-WHERE  owner='AOSORA' AND table_name='TBAIIMGLOG01M';
+WHERE  owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME';
 
 SELECT '[STAT] last_analyzed=' || NVL(TO_CHAR(last_analyzed,'YYYY-MM-DD HH24:MI:SS'),'NULL')
 FROM   dba_tables
-WHERE  owner='AOSORA' AND table_name='TBAIIMGLOG01M';
+WHERE  owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME';
 
 PROMPT
 PROMPT ============================================================
@@ -93,7 +96,7 @@ SELECT '[LOB] column=' || column_name
        || ' logging=' || logging
        || ' in_row=' || in_row
 FROM   dba_lobs
-WHERE  owner='AOSORA' AND table_name='TBAIIMGLOG01M'
+WHERE  owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME'
 ORDER  BY column_name;
 
 PROMPT
@@ -104,7 +107,7 @@ SELECT '[IDX] ' || index_name || '=' || status
        || ' type=' || index_type
        || ' blevel=' || NVL(TO_CHAR(blevel),'NULL')
 FROM   dba_indexes
-WHERE  table_owner='AOSORA' AND table_name='TBAIIMGLOG01M'
+WHERE  table_owner='&&TABLE_OWNER' AND table_name='&&TABLE_NAME'
 ORDER  BY index_name;
 
 PROMPT

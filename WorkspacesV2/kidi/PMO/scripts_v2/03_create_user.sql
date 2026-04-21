@@ -1,60 +1,62 @@
 -- =============================================================================
---  03_create_user.sql  —  aosora 사용자 설정 + 권한 부여
+--  03_create_user.sql  —  사용자 설정 + 권한 부여
 --  DB   : NAOSPOC  |  aosora 는 ODA 프로비저닝 시 이미 생성됨
 --  실행 : sqlplus / as sysdba @03_create_user.sql
 -- =============================================================================
---  ※ CREATE USER 대신 ALTER USER + QUOTA 부여 방식 사용
---     (이미 존재하는 경우 CREATE 시 ORA-01920 발생 방지)
+--  ★ 변수 수정: _lib/vars.sql  (TABLE_OWNER, TBS_DATA, TBS_LOB)
 -- =============================================================================
+
+@@_lib/vars.sql
 
 SET ECHO ON
 PROMPT
 PROMPT ================================================================
-PROMPT  STEP 3 : aosora 사용자 Tablespace 설정 + 임포트 권한
+PROMPT  STEP 3 : &&TABLE_OWNER 사용자 Tablespace 설정 + 임포트 권한
 PROMPT ================================================================
 
--- ── aosora 기존 상태 확인 ────────────────────────────────────────────────
+-- ── 기존 상태 확인 ───────────────────────────────────────────────────────
 PROMPT
-PROMPT [사전확인] aosora 계정 상태
+PROMPT [사전확인] &&TABLE_OWNER 계정 상태
 PROMPT ---------------------------------------------------------------
 SET ECHO OFF
 SELECT username, account_status, default_tablespace, temporary_tablespace, created
 FROM   dba_users
-WHERE  username = 'AOSORA';
+WHERE  username = '&&TABLE_OWNER';
 SET ECHO ON
 
--- ── Default Tablespace 변경 + CLOB용 Quota ───────────────────────────────
+-- ── Default Tablespace + Quota ────────────────────────────────────────────
 PROMPT
-PROMPT [1] aosora Default Tablespace → IMGLOG_DATA_TBS
+PROMPT [1] &&TABLE_OWNER Default Tablespace → &&TBS_DATA
 PROMPT ---------------------------------------------------------------
-ALTER USER AOSORA
-  DEFAULT TABLESPACE IMGLOG_DATA_TBS
+ALTER USER &&TABLE_OWNER
+  DEFAULT TABLESPACE &&TBS_DATA
   TEMPORARY TABLESPACE TEMP;
 
 PROMPT
-PROMPT [2] Quota 부여 (DATA + LOB)
+PROMPT [2] Quota 부여
 PROMPT ---------------------------------------------------------------
-ALTER USER AOSORA QUOTA UNLIMITED ON IMGLOG_DATA_TBS;
-ALTER USER AOSORA QUOTA UNLIMITED ON IMGLOG_LOB_TBS;
+ALTER USER &&TABLE_OWNER QUOTA UNLIMITED ON &&TBS_DATA;
+ALTER USER &&TABLE_OWNER QUOTA UNLIMITED ON &&TBS_LOB;
 
--- ── impdp 실행 권한 ──────────────────────────────────────────────────────
+-- ── impdp 권한 ───────────────────────────────────────────────────────────
 PROMPT
-PROMPT [3] impdp 권한 부여
+PROMPT [3] IMP_FULL_DATABASE 권한 부여
 PROMPT ---------------------------------------------------------------
-GRANT IMP_FULL_DATABASE TO AOSORA;
+GRANT IMP_FULL_DATABASE TO &&TABLE_OWNER;
 
 -- ── 결과 확인 ────────────────────────────────────────────────────────────
 PROMPT
-PROMPT [확인] aosora 권한 목록
+PROMPT [확인] &&TABLE_OWNER 설정 결과
 PROMPT ---------------------------------------------------------------
 SET ECHO OFF
 SELECT username, account_status, default_tablespace
-FROM   dba_users WHERE username = 'AOSORA';
+FROM   dba_users WHERE username = '&&TABLE_OWNER';
 
-SELECT privilege FROM dba_sys_privs WHERE grantee = 'AOSORA' ORDER BY 1;
+SELECT privilege FROM dba_sys_privs WHERE grantee = '&&TABLE_OWNER' ORDER BY 1;
 
-SELECT tablespace_name, max_bytes
-FROM   dba_ts_quotas WHERE username = 'AOSORA';
+SELECT tablespace_name,
+       DECODE(max_bytes,-1,'UNLIMITED', TO_CHAR(ROUND(max_bytes/1024/1024/1024,1))||'GB') quota
+FROM   dba_ts_quotas WHERE username = '&&TABLE_OWNER';
 
 PROMPT
 PROMPT ================================================================

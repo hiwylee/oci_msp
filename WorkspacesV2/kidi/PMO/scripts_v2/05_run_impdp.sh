@@ -15,7 +15,7 @@ mkdir -p "${IMPDP_LOG_DIR}"
 
 echo "================================================================"
 echo " NAOSPOC impdp 시작: $(date '+%Y-%m-%d %H:%M:%S')"
-echo " 테이블  : AOSORA.TBAIIMGLOG01M"
+echo " 테이블  : ${TABLE_OWNER}.${TABLE_NAME}"
 echo " 덤프경로: ${DUMP_BASE}"
 echo " 병렬수  : ${PARALLEL_DEGREE}  (ODA odb8 / 8OCPU)"
 echo "================================================================"
@@ -66,7 +66,7 @@ run_impdp() {
     LOGFILE="${ORA_LOG_DIR}:impdp_${LABEL}_${TS}.log" \
     TABLES="${SRC_SCHEMA}.${SRC_TABLE}" \
     REMAP_SCHEMA="${REMAP_SCHEMA}" \
-    REMAP_TABLESPACE="USERS:IMGLOG_DATA_TBS,SYSTEM:IMGLOG_DATA_TBS,SYSAUX:IMGLOG_DATA_TBS" \
+    REMAP_TABLESPACE="USERS:${TBS_DATA},SYSTEM:${TBS_DATA},SYSAUX:${TBS_DATA}" \
     PARALLEL="${PARALLEL_DEGREE}" \
     TRANSFORM=DISABLE_ARCHIVE_LOGGING:Y \
     TABLE_EXISTS_ACTION=APPEND \
@@ -114,29 +114,29 @@ echo "================================================================"
 run_impdp "2024" "${DUMPLIST_2024}" "CONTENT=DATA_ONLY"
 
 # =============================================================================
-# STEP C : 통계 재수집
+# STEP C : 통계 재수집  (필요시 주석 해제 후 수행)
 # =============================================================================
-echo ""
-echo "================================================================"
-echo " STEP C: AOSORA.TBAIIMGLOG01M 통계 재수집"
-echo "================================================================"
-
-sqlplus -S "${DBA_CONNECT}" <<SQLEOF
-SET SERVEROUTPUT ON SIZE UNLIMITED
-BEGIN
-  DBMS_STATS.GATHER_TABLE_STATS(
-    ownname     => 'AOSORA',
-    tabname     => 'TBAIIMGLOG01M',
-    cascade     => TRUE,
-    degree      => ${PARALLEL_DEGREE},
-    method_opt  => 'FOR ALL COLUMNS SIZE AUTO',
-    granularity => 'ALL',
-    no_invalidate => FALSE
-  );
-  DBMS_OUTPUT.PUT_LINE('통계 수집 완료: ' || TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS'));
-END;
-/
-SQLEOF
+# echo ""
+# echo "================================================================"
+# echo " STEP C: ${TABLE_OWNER}.${TABLE_NAME} 통계 재수집"
+# echo "================================================================"
+#
+# sqlplus -S "${DBA_CONNECT}" <<SQLEOF
+# SET SERVEROUTPUT ON SIZE UNLIMITED
+# BEGIN
+#   DBMS_STATS.GATHER_TABLE_STATS(
+#     ownname     => '${TABLE_OWNER}',
+#     tabname     => '${TABLE_NAME}',
+#     cascade     => TRUE,
+#     degree      => ${PARALLEL_DEGREE},
+#     method_opt  => 'FOR ALL COLUMNS SIZE AUTO',
+#     granularity => 'ALL',
+#     no_invalidate => FALSE
+#   );
+#   DBMS_OUTPUT.PUT_LINE('통계 수집 완료: ' || TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS'));
+# END;
+# /
+# SQLEOF
 
 echo ""
 echo "================================================================"

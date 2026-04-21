@@ -4,6 +4,9 @@
 #  호출: source _lib/rman_validate.sh  또는  bash _lib/rman_validate.sh <출력파일>
 # =============================================================================
 
+LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${LIB_DIR}/../00_config.sh"
+
 OUTFILE="${1:-/tmp/rman_validate_$(date '+%Y%m%d_%H%M%S').txt}"
 
 echo "[$(date '+%H:%M:%S')] RMAN VALIDATE 시작 → ${OUTFILE}"
@@ -11,7 +14,7 @@ echo "[$(date '+%H:%M:%S')] RMAN VALIDATE 시작 → ${OUTFILE}"
 rman target / <<RMANEOF | tee "${OUTFILE}"
 -- 물리적·논리적 블록 손상 검사
 -- CHECK LOGICAL: 논리적 블록 체크 (데이터 일관성)
-VALIDATE TABLE AOSORA.TBAIIMGLOG01M
+VALIDATE TABLE ${TABLE_OWNER}.${TABLE_NAME}
   INCLUDING INDEXES
   CHECK LOGICAL;
 

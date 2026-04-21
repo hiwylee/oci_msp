@@ -63,7 +63,10 @@ DUMP_FILES_2024=(
 )
 
 # ---------------- 임포트 대상 ----------------
-SRC_TABLE="TBAIIMGLOG01M"
+# ★ 아래 두 값이 변경되면 _lib/vars.sql 도 동일하게 수정하세요
+TABLE_OWNER="AOSORA"           # 대상 스키마 (SQL 스크립트 공통)
+TABLE_NAME="TBAIIMGLOG01M"     # 대상 테이블
+SRC_TABLE="${TABLE_NAME}"
 
 # 덤프 내 원본 스키마명 — expdp 생성 DB의 스키마 (aosora와 다를 수 있음)
 # 확인: strings 1.TBAIIMGLOG01M_2023_01.dmp | grep -i "SCHEMA_LIST" | head -5
