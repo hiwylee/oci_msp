@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB 접근통제 — OCI 보안 가이드</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+:root{--accent:#1a5276;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:#1a1a2e;color:#e8e8f0;position:fixed;left:0;top:0;overflow-y:auto;z-index:100}
+.sb-logo{padding:20px 16px;border-bottom:1px solid #2d2d4e}
+.sb-logo a{text-decoration:none;color:white;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sb-section{padding:14px 16px 4px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3d3d6e}
+.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9090b8;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--accent)}
+.sb-link .ico{width:18px;text-align:center}
+main{margin-left:var(--sidebar-w);flex:1}
+.ph{background:linear-gradient(135deg,#1a5276 0%,#0d2b5e 100%);color:white;padding:40px 48px}
+.ph-tag{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.ph h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ph p{font-size:14px;opacity:0.85;max-width:600px}
+.content{padding:36px 48px;max-width:960px}
+h2{font-size:18px;font-weight:700;color:#1a1a2e;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2:first-child{margin-top:0}
+h3{font-size:15px;font-weight:700;color:#2d2d4e;margin:24px 0 10px}
+h4{font-size:13px;font-weight:700;color:#444;margin:16px 0 8px}
+p{margin-bottom:12px;color:#333}
+.quote{background:#eaf2ff;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 20px;margin:16px 0;font-style:italic;font-size:15px;color:#1a2e6e;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:#1a1a2e;color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:0.5px}
+td{padding:10px 14px;border-bottom:1px solid #e8ecf0;vertical-align:top}
+tr:hover td{background:#f5f7fa}
+.yes{color:#1a7a3f;font-weight:700;font-size:15px}
+.partial{color:#856404;font-weight:700;font-size:15px}
+.no{color:#842029;font-weight:700;font-size:15px}
+.legend{display:flex;gap:16px;margin:6px 0 18px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+.mermaid-wrap{background:white;border:1px solid #e0e0e0;border-radius:10px;padding:24px;margin:16px 0;text-align:center;overflow-x:auto}
+.mermaid-wrap p{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;margin-top:0}
+.code-wrap{position:relative;margin:14px 0;border-radius:8px;overflow:hidden}
+.code-hdr{background:#2d2d4e;padding:8px 16px;display:flex;justify-content:space-between;align-items:center}
+.code-lang{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px}
+.copy-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ccc;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.copy-btn.ok{background:#1a7a3f;color:#fff;border-color:#1a7a3f}
+pre{margin:0!important;border-radius:0!important}
+pre code.hljs{font-size:13px!important;padding:16px!important;font-family:'JetBrains Mono','Fira Code',Consolas,monospace!important}
+code:not(.hljs){background:#eef0f3;color:#c7254e;padding:1px 5px;border-radius:3px;font-size:12px;font-family:'Fira Code',Consolas,monospace}
+.warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px 18px;margin:12px 0}
+.warn-box h4{color:#e65100;margin:0 0 6px;font-size:13px}
+.tip-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 18px;margin:12px 0}
+.tip-box h4{color:#1b5e20;margin:0 0 6px;font-size:13px}
+.db-tabs{display:flex;gap:0;margin:16px 0 0;border-bottom:2px solid #e0e0e0}
+.db-tab{padding:8px 20px;font-size:13px;font-weight:600;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.db-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.db-content{padding:16px 0}
+ul,ol{margin:0 0 12px 20px}
+li{margin-bottom:4px;font-size:14px;color:#333}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sb-logo"><a href="index.html">☁️ OCI 보안 가이드</a></div>
+  <div class="sb-section">서비스 가이드</div>
+  <a class="sb-link" href="00_overview.html"><span class="ico">🛡️</span>보안 개요</a>
+  <a class="sb-link" href="01_waf.html"><span class="ico">🔥</span>WAF</a>
+  <a class="sb-link active" href="02_db.html"><span class="ico">🗄️</span>DB 접근통제</a>
+  <a class="sb-link" href="03_kms.html"><span class="ico">🔑</span>암호화 키 관리</a>
+  <a class="sb-link" href="04_cve.html"><span class="ico">🔍</span>CVE 취약점 점검</a>
+  <a class="sb-link" href="05_bastion.html"><span class="ico">🚪</span>Bastion Service</a>
+  <a class="sb-link" href="06_cloud_guard.html"><span class="ico">👁️</span>Cloud Guard</a>
+  <a class="sb-link" href="07_run_command.html"><span class="ico">⚡</span>Run Command</a>
+</nav>
+<main>
+<div class="ph">
+  <div class="ph-tag">02 · DB 접근통제</div>
+  <h1>DB 접근통제</h1>
+  <p>MySQL HeatWave · PostgreSQL · OpenSearch — NSG + Bastion 3계층 보안</p>
+</div>
+<div class="content">
+
+<div class="quote">
+"DB에 공인 IP는 없어야 합니다. NSG가 자물쇠라면, Bastion이 열쇠입니다. 그리고 SQL 감사 로그 없이는 '누가 무엇을 했는지' 증명할 수 없습니다."
+</div>
+
+<h2>OCI Native 지원 범위</h2>
+<div class="legend">
+  <div class="legend-item"><span class="yes">○</span> 가능</div>
+  <div class="legend-item"><span class="partial">△</span> 제약 있음</div>
+  <div class="legend-item"><span class="no">×</span> Native 불가</div>
+</div>
+
+<h3>MySQL HeatWave</h3>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>네트워크 접근 제어 (NSG/Security List)</td><td><span class="yes">○</span></td><td>포트 3306 소스 제한</td></tr>
+<tr><td>TLS 암호화 전송</td><td><span class="yes">○</span></td><td>require_secure_transport 강제 가능</td></tr>
+<tr><td>저장 암호화 (AES-256)</td><td><span class="yes">○</span></td><td>기본 활성화, CMK 적용 가능</td></tr>
+<tr><td>DB 사용자 권한 (Schema/Table 단위)</td><td><span class="yes">○</span></td><td>GRANT/REVOKE</td></tr>
+<tr><td>감사 로그 (audit_log)</td><td><span class="partial">△</span></td><td>활성화 시 성능 영향 주의</td></tr>
+<tr><td>SQL 파싱 수준 감사</td><td><span class="no">×</span></td><td>DAM 솔루션 필요</td></tr>
+<tr><td>실시간 이상 쿼리 차단</td><td><span class="no">×</span></td><td>DAM 솔루션 필요</td></tr>
+</tbody>
+</table>
+
+<h3>PostgreSQL</h3>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>네트워크 접근 제어 (NSG)</td><td><span class="yes">○</span></td><td>포트 5432 소스 제한</td></tr>
+<tr><td>SSL/TLS 강제</td><td><span class="yes">○</span></td><td>sslmode=require</td></tr>
+<tr><td>저장 암호화</td><td><span class="yes">○</span></td><td>CMK 적용 가능</td></tr>
+<tr><td>Role 기반 접근 제어 (RBAC)</td><td><span class="yes">○</span></td><td>Schema/Table 단위</td></tr>
+<tr><td>pgAudit 감사 로그</td><td><span class="partial">△</span></td><td>OCI 관리형에서 제한적 지원</td></tr>
+<tr><td>SQL 파싱·실시간 차단</td><td><span class="no">×</span></td><td>DAM 솔루션 필요</td></tr>
+</tbody>
+</table>
+
+<h3>OpenSearch</h3>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>Private Endpoint 전용 (공인 IP 없음)</td><td><span class="yes">○</span></td><td>기본 구성</td></tr>
+<tr><td>HTTPS (TLS 1.2+)</td><td><span class="yes">○</span></td><td>기본 활성화</td></tr>
+<tr><td>Fine-Grained Access Control (FGAC)</td><td><span class="yes">○</span></td><td>인덱스/필드/도큐먼트 단위</td></tr>
+<tr><td>감사 로그</td><td><span class="yes">○</span></td><td>Dashboard에서 활성화</td></tr>
+<tr><td>실시간 이상 쿼리 차단</td><td><span class="no">×</span></td><td></td></tr>
+</tbody>
+</table>
+
+<h2>아키텍처 — No Public IP DB 접근 흐름</h2>
+<div class="mermaid-wrap">
+<p>DB ACCESS FLOW</p>
+<pre class="mermaid">
+flowchart LR
+    User(["사용자 / 관리자"])
+
+    subgraph Public ["공인망"]
+        User
+    end
+
+    subgraph OCI ["OCI Private Subnet"]
+        Bastion["Bastion Service\n(관리형, 공인 IP 없음)"]
+        MySQL["MySQL HeatWave\n:3306"]
+        PG["PostgreSQL\n:5432"]
+        OS["OpenSearch\n:9200"]
+        App["Application Server"]
+    end
+
+    User -->|"HTTPS 443"| Bastion
+    Bastion -->|"Port Forwarding\n(세션 TTL 제한)"| MySQL
+    Bastion -->|"Port Forwarding"| PG
+    Bastion -->|"Port Forwarding"| OS
+    App -->|"NSG: App Subnet만 허용"| MySQL
+    App -->|"NSG: App Subnet만 허용"| PG
+    App -->|"NSG: App Subnet만 허용"| OS
+</pre>
+</div>
+
+<h2>운영 리스크 및 주의사항</h2>
+<table>
+<thead><tr><th>리스크</th><th>상황</th><th>권고 조치</th></tr></thead>
+<tbody>
+<tr><td><strong>감사 로그 성능 영향</strong></td><td>MySQL audit_log / pgAudit 전체 쿼리 로깅 시 성능 저하</td><td>감사 대상 이벤트 최소화 (로그인 실패, DDL, 관리자 쿼리 위주)</td></tr>
+<tr><td><strong>OpenSearch 기본 비밀번호</strong></td><td>초기 admin 비밀번호 미변경 시 노출 위험</td><td>클러스터 생성 직후 반드시 변경</td></tr>
+<tr><td><strong>DB 직접 공인 IP 오픈</strong></td><td>개발 편의를 위해 MySQL 3306 공인 오픈</td><td>절대 금지 — Bastion Port Forwarding 사용</td></tr>
+<tr><td><strong>앱 서버 자격증명 평문 저장</strong></td><td>환경변수/config 파일에 DB 비밀번호 기재</td><td>OCI Vault Secret으로 대체</td></tr>
+</tbody>
+</table>
+
+<h2>전문 솔루션 도입 검토 시점</h2>
+<table>
+<thead><tr><th>비즈니스 요구사항</th><th>검토 카테고리</th></tr></thead>
+<tbody>
+<tr><td>SQL 파싱 수준 쿼리 감사 및 리포팅 (규제 대응)</td><td>DAM (Database Activity Monitoring)</td></tr>
+<tr><td>이상 쿼리 실시간 탐지 및 차단</td><td>DAM 또는 DB 방화벽</td></tr>
+<tr><td>DB 세션 전체 녹화 (재현 가능한 감사)</td><td>DAM 솔루션</td></tr>
+<tr><td>멀티 DB 벤더 통합 감사</td><td>통합 DAM 플랫폼</td></tr>
+</tbody>
+</table>
+
+<h2>1. 네트워크 계층 접근통제 (NSG)</h2>
+<ol>
+  <li><code>Networking &gt; Virtual Cloud Networks &gt; [VCN] &gt; Network Security Groups</code></li>
+  <li>DB 인스턴스에 연결된 NSG 선택 → <strong>Add Ingress Rules</strong></li>
+  <li>허용할 소스: <strong>Bastion Subnet CIDR</strong> 또는 <strong>App Subnet CIDR</strong> 만 지정</li>
+</ol>
+<table>
+<thead><tr><th>DB</th><th>기본 포트</th></tr></thead>
+<tbody>
+<tr><td>MySQL HeatWave</td><td>3306</td></tr>
+<tr><td>PostgreSQL</td><td>5432</td></tr>
+<tr><td>OpenSearch</td><td>9200 (REST), 9300 (노드간)</td></tr>
+</tbody>
+</table>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># NSG Ingress Rule 추가 (MySQL, Bastion Subnet에서만 허용)
+oci network nsg-rules add \
+  --profile YWDCLOUD \
+  --nsg-id &lt;nsg-ocid&gt; \
+  --ingress-security-rules '[{
+    "protocol": "6",
+    "source": "&lt;bastion-subnet-cidr&gt;",
+    "sourceType": "CIDR_BLOCK",
+    "tcpOptions": {
+      "destinationPortRange": {"min": 3306, "max": 3306}
+    },
+    "description": "Allow MySQL from Bastion only"
+  }]'</code></pre>
+</div>
+
+<h2>2. MySQL HeatWave 접근통제</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">sql</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-sql">-- 최소 권한 사용자 생성 (특정 DB만 접근)
+CREATE USER 'appuser'@'%' IDENTIFIED BY 'StrongPassword123!';
+GRANT SELECT, INSERT, UPDATE, DELETE ON appdb.* TO 'appuser'@'%';
+FLUSH PRIVILEGES;
+
+-- 관리자 계정 원격 접속 제한 (로컬만 허용)
+UPDATE mysql.user SET Host='localhost' WHERE User='admin';
+FLUSH PRIVILEGES;
+
+-- 현재 사용자 권한 확인
+SHOW GRANTS FOR 'appuser'@'%';</code></pre>
+</div>
+
+<h2>3. PostgreSQL 접근통제</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">sql</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-sql">-- 역할 기반 접근 제어
+CREATE ROLE readonly;
+GRANT CONNECT ON DATABASE appdb TO readonly;
+GRANT USAGE ON SCHEMA public TO readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
+
+CREATE USER reportuser WITH PASSWORD 'StrongPassword123!' IN ROLE readonly;
+
+-- 현재 접속 세션 확인
+SELECT pid, usename, application_name, client_addr, state
+FROM pg_stat_activity
+WHERE state = 'active';
+
+-- SSL 연결 여부 확인
+SELECT ssl, client_addr FROM pg_stat_ssl JOIN pg_stat_activity USING(pid);</code></pre>
+</div>
+
+<h2>4. OpenSearch 접근통제</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 클러스터 상태 확인 (Bastion 터널 경유)
+curl -XGET "https://&lt;opensearch-endpoint&gt;:9200/_cluster/health" \
+  -u admin:password --insecure
+
+# 읽기 전용 역할 생성
+curl -XPUT "https://&lt;opensearch-endpoint&gt;:9200/_plugins/_security/api/roles/readonly_role" \
+  -H 'Content-Type: application/json' \
+  -u admin:password --insecure \
+  -d '{
+    "cluster_permissions": ["cluster_composite_ops_ro"],
+    "index_permissions": [{
+      "index_patterns": ["logs-*"],
+      "allowed_actions": ["read"]
+    }]
+  }'
+
+# 사용자에게 역할 매핑
+curl -XPUT "https://&lt;opensearch-endpoint&gt;:9200/_plugins/_security/api/rolesmapping/readonly_role" \
+  -H 'Content-Type: application/json' \
+  -u admin:password --insecure \
+  -d '{"users": ["reportuser"]}'</code></pre>
+</div>
+
+</div>
+</main>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'default',themeVariables:{primaryColor:'#3498db',primaryTextColor:'#fff',primaryBorderColor:'#1a5276',lineColor:'#1a5276',fontSize:'14px'}});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const code=this.closest('.code-wrap').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(()=>{
+        this.textContent='복사됨!';this.classList.add('ok');
+        setTimeout(()=>{this.textContent='복사';this.classList.remove('ok')},2000);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

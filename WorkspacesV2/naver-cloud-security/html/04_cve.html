@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVE 취약점 점검 — OCI 보안 가이드</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+:root{--accent:#6c3483;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:#1a1a2e;color:#e8e8f0;position:fixed;left:0;top:0;overflow-y:auto;z-index:100}
+.sb-logo{padding:20px 16px;border-bottom:1px solid #2d2d4e}
+.sb-logo a{text-decoration:none;color:white;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sb-section{padding:14px 16px 4px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3d3d6e}
+.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9090b8;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--accent)}
+.sb-link .ico{width:18px;text-align:center}
+main{margin-left:var(--sidebar-w);flex:1}
+.ph{background:linear-gradient(135deg,#6c3483 0%,#4a235a 100%);color:white;padding:40px 48px}
+.ph-tag{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.ph h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ph p{font-size:14px;opacity:0.85;max-width:600px}
+.content{padding:36px 48px;max-width:960px}
+h2{font-size:18px;font-weight:700;color:#1a1a2e;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2:first-child{margin-top:0}
+h3{font-size:15px;font-weight:700;color:#2d2d4e;margin:24px 0 10px}
+h4{font-size:13px;font-weight:700;color:#444;margin:16px 0 8px}
+p{margin-bottom:12px;color:#333}
+.quote{background:#f5eef8;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 20px;margin:16px 0;font-style:italic;font-size:15px;color:#4a235a;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:#1a1a2e;color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:0.5px}
+td{padding:10px 14px;border-bottom:1px solid #e8ecf0;vertical-align:top}
+tr:hover td{background:#f5f7fa}
+.yes{color:#1a7a3f;font-weight:700;font-size:15px}
+.partial{color:#856404;font-weight:700;font-size:15px}
+.no{color:#842029;font-weight:700;font-size:15px}
+.legend{display:flex;gap:16px;margin:6px 0 18px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+.mermaid-wrap{background:white;border:1px solid #e0e0e0;border-radius:10px;padding:24px;margin:16px 0;text-align:center;overflow-x:auto}
+.mermaid-wrap p{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;margin-top:0}
+.code-wrap{position:relative;margin:14px 0;border-radius:8px;overflow:hidden}
+.code-hdr{background:#2d2d4e;padding:8px 16px;display:flex;justify-content:space-between;align-items:center}
+.code-lang{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px}
+.copy-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ccc;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.copy-btn.ok{background:#1a7a3f;color:#fff;border-color:#1a7a3f}
+pre{margin:0!important;border-radius:0!important}
+pre code.hljs{font-size:13px!important;padding:16px!important;font-family:'JetBrains Mono','Fira Code',Consolas,monospace!important}
+code:not(.hljs){background:#eef0f3;color:#c7254e;padding:1px 5px;border-radius:3px;font-size:12px;font-family:'Fira Code',Consolas,monospace}
+.warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px 18px;margin:12px 0}
+.warn-box h4{color:#e65100;margin:0 0 6px;font-size:13px}
+.tip-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 18px;margin:12px 0}
+.tip-box h4{color:#1b5e20;margin:0 0 6px;font-size:13px}
+ul,ol{margin:0 0 12px 20px}
+li{margin-bottom:4px;font-size:14px;color:#333}
+.scan-level{display:flex;gap:16px;margin:16px 0;flex-wrap:wrap}
+.level-card{flex:1;min-width:180px;border-radius:8px;padding:14px 16px;border:2px solid}
+.level-standard{background:#e3f2fd;border-color:#1565c0}
+.level-strict{background:#fce4ec;border-color:#c62828}
+.level-card h4{margin:0 0 6px;font-size:13px}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sb-logo"><a href="index.html">☁️ OCI 보안 가이드</a></div>
+  <div class="sb-section">서비스 가이드</div>
+  <a class="sb-link" href="00_overview.html"><span class="ico">🛡️</span>보안 개요</a>
+  <a class="sb-link" href="01_waf.html"><span class="ico">🔥</span>WAF</a>
+  <a class="sb-link" href="02_db.html"><span class="ico">🗄️</span>DB 접근통제</a>
+  <a class="sb-link" href="03_kms.html"><span class="ico">🔑</span>암호화 키 관리</a>
+  <a class="sb-link active" href="04_cve.html"><span class="ico">🔍</span>CVE 취약점 점검</a>
+  <a class="sb-link" href="05_bastion.html"><span class="ico">🚪</span>Bastion Service</a>
+  <a class="sb-link" href="06_cloud_guard.html"><span class="ico">👁️</span>Cloud Guard</a>
+  <a class="sb-link" href="07_run_command.html"><span class="ico">⚡</span>Run Command</a>
+</nav>
+<main>
+<div class="ph">
+  <div class="ph-tag">04 · CVE 취약점 점검</div>
+  <h1>Vulnerability Scanning Service</h1>
+  <p>OS 패키지 CVE 자동 점검, CIS 벤치마크, Cloud Guard 자동 연동</p>
+</div>
+<div class="content">
+
+<div class="quote">
+"모르는 취약점은 막을 수 없습니다. CVE 스캔은 '이미 뚫릴 수 있는 구멍'을 찾는 작업입니다. 주 1회 스캔 + 패치가 가장 현실적인 OS 보안의 시작입니다."
+</div>
+
+<h2>OCI Native 지원 범위</h2>
+<div class="legend">
+  <div class="legend-item"><span class="yes">○</span> 가능</div>
+  <div class="legend-item"><span class="partial">△</span> 제약 있음</div>
+  <div class="legend-item"><span class="no">×</span> Native 불가</div>
+</div>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>OS 패키지 CVE 점검 (NVD 기반)</td><td><span class="yes">○</span></td><td>Oracle Linux, Ubuntu, CentOS, Windows Server</td></tr>
+<tr><td>CIS 벤치마크 점검</td><td><span class="yes">○</span></td><td>Strict 레벨에서 지원</td></tr>
+<tr><td>컨테이너 이미지 취약점 스캔 (OCIR)</td><td><span class="yes">○</span></td><td>OCI Container Registry 이미지</td></tr>
+<tr><td>포트 스캔</td><td><span class="yes">○</span></td><td>오픈 포트 탐지</td></tr>
+<tr><td>CVSS 기반 심각도 분류</td><td><span class="yes">○</span></td><td>Critical / High / Medium / Low</td></tr>
+<tr><td>Cloud Guard 자동 연동</td><td><span class="yes">○</span></td><td>CVE 발견 시 Problem 자동 생성</td></tr>
+<tr><td>OS 패치 일괄 적용 (콘솔)</td><td><span class="yes">○</span></td><td>OS Management Service 연동</td></tr>
+<tr><td>실시간 프로세스/파일 행위 탐지</td><td><span class="no">×</span></td><td>EDR/XDR 솔루션 필요</td></tr>
+<tr><td>메모리 포렌식 / 루트킷 탐지</td><td><span class="no">×</span></td><td>전문 포렌식 솔루션 필요</td></tr>
+<tr><td>네트워크 트래픽 행위 분석</td><td><span class="no">×</span></td><td>NDR 솔루션 필요</td></tr>
+</tbody>
+</table>
+
+<h2>아키텍처 — CVE 스캔 → Cloud Guard 연동 흐름</h2>
+<div class="mermaid-wrap">
+<p>CVE SCAN FLOW</p>
+<pre class="mermaid">
+sequenceDiagram
+    participant Agent as Oracle Cloud Agent
+    participant VSS as Vulnerability Scanning Service
+    participant NVD as CVE DB (NVD 기반)
+    participant CG as Cloud Guard
+    participant Ops as 운영팀
+
+    Agent->>VSS: 설치 패키지 목록 전송 (스캔 주기마다)
+    VSS->>NVD: CVE 매칭 조회
+    NVD-->>VSS: 취약점 목록 반환
+    VSS->>CG: CVE 발견 시 Problem 생성
+    CG->>Ops: 알림 발송 (Notification)
+    Ops->>Agent: 패치 적용 (OS Management / Run Command)
+</pre>
+</div>
+
+<h2>운영 리스크 및 주의사항</h2>
+<div class="scan-level">
+  <div class="level-card level-standard">
+    <h4>Standard (권장 시작점)</h4>
+    <p style="font-size:13px;margin:0">CVE 점검 위주, 결과 수 적음<br>처음에는 이것으로 시작</p>
+  </div>
+  <div class="level-card level-strict">
+    <h4>Strict (CIS 벤치마크)</h4>
+    <p style="font-size:13px;margin:0">결과 수백~수천 건 가능<br>안정화 후 단계적 적용</p>
+  </div>
+</div>
+<table>
+<thead><tr><th>리스크</th><th>상황</th><th>권고 조치</th></tr></thead>
+<tbody>
+<tr><td><strong>결과 폭증</strong></td><td>Strict(CIS 벤치마크) 첫 스캔 시 수백~수천 건</td><td>Standard 레벨로 시작 → 안정화 후 Strict 적용</td></tr>
+<tr><td><strong>에이전트 미실행</strong></td><td>Oracle Cloud Agent 중단 시 스캔 불가</td><td>Cloud Guard에서 "Agent not running" Problem 탐지</td></tr>
+<tr><td><strong>패치 후 재스캔</strong></td><td>패치 적용 후 스캔 결과가 즉시 갱신되지 않음</td><td>수동 재스캔 또는 다음 스캔 주기 대기</td></tr>
+<tr><td><strong>컨테이너 런타임</strong></td><td>이미지 스캔과 실제 실행 중 컨테이너는 별개</td><td>런타임 행위 탐지는 EDR 별도 필요</td></tr>
+</tbody>
+</table>
+
+<h2>전문 솔루션 도입 검토 시점</h2>
+<table>
+<thead><tr><th>비즈니스 요구사항</th><th>검토 카테고리</th></tr></thead>
+<tbody>
+<tr><td>실시간 프로세스 이상 행위 탐지 필요</td><td>EDR (Endpoint Detection &amp; Response)</td></tr>
+<tr><td>실행 중 컨테이너 런타임 보안</td><td>CWPP (Cloud Workload Protection Platform)</td></tr>
+<tr><td>메모리/네트워크 기반 고급 위협 탐지</td><td>XDR (Extended Detection &amp; Response)</td></tr>
+<tr><td>취약점 → 패치 자동화 파이프라인</td><td>취약점 관리 플랫폼</td></tr>
+</tbody>
+</table>
+
+<h2>1. Oracle Cloud Agent 플러그인 활성화</h2>
+<h3>콘솔</h3>
+<ol>
+  <li><code>Compute &gt; Instances &gt; [인스턴스 선택]</code></li>
+  <li><strong>Oracle Cloud Agent</strong> 탭</li>
+  <li><strong>Vulnerability Scanning</strong> 플러그인 → <strong>Enabled</strong> 확인</li>
+</ol>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Vulnerability Scanning 플러그인 활성화
+oci compute instance update \
+  --profile YWDCLOUD \
+  --instance-id &lt;instance-ocid&gt; \
+  --agent-config '{
+    "plugins-config": [
+      {"name": "Vulnerability Scanning", "desired-state": "ENABLED"}
+    ]
+  }'
+
+# 플러그인 상태 확인
+oci compute instance get \
+  --profile YWDCLOUD \
+  --instance-id &lt;instance-ocid&gt; \
+  --query 'data."agent-config"."plugins-config"'</code></pre>
+</div>
+
+<h2>2. Scan Recipe 생성</h2>
+<table>
+<thead><tr><th>항목</th><th>권장값</th></tr></thead>
+<tbody>
+<tr><td>Recipe Type</td><td><code>Host</code> (Compute 인스턴스용)</td></tr>
+<tr><td>Scan Level</td><td><code>Standard</code> (CVE 점검) → 안정화 후 <code>Strict</code></td></tr>
+<tr><td>Schedule</td><td><code>Weekly</code> (최초 설정) → 안정화 후 <code>Daily</code></td></tr>
+</tbody>
+</table>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Host Scan Recipe 생성 (Weekly, Standard)
+oci vulnerability-scanning host-scan-recipe create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "prod-weekly-scan" \
+  --schedule '{"type":"WEEKLY","dayOfWeek":"SUNDAY"}' \
+  --port-settings '{"scanLevel":"STANDARD"}' \
+  --agent-settings '{"scanLevel":"STANDARD","agentConfigurationDefined":true}'</code></pre>
+</div>
+
+<h2>3. Scan Target 생성</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Compartment 전체를 대상으로 Scan Target 생성
+oci vulnerability-scanning host-scan-target create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "prod-all-instances" \
+  --host-scan-recipe-id &lt;recipe-ocid&gt; \
+  --target-compartment-id &lt;compartment-ocid&gt;</code></pre>
+</div>
+
+<h2>4. 스캔 결과 확인</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 심각도 HIGH 이상 취약점 필터
+oci vulnerability-scanning vulnerability list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --severity HIGH \
+  --output table
+
+# 특정 인스턴스의 취약점 목록
+oci vulnerability-scanning vulnerability list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --instance-id &lt;instance-ocid&gt; \
+  --output table</code></pre>
+</div>
+
+<h2>5. 취약점 수정 (패치)</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Oracle Linux / CentOS
+sudo yum update --security -y
+
+# Ubuntu / Debian
+sudo apt update && sudo apt upgrade -y
+
+# 특정 패키지만 업데이트
+sudo yum update &lt;package-name&gt; -y</code></pre>
+</div>
+<div class="tip-box">
+  <h4>💡 OCI OS Management Service 일괄 패치</h4>
+  <p><code>Observability &amp; Management &gt; OS Management</code>에서 콘솔을 통한 일괄 패치 적용이 가능합니다.</p>
+</div>
+
+</div>
+</main>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'default',themeVariables:{primaryColor:'#8e44ad',primaryTextColor:'#fff',primaryBorderColor:'#6c3483',lineColor:'#6c3483',fontSize:'14px'}});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const code=this.closest('.code-wrap').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(()=>{
+        this.textContent='복사됨!';this.classList.add('ok');
+        setTimeout(()=>{this.textContent='복사';this.classList.remove('ok')},2000);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

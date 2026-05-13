@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>암호화 키 관리 — OCI 보안 가이드</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+:root{--accent:#9a7d0a;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:#1a1a2e;color:#e8e8f0;position:fixed;left:0;top:0;overflow-y:auto;z-index:100}
+.sb-logo{padding:20px 16px;border-bottom:1px solid #2d2d4e}
+.sb-logo a{text-decoration:none;color:white;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sb-section{padding:14px 16px 4px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3d3d6e}
+.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9090b8;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--accent)}
+.sb-link .ico{width:18px;text-align:center}
+main{margin-left:var(--sidebar-w);flex:1}
+.ph{background:linear-gradient(135deg,#9a7d0a 0%,#6d5806 100%);color:white;padding:40px 48px}
+.ph-tag{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.ph h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ph p{font-size:14px;opacity:0.85;max-width:600px}
+.content{padding:36px 48px;max-width:960px}
+h2{font-size:18px;font-weight:700;color:#1a1a2e;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2:first-child{margin-top:0}
+h3{font-size:15px;font-weight:700;color:#2d2d4e;margin:24px 0 10px}
+h4{font-size:13px;font-weight:700;color:#444;margin:16px 0 8px}
+p{margin-bottom:12px;color:#333}
+.quote{background:#fef9e7;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 20px;margin:16px 0;font-style:italic;font-size:15px;color:#6d5806;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:#1a1a2e;color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:0.5px}
+td{padding:10px 14px;border-bottom:1px solid #e8ecf0;vertical-align:top}
+tr:hover td{background:#f5f7fa}
+.yes{color:#1a7a3f;font-weight:700;font-size:15px}
+.partial{color:#856404;font-weight:700;font-size:15px}
+.no{color:#842029;font-weight:700;font-size:15px}
+.legend{display:flex;gap:16px;margin:6px 0 18px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+.mermaid-wrap{background:white;border:1px solid #e0e0e0;border-radius:10px;padding:24px;margin:16px 0;text-align:center;overflow-x:auto}
+.mermaid-wrap p{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;margin-top:0}
+.code-wrap{position:relative;margin:14px 0;border-radius:8px;overflow:hidden}
+.code-hdr{background:#2d2d4e;padding:8px 16px;display:flex;justify-content:space-between;align-items:center}
+.code-lang{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px}
+.copy-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ccc;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.copy-btn.ok{background:#1a7a3f;color:#fff;border-color:#1a7a3f}
+pre{margin:0!important;border-radius:0!important}
+pre code.hljs{font-size:13px!important;padding:16px!important;font-family:'JetBrains Mono','Fira Code',Consolas,monospace!important}
+code:not(.hljs){background:#eef0f3;color:#c7254e;padding:1px 5px;border-radius:3px;font-size:12px;font-family:'Fira Code',Consolas,monospace}
+.warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px 18px;margin:12px 0}
+.warn-box h4{color:#e65100;margin:0 0 6px;font-size:13px}
+.tip-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 18px;margin:12px 0}
+.tip-box h4{color:#1b5e20;margin:0 0 6px;font-size:13px}
+ul,ol{margin:0 0 12px 20px}
+li{margin-bottom:4px;font-size:14px;color:#333}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sb-logo"><a href="index.html">☁️ OCI 보안 가이드</a></div>
+  <div class="sb-section">서비스 가이드</div>
+  <a class="sb-link" href="00_overview.html"><span class="ico">🛡️</span>보안 개요</a>
+  <a class="sb-link" href="01_waf.html"><span class="ico">🔥</span>WAF</a>
+  <a class="sb-link" href="02_db.html"><span class="ico">🗄️</span>DB 접근통제</a>
+  <a class="sb-link active" href="03_kms.html"><span class="ico">🔑</span>암호화 키 관리</a>
+  <a class="sb-link" href="04_cve.html"><span class="ico">🔍</span>CVE 취약점 점검</a>
+  <a class="sb-link" href="05_bastion.html"><span class="ico">🚪</span>Bastion Service</a>
+  <a class="sb-link" href="06_cloud_guard.html"><span class="ico">👁️</span>Cloud Guard</a>
+  <a class="sb-link" href="07_run_command.html"><span class="ico">⚡</span>Run Command</a>
+</nav>
+<main>
+<div class="ph">
+  <div class="ph-tag">03 · Vault / KMS</div>
+  <h1>암호화 키 관리</h1>
+  <p>OCI Vault / KMS — HSM 기반 키 보호, Secret 관리, CMK 적용</p>
+</div>
+<div class="content">
+
+<div class="quote">
+"키를 잃으면 데이터를 잃습니다. OCI Vault는 암호화 키를 HSM 안에 가두고, 코드에서 DB 비밀번호를 없애줍니다. 키 관리는 보안의 마지막 보루입니다."
+</div>
+
+<h2>OCI Native 지원 범위</h2>
+<div class="legend">
+  <div class="legend-item"><span class="yes">○</span> 가능</div>
+  <div class="legend-item"><span class="partial">△</span> 제약 있음</div>
+  <div class="legend-item"><span class="no">×</span> Native 불가</div>
+</div>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>AES-128/192/256 대칭키 관리</td><td><span class="yes">○</span></td><td>Block Volume, Object Storage 암호화</td></tr>
+<tr><td>RSA / ECDSA 비대칭키 관리</td><td><span class="yes">○</span></td><td>서명, TLS 인증서 래핑</td></tr>
+<tr><td>HSM 보호 (FIPS 140-2 Level 3)</td><td><span class="yes">○</span></td><td>Virtual Private Vault</td></tr>
+<tr><td>BYOK (고객 키 가져오기)</td><td><span class="yes">○</span></td><td>RSA 래핑 방식</td></tr>
+<tr><td>DB 비밀번호 Secret 관리</td><td><span class="yes">○</span></td><td>MySQL, PostgreSQL 자격증명 저장</td></tr>
+<tr><td>Block/Boot Volume CMK 적용</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>Object Storage CMK 적용</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>MySQL HeatWave CMK 적용</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>자동 키 회전 스케줄</td><td><span class="partial">△</span></td><td>수동 트리거만 지원 (자동화 스크립트 필요)</td></tr>
+<tr><td>외부 HSM 직접 연동</td><td><span class="no">×</span></td><td>외부 KMS 솔루션 연동 불가</td></tr>
+<tr><td>멀티 클라우드 키 동기화</td><td><span class="no">×</span></td><td>OCI 전용</td></tr>
+</tbody>
+</table>
+
+<h2>아키텍처 — Secret 기반 DB 접속</h2>
+<div class="mermaid-wrap">
+<p>SECRET-BASED DB ACCESS FLOW</p>
+<pre class="mermaid">
+flowchart LR
+    Dev["개발자/운영자\n코드에 비밀번호 없음"]
+    App["Application\n(Instance Principal)"]
+    Vault["OCI Vault\nSecret 저장"]
+    DB["MySQL / PostgreSQL\n/ OpenSearch"]
+    HSM[("HSM\nFIPS 140-2 L3")]
+
+    Dev -->|"Secret 등록 (1회)"| Vault
+    App -->|"Secret 조회 (런타임)"| Vault
+    Vault -->|"복호화 후 반환"| App
+    App -->|"DB 접속"| DB
+    Vault -.->|"키 보호"| HSM
+</pre>
+</div>
+
+<h2>운영 리스크 및 주의사항</h2>
+<table>
+<thead><tr><th>리스크</th><th>상황</th><th>권고 조치</th></tr></thead>
+<tbody>
+<tr><td><strong>복호화 불가</strong></td><td>CMK 키 삭제 후 암호화된 데이터 접근 불가</td><td>키 삭제 전 의존 리소스 전수 확인 필수</td></tr>
+<tr><td><strong>Vault 삭제 유예</strong></td><td>Vault 삭제 요청 후 7~30일 유예 기간</td><td>즉각 삭제 불가 — 삭제 일정 계획 필요</td></tr>
+<tr><td><strong>자동 키 회전 부재</strong></td><td>수동 트리거만 지원</td><td>OCI Events + Functions로 주기적 자동화 가능</td></tr>
+<tr><td><strong>IAM 과다 권한</strong></td><td>키 관리 권한을 운영자 전체에 부여 시 키 삭제 위험</td><td><code>key-admins</code> 그룹 별도 운영, 최소 권한</td></tr>
+</tbody>
+</table>
+
+<h2>전문 솔루션 도입 검토 시점</h2>
+<table>
+<thead><tr><th>비즈니스 요구사항</th><th>검토 카테고리</th></tr></thead>
+<tbody>
+<tr><td>멀티 클라우드 키 중앙 관리 필요</td><td>외부 KMS / Secrets Manager 솔루션</td></tr>
+<tr><td>하드웨어 HSM 직접 소유 필요 (규제)</td><td>On-Premises HSM + BYOK</td></tr>
+<tr><td>키 회전 자동화 + 감사 리포트 자동화</td><td>전문 Key Lifecycle Management 솔루션</td></tr>
+</tbody>
+</table>
+
+<h2>1. Vault 및 Master Key 생성</h2>
+<h3>콘솔</h3>
+<ol>
+  <li><code>Identity &amp; Security &gt; Vault</code></li>
+  <li><strong>Create Vault</strong> 클릭 — Name: <code>prod-vault</code>, Vault Type: <code>Virtual Private Vault</code> (전용 HSM)</li>
+  <li>Vault 생성 후 → <strong>Master Encryption Keys</strong> 탭 → <strong>Create Key</strong></li>
+  <li>Protection Mode: <code>HSM</code> (권장), Algorithm: <code>AES-256</code></li>
+</ol>
+<div class="tip-box">
+  <h4>💡 Virtual Private Vault vs Default Shared</h4>
+  <p>Virtual Private Vault는 비용이 높지만 키가 전용 HSM 파티션에 격리됩니다. 규제 대응 또는 고보안 환경에서 권장합니다.</p>
+</div>
+
+<h3>OCI CLI</h3>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Vault 생성
+oci kms management vault create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "prod-vault" \
+  --vault-type DEFAULT
+
+# Vault Management Endpoint 확인
+oci kms management vault get \
+  --profile YWDCLOUD \
+  --vault-id &lt;vault-ocid&gt; \
+  --query 'data."management-endpoint"' \
+  --raw-output
+
+# AES-256 마스터 키 생성
+oci kms management key create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "prod-master-key-aes256" \
+  --key-shape '{"algorithm":"AES","length":32}' \
+  --protection-mode HSM \
+  --endpoint &lt;management-endpoint&gt;</code></pre>
+</div>
+
+<h2>2. Block Volume에 CMK 적용</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Block Volume 생성 시 CMK 적용
+oci bv volume create \
+  --profile YWDCLOUD \
+  --availability-domain &lt;ad-name&gt; \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "encrypted-volume" \
+  --size-in-gbs 100 \
+  --kms-key-id &lt;key-ocid&gt;
+
+# 기존 볼륨에 CMK 적용 (재암호화)
+oci bv volume update \
+  --profile YWDCLOUD \
+  --volume-id &lt;volume-ocid&gt; \
+  --kms-key-id &lt;key-ocid&gt;</code></pre>
+</div>
+
+<h2>3. Object Storage에 CMK 적용</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 버킷에 CMK 적용
+oci os bucket update \
+  --profile YWDCLOUD \
+  --namespace &lt;namespace&gt; \
+  --bucket-name &lt;bucket-name&gt; \
+  --kms-key-id &lt;key-ocid&gt;
+
+# 버킷 암호화 설정 확인
+oci os bucket get \
+  --profile YWDCLOUD \
+  --namespace &lt;namespace&gt; \
+  --bucket-name &lt;bucket-name&gt; \
+  --query 'data."kms-key-id"'</code></pre>
+</div>
+
+<h2>4. Secret 관리 (DB 자격증명 코드 제거)</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 시크릿 생성 (Base64 인코딩 필요)
+SECRET_VALUE=$(echo -n "MyDBPassword123!" | base64)
+
+oci vault secret create-base64 \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --vault-id &lt;vault-ocid&gt; \
+  --key-id &lt;key-ocid&gt; \
+  --secret-name "prod-db-password" \
+  --secret-content-content "$SECRET_VALUE"
+
+# 시크릿 값 조회
+oci secrets secretbundle get \
+  --profile YWDCLOUD \
+  --secret-id &lt;secret-ocid&gt; \
+  --query 'data."secret-bundle-content".content' \
+  --raw-output | base64 --decode
+
+# 시크릿 목록 조회
+oci vault secret list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --vault-id &lt;vault-ocid&gt; \
+  --output table</code></pre>
+</div>
+
+<h2>5. 키 회전 (Key Rotation)</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 키 버전 생성 (= 키 회전)
+oci kms management key-version create \
+  --profile YWDCLOUD \
+  --key-id &lt;key-ocid&gt; \
+  --endpoint &lt;management-endpoint&gt;
+
+# 키 버전 목록 확인
+oci kms management key-version list \
+  --profile YWDCLOUD \
+  --key-id &lt;key-ocid&gt; \
+  --endpoint &lt;management-endpoint&gt;</code></pre>
+</div>
+<div class="tip-box">
+  <h4>💡 키 회전 후 동작</h4>
+  <p>키 회전 후 기존 데이터는 이전 키 버전으로 복호화 가능하며, 신규 암호화는 새 버전을 사용합니다.</p>
+</div>
+
+<h2>IAM Policy</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">hcl</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-plaintext"># 키 관리 권한 (key-admins 전용 그룹)
+Allow group key-admins to manage keys in compartment prod-compartment
+Allow group key-admins to manage vaults in compartment prod-compartment
+
+# 애플리케이션 Secret 조회 (Instance Principal)
+Allow dynamic-group prod-instances to read secret-family in compartment prod-compartment</code></pre>
+</div>
+
+</div>
+</main>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'default',themeVariables:{primaryColor:'#f39c12',primaryTextColor:'#fff',primaryBorderColor:'#9a7d0a',lineColor:'#9a7d0a',fontSize:'14px'}});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const code=this.closest('.code-wrap').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(()=>{
+        this.textContent='복사됨!';this.classList.add('ok');
+        setTimeout(()=>{this.textContent='복사';this.classList.remove('ok')},2000);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

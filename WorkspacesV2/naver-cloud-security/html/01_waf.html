@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAF — OCI 보안 가이드</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+:root{--accent:#c0392b;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:#1a1a2e;color:#e8e8f0;position:fixed;left:0;top:0;overflow-y:auto;z-index:100}
+.sb-logo{padding:20px 16px;border-bottom:1px solid #2d2d4e}
+.sb-logo a{text-decoration:none;color:white;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sb-section{padding:14px 16px 4px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3d3d6e}
+.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9090b8;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--accent)}
+.sb-link .ico{width:18px;text-align:center}
+main{margin-left:var(--sidebar-w);flex:1}
+.ph{background:linear-gradient(135deg,#c0392b 0%,#7b1a1a 100%);color:white;padding:40px 48px}
+.ph-tag{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.ph h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ph p{font-size:14px;opacity:0.85;max-width:600px}
+.content{padding:36px 48px;max-width:960px}
+h2{font-size:18px;font-weight:700;color:#1a1a2e;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2:first-child{margin-top:0}
+h3{font-size:15px;font-weight:700;color:#2d2d4e;margin:24px 0 10px}
+h4{font-size:13px;font-weight:700;color:#444;margin:16px 0 8px}
+p{margin-bottom:12px;color:#333}
+.quote{background:#fdecea;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 20px;margin:16px 0;font-style:italic;font-size:15px;color:#7b1a1a;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:#1a1a2e;color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:0.5px}
+td{padding:10px 14px;border-bottom:1px solid #e8ecf0;vertical-align:top}
+tr:hover td{background:#f5f7fa}
+.yes{color:#1a7a3f;font-weight:700;font-size:15px}
+.partial{color:#856404;font-weight:700;font-size:15px}
+.no{color:#842029;font-weight:700;font-size:15px}
+.legend{display:flex;gap:16px;margin:6px 0 18px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+.mermaid-wrap{background:white;border:1px solid #e0e0e0;border-radius:10px;padding:24px;margin:16px 0;text-align:center;overflow-x:auto}
+.mermaid-wrap p{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;margin-top:0}
+.code-wrap{position:relative;margin:14px 0;border-radius:8px;overflow:hidden}
+.code-hdr{background:#2d2d4e;padding:8px 16px;display:flex;justify-content:space-between;align-items:center}
+.code-lang{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px}
+.copy-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ccc;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.copy-btn.ok{background:#1a7a3f;color:#fff;border-color:#1a7a3f}
+pre{margin:0!important;border-radius:0!important}
+pre code.hljs{font-size:13px!important;padding:16px!important;font-family:'JetBrains Mono','Fira Code',Consolas,monospace!important}
+code:not(.hljs){background:#eef0f3;color:#c7254e;padding:1px 5px;border-radius:3px;font-size:12px;font-family:'Fira Code',Consolas,monospace}
+.warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px 18px;margin:12px 0}
+.warn-box h4{color:#e65100;margin:0 0 6px;font-size:13px}
+.tip-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 18px;margin:12px 0}
+.tip-box h4{color:#1b5e20;margin:0 0 6px;font-size:13px}
+.process{background:#1a1a2e;border-radius:8px;padding:20px 24px;margin:14px 0;font-family:'Fira Code',Consolas,monospace;font-size:13px;color:#e8e8f0;line-height:2}
+ul,ol{margin:0 0 12px 20px}
+li{margin-bottom:4px;font-size:14px;color:#333}
+.steps li{margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sb-logo"><a href="index.html">☁️ OCI 보안 가이드</a></div>
+  <div class="sb-section">서비스 가이드</div>
+  <a class="sb-link" href="00_overview.html"><span class="ico">🛡️</span>보안 개요</a>
+  <a class="sb-link active" href="01_waf.html"><span class="ico">🔥</span>WAF</a>
+  <a class="sb-link" href="02_db.html"><span class="ico">🗄️</span>DB 접근통제</a>
+  <a class="sb-link" href="03_kms.html"><span class="ico">🔑</span>암호화 키 관리</a>
+  <a class="sb-link" href="04_cve.html"><span class="ico">🔍</span>CVE 취약점 점검</a>
+  <a class="sb-link" href="05_bastion.html"><span class="ico">🚪</span>Bastion Service</a>
+  <a class="sb-link" href="06_cloud_guard.html"><span class="ico">👁️</span>Cloud Guard</a>
+  <a class="sb-link" href="07_run_command.html"><span class="ico">⚡</span>Run Command</a>
+</nav>
+<main>
+<div class="ph">
+  <div class="ph-tag">01 · WAF</div>
+  <h1>Web Application Firewall</h1>
+  <p>HTTP/HTTPS 트래픽 검사 → OWASP Top 10, Rate Limiting, 커스텀 접근 제어</p>
+</div>
+<div class="content">
+
+<div class="quote">
+"공격은 막되, 서비스는 살아야 합니다. WAF를 처음부터 Block 모드로 켜면 정상 트래픽까지 막힙니다. <strong>Detection 2주 → Block</strong> — 이것이 서비스 중단 없이 보안을 높이는 유일한 방법입니다."
+</div>
+
+<h2>OCI Native 지원 범위</h2>
+<div class="legend">
+  <div class="legend-item"><span class="yes">○</span> 가능</div>
+  <div class="legend-item"><span class="partial">△</span> 제약 있음</div>
+  <div class="legend-item"><span class="no">×</span> Native 불가</div>
+</div>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>OWASP Top 10 차단 (SQLi, XSS, LFI 등)</td><td><span class="yes">○</span></td><td>OCI Managed Rule Set 기본 제공</td></tr>
+<tr><td>커스텀 IP / URL / 국가 차단</td><td><span class="yes">○</span></td><td>Access Control Rule</td></tr>
+<tr><td>Rate Limiting (IP당 요청 수 제한)</td><td><span class="yes">○</span></td><td>DDoS 완화 용도</td></tr>
+<tr><td>TLS 취약 버전(1.0/1.1) 차단</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>Bot 관리 (CAPTCHA, JS 챌린지)</td><td><span class="partial">△</span></td><td>Edge 모드에서만 완전 지원</td></tr>
+<tr><td>OpenSearch Dashboard 직접 보호</td><td><span class="partial">△</span></td><td>WAF 연결 후 NSG IP 제한 병행 필요</td></tr>
+<tr><td>실시간 위협 인텔리전스 피드</td><td><span class="no">×</span></td><td>전문 WAF/CDN 솔루션 필요</td></tr>
+<tr><td>L4 DDoS (대역폭) 방어</td><td><span class="no">×</span></td><td>OCI DDoS Protection 또는 전문 솔루션 필요</td></tr>
+<tr><td>API 스키마 검증</td><td><span class="partial">△</span></td><td>API Gateway 별도 연동 필요</td></tr>
+</tbody>
+</table>
+
+<h2>아키텍처</h2>
+<div class="mermaid-wrap">
+<p>WAF TRAFFIC FLOW</p>
+<pre class="mermaid">
+flowchart LR
+    Internet([인터넷])
+
+    subgraph WAF_POLICY ["OCI WAF Policy"]
+        direction TB
+        D["Detection Mode\n로그 기록만"]
+        P["Prevention Mode\n즉시 차단"]
+        D -->|"2주 검증 후\nFalse Positive 제거"| P
+    end
+
+    Internet --> WAF_POLICY --> LB["Load Balancer\n(Public)"]
+    LB --> App["App Server\n(Private Subnet)"]
+    LB -->|"별도 NSG IP 제한"| OS["OpenSearch\nDashboard :9200"]
+</pre>
+</div>
+
+<h2>운영 리스크 및 주의사항</h2>
+<table>
+<thead><tr><th>리스크</th><th>상황</th><th>권고 조치</th></tr></thead>
+<tbody>
+<tr><td><strong>서비스 중단</strong></td><td>Block 전환 직후 정상 API 차단</td><td>Detection 2주 운영 → False Positive URL 화이트리스트 등록 후 전환</td></tr>
+<tr><td><strong>WAF 우회</strong></td><td>LB에 WAF 없이 직접 접근 가능</td><td>LB Security List에서 WAF IP 대역 외 인바운드 차단</td></tr>
+<tr><td><strong>OpenSearch 노출</strong></td><td>Dashboard WAF 미적용</td><td>NSG에서 Dashboard(9200) 접근 IP 명시적 제한 필수</td></tr>
+<tr><td><strong>리전 제약</strong></td><td>Regional WAF는 동일 리전 LB에만 연결</td><td>멀티 리전 구성 시 리전별 WAF 별도 생성 필요</td></tr>
+</tbody>
+</table>
+
+<h2>False Positive 대응 프로세스</h2>
+<div class="process">
+① Detection 모드로 2주 운영<br>
+&nbsp;&nbsp;&nbsp;└─ WAF 로그 (OCI Logging) 에서 차단 예정 요청 확인<br>
+② 정상 트래픽 여부 판단<br>
+&nbsp;&nbsp;&nbsp;└─ 소스 IP, URL 패턴, User-Agent 검토<br>
+③ 화이트리스트 등록<br>
+&nbsp;&nbsp;&nbsp;└─ WAF Policy &gt; Access Control &gt; Allow Rule 추가<br>
+④ Prevention 모드 전환<br>
+&nbsp;&nbsp;&nbsp;└─ 전환 후 30분간 에러율 모니터링<br>
+⑤ OWASP 규칙 세부 조정<br>
+&nbsp;&nbsp;&nbsp;└─ 규칙별 Risk Level 낮추기 (Block → Detect)
+</div>
+
+<h2>전문 솔루션 도입 검토 시점</h2>
+<table>
+<thead><tr><th>비즈니스 요구사항</th><th>검토 카테고리</th></tr></thead>
+<tbody>
+<tr><td>실시간 위협 인텔리전스 기반 자동 차단</td><td>전문 클라우드 WAF 서비스</td></tr>
+<tr><td>대용량 L4 DDoS (수백 Gbps) 방어</td><td>Anti-DDoS / CDN 보안 서비스</td></tr>
+<tr><td>글로벌 엣지 PoP에서 WAF + CDN 통합</td><td>CDN 기반 통합 보안 서비스</td></tr>
+<tr><td>REST API 스키마 레벨 입력값 검증</td><td>API Security Gateway</td></tr>
+</tbody>
+</table>
+
+<h2>콘솔 설정</h2>
+
+<h3>1. WAF Policy 생성</h3>
+<ol class="steps">
+  <li><code>Identity &amp; Security &gt; Web Application Firewall &gt; Policies</code></li>
+  <li><strong>Create WAF Policy</strong> 클릭</li>
+  <li>Name: <code>prod-waf-policy</code>, Compartment 선택</li>
+  <li><strong>Create</strong> 클릭</li>
+</ol>
+
+<h3>2. Protection Rules 설정</h3>
+<p>Policy 생성 후 → <strong>Protection Rules</strong> 탭</p>
+<table>
+<thead><tr><th>설정</th><th>권장값</th></tr></thead>
+<tbody>
+<tr><td>OWASP Top 10 규칙 세트</td><td><strong>Detect</strong> 로 시작 후 → 안정화되면 <strong>Block</strong></td></tr>
+<tr><td>요청 크기 제한</td><td>필요에 따라 설정 (기본 8 KB)</td></tr>
+</tbody>
+</table>
+<div class="tip-box">
+  <h4>💡 팁</h4>
+  <p>처음에는 <code>Detect</code> 모드로 운영하며 False Positive를 확인한 후 <code>Block</code>으로 전환하세요.</p>
+</div>
+
+<h3>3. WAF Policy를 Load Balancer에 연결</h3>
+<ol class="steps">
+  <li><code>Networking &gt; Load Balancers &gt; [LB 선택]</code></li>
+  <li><strong>WAF Policy</strong> 섹션 → <strong>Edit</strong></li>
+  <li>생성한 Policy 선택 → <strong>Save Changes</strong></li>
+</ol>
+
+<h2>OCI CLI</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># WAF Policy 목록 조회
+oci waf web-app-firewall-policy list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt;
+
+# WAF Policy 생성
+oci waf web-app-firewall-policy create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --display-name "prod-waf-policy"
+
+# Load Balancer에 WAF Policy 연결
+oci waf web-app-firewall create-for-load-balancer \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --backend-type LOAD_BALANCER \
+  --load-balancer-id &lt;lb-ocid&gt; \
+  --web-app-firewall-policy-id &lt;policy-ocid&gt; \
+  --display-name "prod-waf-lb"
+
+# Protection Rule 목록 확인
+oci waf protection-rule list \
+  --profile YWDCLOUD \
+  --web-app-firewall-policy-id &lt;policy-ocid&gt;</code></pre>
+</div>
+
+<h2>WAF 로그 확인</h2>
+<ol class="steps">
+  <li>Policy → <strong>Logs</strong> 탭 → <strong>Enable Log</strong> (OCI Logging 서비스 연동)</li>
+  <li><code>Observability &amp; Management &gt; Logging &gt; Log Groups</code>에서 WAF 로그 조회</li>
+</ol>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># WAF 로그 조회 (최근 1시간)
+oci logging-search search-logs \
+  --profile YWDCLOUD \
+  --search-query 'search "&lt;log-group-ocid&gt;/&lt;log-ocid&gt;" | sort by datetime desc' \
+  --time-start $(date -u -v-1H +"%Y-%m-%dT%H:%M:%SZ") \
+  --time-end $(date -u +"%Y-%m-%dT%H:%M:%SZ")</code></pre>
+</div>
+
+<div class="warn-box">
+  <h4>⚠️ 주의사항</h4>
+  <ul>
+    <li>WAF Policy는 <strong>같은 리전</strong> 내 LB에만 연결 가능합니다.</li>
+    <li>Edge (CDN) 모드는 별도 도메인 위임 설정이 필요합니다.</li>
+    <li>기존 LB Security List에서 WAF IP 대역 허용이 필요할 수 있습니다.</li>
+  </ul>
+</div>
+
+</div>
+</main>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'default',themeVariables:{primaryColor:'#e74c3c',primaryTextColor:'#fff',primaryBorderColor:'#c0392b',lineColor:'#c0392b',fontSize:'14px'}});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const code=this.closest('.code-wrap').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(()=>{
+        this.textContent='복사됨!';this.classList.add('ok');
+        setTimeout(()=>{this.textContent='복사';this.classList.remove('ok')},2000);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

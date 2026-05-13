@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Run Command — OCI 보안 가이드</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+:root{--accent:#a04000;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh;font-size:15px;line-height:1.7}
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:#1a1a2e;color:#e8e8f0;position:fixed;left:0;top:0;overflow-y:auto;z-index:100}
+.sb-logo{padding:20px 16px;border-bottom:1px solid #2d2d4e}
+.sb-logo a{text-decoration:none;color:white;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.sb-section{padding:14px 16px 4px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3d3d6e}
+.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#9090b8;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.07);color:#fff;border-left-color:var(--accent)}
+.sb-link .ico{width:18px;text-align:center}
+main{margin-left:var(--sidebar-w);flex:1}
+.ph{background:linear-gradient(135deg,#a04000 0%,#6d2c00 100%);color:white;padding:40px 48px}
+.ph-tag{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.ph h1{font-size:26px;font-weight:800;margin-bottom:8px}
+.ph p{font-size:14px;opacity:0.85;max-width:600px}
+.content{padding:36px 48px;max-width:960px}
+h2{font-size:18px;font-weight:700;color:#1a1a2e;margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+h2:first-child{margin-top:0}
+h3{font-size:15px;font-weight:700;color:#2d2d4e;margin:24px 0 10px}
+h4{font-size:13px;font-weight:700;color:#444;margin:16px 0 8px}
+p{margin-bottom:12px;color:#333}
+.quote{background:#fef0e6;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 20px;margin:16px 0;font-style:italic;font-size:15px;color:#6d2c00;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:#1a1a2e;color:white;padding:10px 14px;text-align:left;font-size:12px;font-weight:700;letter-spacing:0.5px}
+td{padding:10px 14px;border-bottom:1px solid #e8ecf0;vertical-align:top}
+tr:hover td{background:#f5f7fa}
+.yes{color:#1a7a3f;font-weight:700;font-size:15px}
+.partial{color:#856404;font-weight:700;font-size:15px}
+.no{color:#842029;font-weight:700;font-size:15px}
+.legend{display:flex;gap:16px;margin:6px 0 18px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+.mermaid-wrap{background:white;border:1px solid #e0e0e0;border-radius:10px;padding:24px;margin:16px 0;text-align:center;overflow-x:auto}
+.mermaid-wrap p{font-size:11px;color:#888;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;margin-top:0}
+.code-wrap{position:relative;margin:14px 0;border-radius:8px;overflow:hidden}
+.code-hdr{background:#2d2d4e;padding:8px 16px;display:flex;justify-content:space-between;align-items:center}
+.code-lang{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px}
+.copy-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ccc;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(255,255,255,0.2);color:#fff}
+.copy-btn.ok{background:#1a7a3f;color:#fff;border-color:#1a7a3f}
+pre{margin:0!important;border-radius:0!important}
+pre code.hljs{font-size:13px!important;padding:16px!important;font-family:'JetBrains Mono','Fira Code',Consolas,monospace!important}
+code:not(.hljs){background:#eef0f3;color:#c7254e;padding:1px 5px;border-radius:3px;font-size:12px;font-family:'Fira Code',Consolas,monospace}
+.warn-box{background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:14px 18px;margin:12px 0}
+.warn-box h4{color:#e65100;margin:0 0 6px;font-size:13px}
+.tip-box{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 18px;margin:12px 0}
+.tip-box h4{color:#1b5e20;margin:0 0 6px;font-size:13px}
+ul,ol{margin:0 0 12px 20px}
+li{margin-bottom:4px;font-size:14px;color:#333}
+.use-cases{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.use-case{background:white;border:1px solid #e0e0e0;border-radius:8px;padding:12px 16px;flex:1;min-width:160px}
+.use-case h4{font-size:12px;color:var(--accent);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.5px}
+.use-case p{font-size:13px;margin:0;color:#555}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sb-logo"><a href="index.html">☁️ OCI 보안 가이드</a></div>
+  <div class="sb-section">서비스 가이드</div>
+  <a class="sb-link" href="00_overview.html"><span class="ico">🛡️</span>보안 개요</a>
+  <a class="sb-link" href="01_waf.html"><span class="ico">🔥</span>WAF</a>
+  <a class="sb-link" href="02_db.html"><span class="ico">🗄️</span>DB 접근통제</a>
+  <a class="sb-link" href="03_kms.html"><span class="ico">🔑</span>암호화 키 관리</a>
+  <a class="sb-link" href="04_cve.html"><span class="ico">🔍</span>CVE 취약점 점검</a>
+  <a class="sb-link" href="05_bastion.html"><span class="ico">🚪</span>Bastion Service</a>
+  <a class="sb-link" href="06_cloud_guard.html"><span class="ico">👁️</span>Cloud Guard</a>
+  <a class="sb-link active" href="07_run_command.html"><span class="ico">⚡</span>Run Command</a>
+</nav>
+<main>
+<div class="ph">
+  <div class="ph-tag">07 · Run Command</div>
+  <h1>OCI Run Command</h1>
+  <p>SSH 없는 원격 명령 실행 — Oracle Cloud Agent 경유, 전 이력 OCI Audit 기록</p>
+</div>
+<div class="content">
+
+<div class="quote">
+"SSH 없이도 명령을 실행할 수 있습니다. 단, 이 권한이 잘못된 사람에게 있으면 수십 대의 인스턴스가 동시에 위험해집니다. <strong>권한 설계가 기능보다 먼저입니다.</strong>"
+</div>
+
+<h2>주요 사용 사례</h2>
+<div class="use-cases">
+  <div class="use-case">
+    <h4>응급 복구</h4>
+    <p>SSH 접속 불가 상황에서 긴급 명령 실행</p>
+  </div>
+  <div class="use-case">
+    <h4>일괄 패치</h4>
+    <p>다수 인스턴스에 보안 패치 동시 배포</p>
+  </div>
+  <div class="use-case">
+    <h4>자동화 스크립트</h4>
+    <p>Bastion 없이 일시적 관리 작업 실행</p>
+  </div>
+</div>
+
+<h2>OCI Native 지원 범위</h2>
+<div class="legend">
+  <div class="legend-item"><span class="yes">○</span> 가능</div>
+  <div class="legend-item"><span class="partial">△</span> 제약 있음</div>
+  <div class="legend-item"><span class="no">×</span> Native 불가</div>
+</div>
+<table>
+<thead><tr><th>기능</th><th>지원</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>SSH 없이 인스턴스 명령 실행</td><td><span class="yes">○</span></td><td>Oracle Cloud Agent 필요</td></tr>
+<tr><td>Shell Script 실행 (Linux)</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>PowerShell 실행 (Windows)</td><td><span class="yes">○</span></td><td></td></tr>
+<tr><td>Object Storage 스크립트 실행</td><td><span class="yes">○</span></td><td>긴 스크립트 권장 방식</td></tr>
+<tr><td>실행 결과 텍스트 반환</td><td><span class="yes">○</span></td><td>소용량 출력</td></tr>
+<tr><td>실행 결과 Object Storage 저장</td><td><span class="yes">○</span></td><td>대용량 출력</td></tr>
+<tr><td>모든 실행 OCI Audit 기록</td><td><span class="yes">○</span></td><td>CreateCommand 이벤트</td></tr>
+<tr><td>IAM 기반 실행 권한 제어</td><td><span class="yes">○</span></td><td>Dynamic Group 연동</td></tr>
+<tr><td>실시간 인터랙티브 터미널</td><td><span class="no">×</span></td><td>Bastion Managed SSH 사용</td></tr>
+<tr><td>병렬 대량 인스턴스 동시 실행</td><td><span class="partial">△</span></td><td>인스턴스별 개별 Command 생성 필요</td></tr>
+<tr><td>실행 결과 스트리밍</td><td><span class="no">×</span></td><td>완료 후 결과 조회만 가능</td></tr>
+</tbody>
+</table>
+
+<h2>아키텍처 — Run Command 실행 흐름</h2>
+<div class="mermaid-wrap">
+<p>RUN COMMAND EXECUTION FLOW</p>
+<pre class="mermaid">
+sequenceDiagram
+    participant Ops as 운영자 (OCI Console/CLI)
+    participant CP as OCI Control Plane
+    participant Agent as Oracle Cloud Agent (인스턴스 내)
+    participant OS as 인스턴스 OS
+    participant Audit as OCI Audit
+
+    Ops->>CP: CreateCommand (스크립트 + 대상 인스턴스)
+    CP->>Audit: CreateCommand 이벤트 기록
+    CP->>Agent: 명령 전달 (HTTPS 경유)
+    Agent->>OS: 스크립트 실행
+    OS-->>Agent: 실행 결과
+    Agent-->>CP: 결과 반환
+    CP-->>Ops: 결과 조회 가능
+</pre>
+</div>
+
+<h2>운영 리스크 및 주의사항</h2>
+<table>
+<thead><tr><th>리스크</th><th>상황</th><th>권고 조치</th></tr></thead>
+<tbody>
+<tr><td><strong>권한 남용</strong></td><td><code>manage instance-agent-command-family</code> 권한이 광범위 시 전체 인스턴스 무단 명령 가능</td><td>Dynamic Group + 컴파트먼트 단위 최소 권한 설계 필수</td></tr>
+<tr><td><strong>스크립트 무결성</strong></td><td>Object Storage 스크립트가 변조된 경우 악성 명령 실행</td><td>IAM으로 스크립트 버킷 쓰기 권한 엄격히 제한</td></tr>
+<tr><td><strong>루트 권한 실행</strong></td><td>Run Command는 root 또는 opc로 실행됨</td><td>스크립트 내 sudo 최소화, 필요 권한만 사용</td></tr>
+<tr><td><strong>결과 데이터 노출</strong></td><td>Object Storage 결과 버킷 접근 제한 미설정</td><td>결과 버킷 IAM Policy 및 CMK 암호화 적용</td></tr>
+</tbody>
+</table>
+
+<h2>전문 솔루션 도입 검토 시점</h2>
+<table>
+<thead><tr><th>비즈니스 요구사항</th><th>검토 카테고리</th></tr></thead>
+<tbody>
+<tr><td>수십~수백 대 인스턴스 일괄 패치 자동화</td><td>구성 관리 도구 (Ansible, Chef, Puppet 등)</td></tr>
+<tr><td>변경 관리 승인 워크플로우 연동</td><td>ITSM + 자동화 플랫폼</td></tr>
+<tr><td>실시간 인터랙티브 감사 세션</td><td>PAM (Privileged Access Management) 솔루션</td></tr>
+</tbody>
+</table>
+
+<h2>1. Oracle Cloud Agent 플러그인 활성화</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Run Command 플러그인 활성화
+oci compute instance update \
+  --profile YWDCLOUD \
+  --instance-id &lt;instance-ocid&gt; \
+  --agent-config '{
+    "plugins-config": [
+      {"name": "Run Command", "desired-state": "ENABLED"}
+    ]
+  }'
+
+# 플러그인 상태 확인
+oci compute instance get \
+  --profile YWDCLOUD \
+  --instance-id &lt;instance-ocid&gt; \
+  --query 'data."agent-config"."plugins-config"'</code></pre>
+</div>
+
+<h2>2. Run Command 실행</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 간단한 명령 실행 (df -h 결과 반환)
+oci compute instance-agent command create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --instance-id &lt;instance-ocid&gt; \
+  --display-name "check-disk-usage" \
+  --execution-time-out-in-seconds 300 \
+  --content '{
+    "source": {
+      "sourceType": "TEXT",
+      "text": "#!/bin/bash\ndf -h\necho \"Memory:\"\nfree -m"
+    },
+    "output": {
+      "outputType": "TEXT"
+    }
+  }'
+
+# 명령 실행 상태 확인
+oci compute instance-agent command get \
+  --profile YWDCLOUD \
+  --command-id &lt;command-id&gt;
+
+# 명령 실행 결과 조회
+oci compute instance-agent command-execution get \
+  --profile YWDCLOUD \
+  --command-id &lt;command-id&gt; \
+  --instance-id &lt;instance-ocid&gt; \
+  --query 'data.content'</code></pre>
+</div>
+
+<h2>3. Object Storage 스크립트 실행 (긴 스크립트)</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># Object Storage에서 스크립트 실행, 결과도 Object Storage에 저장
+oci compute instance-agent command create \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --instance-id &lt;instance-ocid&gt; \
+  --display-name "security-audit-script" \
+  --execution-time-out-in-seconds 1800 \
+  --content '{
+    "source": {
+      "sourceType": "OBJECT_STORAGE_URI",
+      "uri": "https://objectstorage.&lt;region&gt;.oraclecloud.com/n/&lt;namespace&gt;/b/&lt;bucket&gt;/o/audit-script.sh"
+    },
+    "output": {
+      "outputType": "OBJECT_STORAGE_URI",
+      "outputUri": "https://objectstorage.&lt;region&gt;.oraclecloud.com/n/&lt;namespace&gt;/b/&lt;bucket&gt;/o/audit-result.txt"
+    }
+  }'</code></pre>
+</div>
+
+<h2>4. IAM Policy (권한 설정)</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">hcl</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-plaintext"># Run Command 실행 권한 (ops-team 그룹만)
+Allow group ops-team to manage instance-agent-command-family in compartment prod-compartment
+
+# Dynamic Group 설정 (컴파트먼트 내 모든 인스턴스)
+ALL {resource.type = 'instance', resource.compartment.id = '&lt;compartment-ocid&gt;'}
+
+# Dynamic Group에 대한 Policy
+Allow dynamic-group prod-instances to use instance-agent-command-execution-family in compartment prod-compartment</code></pre>
+</div>
+
+<h2>5. 실행 이력 확인</h2>
+<div class="code-wrap">
+  <div class="code-hdr"><span class="code-lang">bash</span><button class="copy-btn">복사</button></div>
+  <pre><code class="language-bash"># 특정 인스턴스의 명령 실행 이력
+oci compute instance-agent command-execution list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --instance-id &lt;instance-ocid&gt; \
+  --output table
+
+# 명령 전체 목록
+oci compute instance-agent command list \
+  --profile YWDCLOUD \
+  --compartment-id &lt;compartment-ocid&gt; \
+  --output table</code></pre>
+</div>
+
+<h2>SSH vs Run Command 비교</h2>
+<table>
+<thead><tr><th>항목</th><th>SSH (Bastion 경유)</th><th>Run Command</th></tr></thead>
+<tbody>
+<tr><td>접속 방식</td><td>인터랙티브 터미널</td><td>비인터랙티브 명령 실행</td></tr>
+<tr><td>에이전트 필요</td><td>Bastion Agent</td><td>Oracle Cloud Agent</td></tr>
+<tr><td>네트워크</td><td>Bastion → 인스턴스</td><td>OCI Control Plane → Agent</td></tr>
+<tr><td>감사 로그</td><td>Bastion 세션 로그</td><td>OCI Audit <code>CreateCommand</code></td></tr>
+<tr><td>사용 적합 상황</td><td>실시간 작업, 디버깅</td><td>일괄 자동화, 응급 명령</td></tr>
+</tbody>
+</table>
+
+<h2>보안 고려사항 요약</h2>
+<table>
+<thead><tr><th>항목</th><th>권고</th></tr></thead>
+<tbody>
+<tr><td>실행 권한 최소화</td><td>ops-team 그룹에만 <code>manage</code> 권한 부여, 일반 개발자 제외</td></tr>
+<tr><td>명령 내용 감사</td><td>모든 실행 명령은 OCI Audit에 기록됨 (<code>CreateCommand</code> 이벤트)</td></tr>
+<tr><td>스크립트 무결성</td><td>Object Storage 스크립트 버킷에 PAR 사용 금지, IAM 인증 사용</td></tr>
+<tr><td>출력 데이터 보호</td><td>결과 버킷에 적절한 IAM Policy 및 CMK 암호화 적용</td></tr>
+<tr><td>실행 시간 제한</td><td><code>execution-time-out-in-seconds</code>를 필요 최소한으로 설정</td></tr>
+</tbody>
+</table>
+<div class="tip-box">
+  <h4>💡 Bastion Service와 함께 사용</h4>
+  <p>Run Command는 비인터랙티브 자동화에, Bastion SSH는 실시간 인터랙티브 작업에 사용하세요. 두 서비스를 역할에 맞게 분리 운영하는 것이 보안 모범 사례입니다.</p>
+</div>
+
+</div>
+</main>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'default',themeVariables:{primaryColor:'#e67e22',primaryTextColor:'#fff',primaryBorderColor:'#a04000',lineColor:'#a04000',fontSize:'14px'}});
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('pre code').forEach(el=>hljs.highlightElement(el));
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const code=this.closest('.code-wrap').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(()=>{
+        this.textContent='복사됨!';this.classList.add('ok');
+        setTimeout(()=>{this.textContent='복사';this.classList.remove('ok')},2000);
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
